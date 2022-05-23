@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <title>Test Page</title>
+</head>
+<body>
+
+  <h3>User Sign-up</h3>
+  <form id="signup-user-form">
+    mail: <input type="text" name="mail"><br>
+    password: <input type="text" name="password"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="signup-user-output"></div>
+
+  <h3>User Log-in</h3>
+  <form id="login-user-form">
+    email: <input type="text" name="mail"><br>
+    password: <input type="text" name="password"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="login-user-output"></div>
+
+  <h3>Show All user</h3>
+  <form id="showAll-user-form">
+    <button type="submit">showAllUser</button>
+  </form>
+  <div id="showAll-user-output"></div>
+
+  <h3>Wallet Create</h3>
+  <form id="insert-wallet-form">
+    wallet name: <input type="text" name="wallet"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="insert-wallet-output"></div>
+
+  <h3>get data</h3>
+  <form id="get-data-form">
+    date: <input type="text" name="wallet"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="get-data-output"></div>
+
+  <h3>Wallet Delete</h3>
+  <form id="delete-wallet-form">
+    wallet name: <input type="text" name="wallet"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="delete-wallet-output"></div>
+
+  <h3>Receipt Record</h3>
+  <form id="record-receipt-form">
+    money: <input type="text" name="money"><br>
+    item: <input type="text" name="item"><br>
+    <!-- Assume the recceipt is equivalently divided -->
+    time: <input type="text" name="time"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="record-receipt-output"></div>
+
+  <h3>Join Wallet</h3>
+  <form id="join-wallet-form">
+    wallet name (id): <input type="text" name="wallet"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="join-wallet-output"></div>
+
+  <h3>Get Wallet Member</h3>
+  <form id="get-member-form">
+    wallet name: <input type="text" name="wallet"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="get-member-output"></div>
+  <h3>Add history</h3>
+  <form id="add-history-form">
+    time: <input type="text" name="time"><br>
+    item: <input type="text" name="item"><br>
+    money: <input type="text" name="money"><br>
+    tag: <input type="text" name="tag"><br>
+    <button type="submit">confirm</button>
+  </form>
+  <div id="add-history-output"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
