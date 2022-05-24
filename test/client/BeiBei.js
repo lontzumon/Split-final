@@ -2,7 +2,7 @@ var n = 1;
 var $li = $('ul.tab-title li');
 var checkbill_close = 0 ; //0 means current_state is close
 $(function(){
-	$($li. eq(2) .addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
+	$($li. eq(5) .addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
 	/*$li.click(function(){
 		$($li. eq(n) .find('a'). attr ('href')).show().siblings ('.tab-inner').hide();
 		$li. eq(n) .addClass('active'). siblings ('.active').removeClass('active');
