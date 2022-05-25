@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0 auto;
     height: 100%;
     width: 100%;
@@ -21,16 +22,20 @@ button {
     opacity: 1.0;
 }
 
+/* 
 p {
     font-size: 20px;
     text-align: left;
 }
-
+ */
 span {
     font-size: 20px;
 }
 
-/* Overall Architecture */
+/* 
+    Overall Architecture 
+*/
+
 #__Register__fullscreen {
     width: 100vw;
     text-align: center;
@@ -63,18 +68,34 @@ span {
     width: 100%;
 }
 
-/* Detail of all elements */
-.lively {
+#__Register__join-wallet__container p {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+#__Register__new-wallet__container p {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* 
+    Detail of all elements 
+*/
+
+.register-form {
     background-color: #e5e5e5;
     border: 3px solid #000;
     box-shadow: 3px 3px 0px #000;
     border-radius: 3px;
 }
 
+/* 
 .brand-color {
     background-color: #fff333;
 }
-
+ */
 .brand-logo {
     height: 28.75px;
     width: 87.26px;
@@ -91,20 +112,23 @@ span {
 
 #form-normal input {
     font-size: 16px;
-    height: 55px;
+    height: 6.5vh;
     width: 280px;
 }
 
+/* 
 #form-normal button {
     border-radius: 5px;
 }
-
+ */
 .between {
     padding: 0 5.8vw;
 }
 
 #form-submit {
-    height: 44px;
+    background-color: #fff333;
+    font-weight: 600;
+    height: 5.25vh;
     width: 80px;
 }
 
@@ -117,7 +141,7 @@ a.quick_button {
     font-size: 30px;
 }
 
-a.quick_button i::before{
+a.quick_button i::before {
     width: 30px;
     height: 30px;
     font-weight: 400;
@@ -145,23 +169,39 @@ a.quick_button i::before{
 
 #__walletInfo__bar {
     height: 20.5vh;
-    padding-top: 26vh;
+    padding-top: 27.5vh;
+    padding-bottom: 4.125vh;
 }
 
-.user-icons {
+#usericon {
+    /* not really in the right center */
+    line-height: 21vh;
+}
+
+.register-btn {
+    background-color: #E5E5E5;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 6px;
+}
+
+.user-icons-large {
     border-radius: 50%;
+    box-sizing: border-box;
     display: inline-block;
-    height: 14vh;
-    width: 14vh;
+    height: 14.75vh;
+    width: 14.75vh;
 }
 
-.fa-user {
+/* .fa-user {
     font-size: xxx-large;
     margin: 4vh 0;
-}
+} */
 
 #username {
+    display: inline-block;
     font-size: 16px;
+    margin-top: 3.25vh;
 }
 
 /* side-by-side buttons */
@@ -187,25 +227,24 @@ a.quick_button i::before{
     flex-direction: column;
     display: flex;
     justify-content: center;
-    padding-bottom: 20vh;
+    padding-bottom: 15.375vh;
 }
 
 .menu-flex {
+    box-sizing: border-box;
     display: flex;
     font-size: large;
+    font-weight: 600;
     height: 6.25vh;
-    width: 30vw;
+    width: 38.5vw;
     align-items: center;
     justify-content: center;
-    margin-top: 3.5vh;
-    box-shadow: 4px 4px 0px #000000;
-    border-radius: 6px;
+    margin-top: 3.75vh;
 }
 
 #__joinWallet__bar {
     box-sizing: border-box;
     height: 87.5vh;
-    /* line-height: 100vh; */
     padding: 36.5vh 14vw 0;
     text-align: right;
 }
@@ -213,7 +252,6 @@ a.quick_button i::before{
 #__newWallet__bar {
     box-sizing: border-box;
     height: 87.5vh;
-    /* line-height: 100vh; */
     padding: 38.5vh 14vw 0;
     text-align: right;
 }
@@ -222,16 +260,31 @@ a.quick_button i::before{
     background-color: #e5e5e5;
     border: 3px solid #000000;
     box-shadow: 3px 3px 0px #000000;
+    box-sizing: border-box;
     border-radius: 4px;
     display: inline-block;
     font-size: 24px;
-    font-weight: 400;    
+    font-weight: 400;
     height: 8vh;
     vertical-align: middle;
-    width: 280px
+    width: 72vw;
 }
 
 .wallet_submit {
     font-size: 20px;
     margin-top: 7.7vh;
+}
+
+#join-wallet-submit {
+    background-color: #fff333;
+    font-weight: 600;
+    height: 44px;
+    width: 80px;
+}
+
+#new-wallet-submit {
+    background-color: #fff333;
+    font-weight: 600;
+    height: 44px;
+    width: 80px;
 }

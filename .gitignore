@@ -1,3 +1,6 @@
 test/server/node_modules/*
 test/server/sessions/*
 test/server/config.js
+
+# ignore pug
+test/preprocessor/*

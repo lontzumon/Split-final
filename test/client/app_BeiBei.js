@@ -61,17 +61,17 @@ $(document).ready(function() {
     */
   })
   // 確認記帳  205行沒有定義id
-  $('#').click((event) => {
+  $('#spending-tracker button[type="button"]').click((event) => {
     $.get('./insertHistory', {
-      time: $('#').val(),
-      item: $('#').val(),
-      money: $('#').val()
+      time: $('#current_date').val(),
+      item: $('#spending-tracker input[name=account_name]').val(),
+      money: $('#spending-tracker input[name=account_cost]').val()
     })
   })
-  // 選擇錢包之後 notification 需要展示出來
-  $('#').click((event) => {
-    $.get('./getNotification', {}, (data) => { // this is not checked
+  // // 選擇錢包之後 notification 需要展示出來
+  // $('#').click((event) => {
+  //   $.get('./getNotification', {}, (data) => { // this is not checked
 
-    })
-  })
+  //   })
+  // })
 })

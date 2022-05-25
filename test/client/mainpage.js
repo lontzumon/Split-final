@@ -10,10 +10,10 @@ function formatDate(date) {
     ].join('/');
 };
 
-function DisplayWallet(number) {
-    console.log($("#__overview__flexbox__bar").children(number));
-    $("#__overview__flexbox__bar").children(number).style['display'] = inline-flex;
-}
+// function DisplayWallet(number) {
+//     // console.log($("#__overview__flexbox__bar").children(number));
+//     $("#__overview__flexbox__bar").children(number).style['display'] = inline-flex;
+// }
 
 $(document).ready(); {
     $("#fab-add").click(function() {
