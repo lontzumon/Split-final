@@ -7,7 +7,6 @@
     <title>Mainpage</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="./register_style.css">
     <link rel="stylesheet" href="./mainpage_style.css">
     <link rel="stylesheet" href="BeiBei.css">
   </head>
@@ -27,12 +26,12 @@
           <h3 id="title-normal">建立新帳號</h3><br>
           <form id="form-normal" action="/" method="post">
             <label>
-              <input class="register-form" type="email" name="email" value="" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" required="">
+              <input class="register-style" type="email" name="email" value="" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" required="">
             </label><br><br>
             <label>
-              <input class="register-form" type="password" name="pwd" value="" placeholder="Password" pattern="[A-Za-z0-9]{8,}" required="">
-            </label><br><br>
-            <button class="register-btn brand-color" id="form-submit" type="button" onclick="window.location='#__Register__wallet__container'">註冊</button><br><br>
+              <input class="register-style" type="password" name="pwd" value="" placeholder="Password" pattern="[A-Za-z0-9]{8,}" required="">
+            </label><br>
+            <button class="register-style register-submit" id="form-submit" type="button" onclick="window.location='#__Register__wallet__container'">註冊</button>
           </form>
         </div>
         <div id="__Register__form-quick__container">
@@ -42,9 +41,9 @@
         <!-- flex-->
         <div id="__Register__wallet__container">
           <div id="__walletInfo__bar">
-            <div class="register-btn user-icons-large" id="usericon"><img src="./midterm_icon/user-icon.png" alt="user icon"></div><br><span id="username">darbyishandsome@gmail.com</span>
+            <div class="wallet-btn user-icons-large" id="usericon"><img src="./midterm_icon/user-icon.png" alt="user icon"></div><br><span id="username">darbyishandsome@gmail.com</span>
           </div>
-          <div id="__walletMenu__bar"><a class="menu-flex register-btn" href="#__Register__join-wallet__container" target="_top"><span>加入錢包</span></a><a class="menu-flex register-btn" href="#__Register__new-wallet__container" target="_top"><span>新增錢包</span></a></div>
+          <div id="__walletMenu__bar"><a class="menu-flex wallet-btn" href="#__Register__join-wallet__container" target="_top"><span>加入錢包</span></a><a class="menu-flex wallet-btn" href="#__Register__new-wallet__container" target="_top"><span>新增錢包</span></a></div>
           <div class="banner-padding" id="__wallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
         </div>
         <!-- -->
@@ -54,7 +53,7 @@
             <form id="join-wallet" action="/" method="get">
               <input class="enter_button" type="text" name="IDcode" value="" placeholder="輸入ID CODE" pattern="[a-z0-9]{6,}" required="">
               <!-- <input type="submit" onclick="" hidden>-->
-              <button class="register-btn wallet_submit" id="join-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+              <button class="register-style register-submit" id="join-wallet-submit" type="button" onclick="change_page(2);">確認</button>
             </form>
           </div>
           <div class="banner-padding" id="__joinWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
@@ -66,7 +65,7 @@
             <form id="new-wallet" action="/" method="get">
               <input class="enter_button" type="text" name="Wallet" value="" placeholder="輸入錢包名稱" required="">
               <!-- <input type="submit" onclick="" hidden>-->
-              <button class="register-btn wallet_submit" id="new-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+              <button class="register-style register-submit" id="new-wallet-submit" type="button" onclick="change_page(2);">確認</button>
             </form>
           </div>
           <div class="banner-padding" id="newWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
@@ -145,7 +144,9 @@
       </div>
       <div class="tab-inner" id="__Mainpage__overview__container">
         <div id="__overview__header__bar"><span id="overview_title">錢包總覽</span></div>
-        <div id="__overview__flexbox__bar"><a class="flex-item" href="#">丁丁家</a><a class="flex-item" target="_top" onclick="change_page(0)">台南租嗚</a></div>
+        <div id="__overview__flexbox__bar">
+          <!-- use id in db as that in html to distinguish the wallets--><a class="flex-item" id="wallet1" href="#">丁丁家</a><a class="flex-item" id="wallet2" target="_top" onclick="change_page(0)">台南租嗚</a>
+        </div>
         <div id="__overview__footer__bar"><a class="__Page__menu__word" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="__Page__menu__word" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
       </div>
       <div class="tab-inner" id="__Page18__fullscreen">

@@ -26,6 +26,34 @@ span {
     Overall Architecture 
 */
 
+/* #__Register__fullscreen {} */
+
+#__Register__form-normal__container {
+    height: 35vh;
+    margin: 25vh auto 3.5vh;
+}
+
+#__Register__form-quick__container {
+    height: 10vh;
+    margin: 0 auto 14vh;
+}
+
+/* #__Register__wallet__container {} */
+/* #__Register__join-wallet__container {} */
+/* #__Register__new-wallet__container {} */
+
+#__Register__join-wallet__container p {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+#__Register__new-wallet__container p {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
 #__Mainpage__overview__container {
     height: 100vh;
 }
@@ -88,6 +116,167 @@ span {
 /* 
     Detail of all elements 
 */
+
+/* brand style */
+.banner-padding {
+    height: 12.5vh;
+}
+/* 
+.between {
+    padding: 0 5.8vw;
+}
+ */
+.brand-logo {
+    height: 28.75px;
+    width: 87.26px;
+}
+
+.register-submit {
+    background-color: #fff333;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 3.5vh;
+    height: 5.25vh;
+    width: 80px;
+}
+
+/* element style */
+#title-normal {
+    font-size: 20px;
+    text-align: center;
+}
+
+#form-normal input {
+    font-size: 16px;
+    height: 6.5vh;
+    width: 280px;
+}
+
+.register-style {
+    background-color: #e5e5e5;
+    border: 3px solid #000;
+    box-shadow: 3px 3px 0px #000;
+    border-radius: 4px;
+}
+
+#form-submit {
+    background-color: #fff333;
+    font-weight: 600;
+    height: 5.25vh;
+    width: 80px;
+}
+
+#title-quick {
+    font-size: 20px;
+    text-align: center;
+}
+
+a.quick_button {
+    font-size: 30px;
+}
+
+a.quick_button i::before {
+    width: 30px;
+    height: 30px;
+    font-weight: 400;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-line {
+    color: #00b900;
+}
+
+#__walletInfo__bar {
+    height: 20.5vh;
+    padding-top: 27.5vh;
+    padding-bottom: 4.125vh;
+}
+
+#usericon {
+    /* not really in the right center */
+    line-height: 21vh;
+}
+
+.wallet-btn {
+    background-color: #E5E5E5;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 6px;
+}
+
+.user-icons-large {
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 14.75vh;
+    width: 14.75vh;
+}
+
+#username {
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3.25vh;
+}
+
+#__walletMenu__bar {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15.375vh;
+}
+
+.menu-flex {
+    box-sizing: border-box;
+    display: flex;
+    font-size: large;
+    font-weight: 600;
+    height: 6.25vh;
+    width: 38.5vw;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.75vh;
+}
+
+#__joinWallet__bar {
+    box-sizing: border-box;
+    height: 87.5vh;
+    padding: 36.5vh 14vw 0;
+    text-align: right;
+}
+
+#__newWallet__bar {
+    box-sizing: border-box;
+    height: 87.5vh;
+    padding: 38.5vh 14vw 0;
+    text-align: right;
+}
+
+.enter_button {
+    background-color: #e5e5e5;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0px #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    height: 8vh;
+    vertical-align: middle;
+    width: 72vw;
+}
+
 
 .lively {
     background-color: #fff333;
