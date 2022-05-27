@@ -227,3 +227,53 @@ function add_notificationimg(){
 	container.insertBefore(label,container.firstChild);
 	label.appendChild(img);
 }
+
+var moneyy = 3260;
+function add_notification(){
+	var container = document.getElementById("__Page7__inform");
+	var label = document.createElement("label");
+	label.id = "delete_id";
+	label.classList.add("__Page7__informphoto");
+	
+	var __Page7__informphoto = document.createElement("div");
+	__Page7__informphoto.id = "__Page7__informphoto";
+	
+	var img = document.createElement("img");
+	img.setAttribute('class', '__Page7__informphotoimg');
+	img.src = "./midterm_photo/ppl-07.png";                           				/*  this need to edit  the photo position*/
+	
+	var __Page7__informtext = document.createElement("div");
+	__Page7__informtext.id = "__Page7__informtext";
+	var __Page7__informtextmoney = document.createElement('P');
+	__Page7__informtextmoney.setAttribute('class', '__Page7__informtextmoney');
+	__Page7__informtextmoney.textContent = "$" + moneyy;							/*  this need to edit   the cost*/
+	var __Page7__informtextquote = document.createElement('P');
+	__Page7__informtextquote.setAttribute('class', '__Page7__informtextquote');
+	__Page7__informtextquote.textContent = '丁丁新增了一筆水電項目';				/*  this need to edit  the item add*/
+	
+	var __Page7__informtime = document.createElement("div");
+	__Page7__informtime.id = "__Page7__informtime";
+	var __Page7__informdate = document.createElement('P');
+	__Page7__informdate.setAttribute('class', '__Page7__informdate');
+	__Page7__informdate.textContent = '5/26';										/*  this need to edit  the current date*/
+	
+	
+	
+	container.insertBefore(label,container.firstChild);
+	label.appendChild(__Page7__informphoto);
+	__Page7__informphoto.appendChild(img);
+	label.appendChild(__Page7__informtext);
+	__Page7__informtext.appendChild(__Page7__informtextmoney);
+	__Page7__informtext.appendChild(__Page7__informtextquote);
+	label.appendChild(__Page7__informtime);
+	__Page7__informtime.appendChild(__Page7__informdate);
+	
+
+	moneyy++;
+}	
+
+/*add*/
+function delete_notification(){
+	var delete_parentnode = document.getElementById("__Page7__inform");
+	delete_parentnode.removeChild(delete_parentnode.lastChild);
+}
