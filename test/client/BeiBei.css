@@ -644,3 +644,32 @@ input[type=checkbox]:checked+label {
 	font-size: 1vw;
 	font-weight: 1000;
 }
+
+#__Page16__inviteid2{
+	position:absolute;
+	z-index :-10;
+	opacity:0;
+}
+
+
+#__Page16__username__bar{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	width:22vw;
+}
+
+.__Page16__username{
+	font-size:5vw;
+	font-weight: 1000;
+    margin-top: 0.5vh;
+    margin-bottom: 0;
+}
+
+.__Page16__useralter{
+	height: 5vw;
+    width: 5vw;
+	margin-top: 0.5vh;
+	padding-left: 2vw;
+}

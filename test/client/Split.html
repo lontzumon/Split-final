@@ -138,24 +138,14 @@
           <p class="__Page6__bill_word" id="__Page6__bill_word" onclick="add_checkbox2()">待分帳項目</p>
         </div>
         <div id="__Page6__bill__container">
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page6__bill_content2" id="__Page6__bill_content2 1"></div>4月電費 $3260<br>
-          </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page6__bill_content2" id="__Page6__bill_content2 2"></div>4月水費 $562<br>
-          </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page6__bill_content2" id="__Page6__bill_content2 3"></div>0425 聚餐 $780<br>
-          </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page6__bill_content2" id="__Page6__bill_content2 4"></div>0425 家樂福 $924<br>
-          </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page6__bill_content2" id="__Page6__bill_content2 5"></div>0421 Uber $368<br>
-          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page6__bill_content2" id="__Page6__bill_content2 1"></div>4月電費 $3260<br></label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page6__bill_content2" id="__Page6__bill_content2 2"></div>4月水費 $562<br></label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page6__bill_content2" id="__Page6__bill_content2 3"></div>0425 聚餐 $780<br></label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page6__bill_content2" id="__Page6__bill_content2 4"></div>0425 家樂福 $924<br></label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page6__bill_content2" id="__Page6__bill_content2 5"></div>0421 Uber $368<br></label>
         </div>
         <div id="__Page6__result__container">
-          <div class="__Page6__word__bar" id="__Page6__word__containerid" onclick="change_page(3);yes_checkbill(0);">
+          <div class="__Page6__word__bar" id="__Page6__word__containerid" onclick="change_page(3);yes_checkbill(0);edit__Page18__bill_word();">
             <p class="__Page6__bill_word">結算</p>
           </div>
         </div>
@@ -172,22 +162,16 @@
         <b class="touch __Page6__bill_word" onclick="change_page(1)">Page11</b>
         <b class="touch __Page6__bill_word" onclick="change_page(2)">Page22</b>
         -->
-        <div id="__Page18__text_bill__container">
+        <div id="__Page18__text_bill__container" onclick="add_checkbox_person()">
           <p class="__Page18__bill_word" id="__Page18__bill_word">分帳結果</p>
         </div>
         <div id="__Page18__bill__container">
-          <p class="__Page18__bill_word" id="__Page18__bill_word">4月電費 $3260元</p>
+          <p class="__Page18__bill_word" id="__Page18__bill_word2">4月電費 $3260元</p>
         </div>
         <div id="__Page18__personcheck__container">
-          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page18__bill_content2" id="__Page18__bill_content2 1"></div>拉拉 815<br>
-          </label>
-          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page18__bill_content2" id="__Page18__bill_content2 2"></div>小波 815<br>
-          </label>
-          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
-            <div class="__Page18__bill_content2" id="__Page18__bill_content2 3"></div>迪西 815<br>
-          </label>
+          <!--label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page18__bill_content2" id="__Page18__bill_content2 1"></div>拉拉 815<br></label>
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page18__bill_content2" id="__Page18__bill_content2 2"></div>小波 815<br></label>
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)"><div class="__Page18__bill_content2" id="__Page18__bill_content2 3"></div>迪西 815<br></label-->
         </div>
         <div id="__Page18__result__container">
           <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="change_page(1)">
@@ -232,17 +216,18 @@
         </div>
         <div id="__Page16__invite__container">
           <div id="__Page16__invite__bar" onclick="add_person()">
-            <div id="__Page16__invitelink__bar" onclick="add_person()">
-              <p class="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結">
+            <div id="__Page16__invitelink__bar">
+              <p class="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結" onclick="copy_inviteid()">
             </div>
-            <p class="__Page16__inviteid">#1s1s3fewg</p>
+            <p class="__Page16__inviteid" id="__Page16__inviteid">#1s1s3fewg</p>
+			<textarea id="__Page16__inviteid2">#1s1s3fewg</textarea>
           </div>
         </div>
         <div id="__Page16__team__container">
           <p class="__Page16__teamname">成員</p>
         </div>
         <div id="__Page16__teammate__container">
-          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-07.png" alt="大頭照">丁丁</label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-07.png" alt="大頭照"><div id="__Page16__username__bar"><p class="__Page16__username">丁丁</p><img class="__Page16__useralter" src="./midterm_icon/edit.png" alt="更改"></div></label>
           <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-08.png" alt="大頭照">迪西</label>
           <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-09.png" alt="大頭照">拉拉</label>
           <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-10.png" alt="大頭照">小波</label>
