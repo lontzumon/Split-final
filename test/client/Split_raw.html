@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="./mainpage_style.css">
+    <link rel="stylesheet" href="BeiBei.css">
+  </head>
+  <body>
+    <div id="__fullscreen">
+      <ul class="tab-title">
+        <li><a href="#__Page7__fullscreen">home_page</a></li>
+        <li><a href="#__Page6__fullscreen">tab6</a></li>
+        <li><a href="#__Mainpage__overview__container">__Mainpage__overview__container</a></li>
+        <li><a href="#__Page18__fullscreen">tab18</a></li>
+        <li><a href="#__Page16__fullscreen">edit_pocketorname</a></li>
+        <li><a href="#__Register__fullscreen">registration</a></li>
+        <li><a href="#__Mainpage__manualTrack__container">__Mainpage__manualTrack__container</a></li>
+        <li><a href="#__Mainpage__cameraTrack__container">#__Mainpage__cameraTrack__container</a></li>
+      </ul>
+      <div class="tab-inner" id="__Register__fullscreen">
+        <div id="__Register__form-normal__container">
+          <h3 id="title-normal">建立新帳號</h3><br>
+          <form id="form-normal" action="/" method="post">
+            <label>
+              <input class="register-style" type="email" name="email" value="" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" required="">
+            </label><br><br>
+            <label>
+              <input class="register-style" type="password" name="pwd" value="" placeholder="Password" pattern="[A-Za-z0-9]{8,}" required="">
+            </label><br>
+            <button class="register-style register-submit" id="form-submit" type="button" onclick="window.location='#__Register__wallet__container'">註冊</button>
+          </form>
+        </div>
+        <div id="__Register__form-quick__container">
+          <h3 id="title-quick">已經有帳號</h3><a class="quick_button" href="#"><i class="fab fa-facebook"></i></a><span class="between"></span><a class="quick_button" href="#"><i class="fab fa-line"></i></a><span class="between"></span><a class="quick_button" href="#"><i class="fab fa-google"></i></a>
+        </div>
+        <div class="banner-padding" id="__Register__banner__container"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        <!-- flex-->
+        <div id="__Register__wallet__container">
+          <div id="__walletInfo__bar">
+            <div class="wallet-btn user-icons-large" id="usericon"><img src="./midterm_icon/user-icon.png" alt="user icon"></div><br><span id="username">darbyishandsome@gmail.com</span>
+          </div>
+          <div id="__walletMenu__bar"><a class="menu-flex wallet-btn" href="#__Register__join-wallet__container" target="_top"><span>加入錢包</span></a><a class="menu-flex wallet-btn" href="#__Register__new-wallet__container" target="_top"><span>新增錢包</span></a></div>
+          <div class="banner-padding" id="__wallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+        <!-- -->
+        <div id="__Register__join-wallet__container">
+          <div id="__joinWallet__bar">
+            <p>加入錢包</p>
+            <form id="join-wallet" action="/" method="get">
+              <input class="enter_button" type="text" name="IDcode" value="" placeholder="輸入ID CODE" pattern="[a-z0-9]{6,}" required="">
+              <!-- <input type="submit" onclick="" hidden>-->
+              <button class="register-style register-submit" id="join-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+            </form>
+          </div>
+          <div class="banner-padding" id="__joinWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+        <!-- -->
+        <div id="__Register__new-wallet__container">
+          <div id="__newWallet__bar">
+            <p>新增錢包</p>
+            <form id="new-wallet" action="/" method="get">
+              <input class="enter_button" type="text" name="Wallet" value="" placeholder="輸入錢包名稱" required="">
+              <!-- <input type="submit" onclick="" hidden>-->
+              <button class="register-style register-submit" id="new-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+            </form>
+          </div>
+          <div class="banner-padding" id="newWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+      </div>
+      <div id="__Page__menu__container"><img class="__Page__menu" id="__Page__menu" src="./midterm_icon/menu.png" alt="menu" onclick="menu_openorclose(0)">
+        <div id="__Page__menu__bar"><img class="__Page__menu" id="__Page__menu" src="./midterm_icon/previous.png" alt="menu" onclick="menu_openorclose(1)">
+          <div id="__Page__menu__head_container">
+            <div id="__Page__menu__head" onclick="change_page(4)"><img class="__Page__menu__pocketname" id="__Page__menu__pocketname" src="./midterm_photo/sun-05.png" alt="錢包名" onclick="change_page(4)"></div>
+            <div id="__Page__menuword__head">
+              <p class="__Page__menu__head_word" id="__Page__menu__head_word" onclick="change_page(4)">錢包名</p><img class="__Page__menualter" id="__Page__menualter" src="./midterm_icon/edit.png" alt="更改" onclick="change_page(4)">
+            </div>
+          </div>
+          <div id="__Page__menu__home">
+            <p class="__Page__menu__word" id="__Page__menu__page1" onclick="change_page(0)">首頁</p>
+          </div>
+          <div id="__Page__menu__check">
+            <p class="__Page__menu__word" id="__Page__menu__page2" onclick="change_page(1)">分帳</p>
+          </div>
+          <div id="__Page__menu__result_check">
+            <p class="__Page__menu__word" id="__Page__menu__page3">結算紀錄</p>
+          </div>
+          <div id="__Page__menu__funny">
+            <p class="__Page__menu__word" id="__Page__menu__page4">梗圖</p>
+          </div>
+          <div id="__Page__menu__pocket_check" onclick="change_page(2)">
+            <p class="__Page__menu__word" id="__Page__menu__page5">錢包總覽</p>
+          </div>
+          <div id="__Page__menu__about_us">
+            <p class="__Page__menu__word" id="__Page__menu__page6">團隊介紹</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page7__fullscreen">
+        <div id="__Page7__moneyimg__container"><img class="__Page7__moneyimg" src="./midterm_icon/split_mainlogo.png" alt="錢包圖片" onclick="add_notification()"></div>
+        <div id="__Page7__inform__container">
+          <div id="__Page7__inform__bar">
+            <!-- img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="通知欄"-->
+            <div id="__Page7__inform">
+              <label class="__Page7__informphoto" id="delete_id">
+                <div id="__Page7__informphoto"><img class="__Page7__informphotoimg" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                <div id="__Page7__informtext">
+                  <p class="__Page7__informtextmoney">$3260</p>
+                  <p class="__Page7__informtextquote">丁丁新增了一筆水電項目</p>
+                </div>
+                <div id="__Page7__informtime">
+                  <p class="__Page7__informdate">5/25</p>
+                </div>
+              </label>
+              <label class="__Page7__informphoto" id="delete_id">
+                <div id="__Page7__informphoto"><img class="__Page7__informphotoimg" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                <div id="__Page7__informtext">
+                  <p class="__Page7__informtextmoney">$3260</p>
+                  <p class="__Page7__informtextquote">丁丁新增了一筆水電項目</p>
+                </div>
+                <div id="__Page7__informtime">
+                  <p class="__Page7__informdate">5/25</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="__Page7__bottomimg" onclick="checkbill_openorclose()"><img class="__Page7__bottomimg" src="./midterm_icon/add.png" alt="記帳"></div>
+        <div id="__Page7__bottomimg2" onclick="change_page(6)"><img class="__Page7__bottomimg" src="./midterm_icon/handwrite.png" alt="手動"></div>
+        <div id="__Page7__bottomimg3" onclick="change_page(7)"><img class="__Page7__bottomimg" src="./midterm_icon/scan.png" alt="自動"></div>
+      </div>
+      <div class="tab-inner" id="__Page6__fullscreen">
+        <div id="__Page6__text_bill__container">
+          <p class="__Page6__bill_word" id="__Page6__bill_word" onclick="add_checkbox2()">待分帳項目</p>
+        </div>
+        <div id="__Page6__bill__container">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 1"></div>4月電費 $3260<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 2"></div>4月水費 $562<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 3"></div>0425 聚餐 $780<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 4"></div>0425 家樂福 $924<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 5"></div>0421 Uber $368<br>
+          </label>
+        </div>
+        <div id="__Page6__result__container">
+          <div class="__Page6__word__bar" id="__Page6__word__containerid" onclick="change_page(3);yes_checkbill(0);edit__Page18__bill_word();">
+            <p class="__Page6__bill_word">結算</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Mainpage__overview__container">
+        <div id="__overview__header__bar"><span id="overview_title">錢包總覽</span></div>
+        <div id="__overview__flexbox__bar">
+          <!-- use id in db as that in html to distinguish the wallets--><a class="flex-item" id="wallet1" href="#">丁丁家</a><a class="flex-item" id="wallet2" target="_top" onclick="change_page(0)">台南租嗚</a>
+        </div>
+        <div id="__overview__footer__bar"><a class="__Page__menu__word" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="__Page__menu__word" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
+      </div>
+      <div class="tab-inner" id="__Page18__fullscreen">
+        <!--
+        <b class="touch __Page6__bill_word" onclick="change_page(1)">Page11</b>
+        <b class="touch __Page6__bill_word" onclick="change_page(2)">Page22</b>
+        -->
+        <div id="__Page18__text_bill__container" onclick="add_checkbox_person()">
+          <p class="__Page18__bill_word" id="__Page18__bill_word">分帳結果</p>
+        </div>
+        <div id="__Page18__bill__container">
+          <p class="__Page18__bill_word2" id="__Page18__bill_word">4月電費 $3260元</p>
+        </div>
+        <div id="__Page18__personcheck__container">
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 1"></div>拉拉 815<br>
+          </label>
+          <label class="__Page18__bill_chseck" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 2"></div>小波 815<br>
+          </label>
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 3"></div>迪西 815<br>
+          </label>
+        </div>
+        <div id="__Page18__result__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="change_page(1)">
+            <p class="__Page18__bill_word">取消分帳</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2" onclick="yes_checkbill(1)">
+            <p class="__Page18__bill_word">確認分帳</p>
+          </div>
+        </div>
+        <div id="__Page18__result2__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="yes_checkbill(2)">
+            <p class="__Page18__bill_word">催帳</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2" onclick="lock_checkbox()">
+            <p class="__Page18__bill_word">繳清</p>
+          </div>
+        </div>
+        <div id="__Page18__result3__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="change_page(1)">
+            <p class="__Page18__bill_word">取消發送</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2">
+            <p class="__Page18__bill_word">確認發送</p>
+          </div>
+        </div>
+        <!--
+        <div id="__Page18__result3-2__container">
+        <img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="梗圖欄">
+        __Page7__inform__container
+        </div>
+        -->
+        <div id="__Page18__result3-2__container">
+          <div id="__Page18__inform__bar">
+            <div id="__Page18__inform"><img class="__Page18__inform__noteimg" src="./midterm_photo/moneyback.png" alt="梗圖"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page16__fullscreen">
+        <div id="__Page16__pocket__container">
+          <div id="__Page18__pocket__bar"><img class="__Page__menu__pocketname" id="__Page__menu__pocketname" src="./midterm_photo/sun-05.png" alt="錢包名" onclick="change_page(4)"></div>
+          <p class="__Page16__pocketname">台南租嗚(4)</p><img class="__Page16__pocketimg" src="./midterm_icon/edit.png" alt="更改">
+        </div>
+        <div id="__Page16__invite__container">
+          <div id="__Page16__invite__bar" onclick="add_person()">
+            <div id="__Page16__invitelink__bar">
+              <p class="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結" onclick="copy_inviteid()">
+            </div>
+            <p class="__Page16__inviteid">#1s1s3fewg</p>
+          </div>
+        </div>
+        <div id="__Page16__team__container">
+          <p class="__Page16__teamname">成員</p>
+        </div>
+        <div id="__Page16__teammate__container">
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-07.png" alt="大頭照">
+            <div id="__Page16__username__bar">
+              <p class="__Page16__username">丁丁</p><img class="__Page16__useralter" src="./midterm_icon/edit.png" alt="更改">
+            </div>
+          </label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-08.png" alt="大頭照">迪西</label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-09.png" alt="大頭照">拉拉</label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-10.png" alt="大頭照">小波</label>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Mainpage__manualTrack__container">
+        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span class="manualTrack_title">新增支出</span></div>
+        <div id="manualTrack__form__bar">
+          <form id="spending-tracker">
+            <div id="basis_infos">
+              <input class="account_name" id="account_name" type="text" name="account_name" placeholder="帳目名稱">
+              <label for="account_name"><img src="./midterm_icon/edit.png" alt="cancel" onclick=""></label>
+              <input class="account_cost" inputmode="numeric" pattern="[0-9]*" placeholder="$ 0" type="text" name="account_cost">
+              <hr class="break_style1">
+            </div>
+            <div id="other_infos">
+              <label>品項
+                <input class="comment" type="text" name="comment">
+              </label>
+              <hr class="break_style2">
+              <p class="splitter">分攤人</p>
+              <ul id="checkbox">
+                <li>
+                  <input id="user1" type="checkbox">
+                  <label for="user1"><img src="./midterm_photo/ppl-07.png"></label>
+                </li>
+                <li>
+                  <input id="user2" type="checkbox">
+                  <label for="user2"><img src="./midterm_photo/ppl-08.png"></label>
+                </li>
+                <li>
+                  <input id="user3" type="checkbox">
+                  <label for="user3"><img src="./midterm_photo/ppl-09.png"></label>
+                </li>
+                <li>
+                  <input id="user4" type="checkbox">
+                  <label for="user4"><img src="./midterm_photo/ppl-10.png"></label>
+                </li>
+              </ul>
+            </div>
+            <button class="menu-flex_temp lively" id="spending-confirm" type="button" onclick="change_page(0);add_notificationimg();">確認記帳</button>
+          </form>
+        </div>
+        <div id="manualTrack__timer__bar"><span id="current_date"></span></div>
+        <div id="manualTrack__keypad__bar"><img class="keypad" src="./midterm_icon/keypad.png"></div>
+        <!--
+        <div id="manualTrack__input__bar"><span>帳目名稱</span>
+        <lable>$
+        <input inputmode="numeric" pattern="[0-9]*" placeholder="0" type="text" name="expense">
+        </lable>
+        <hr class="break_style">
+        </div>
+        <div id="manualTrack__infos__bar"><span>備註</span>
+        <hr class="break_style"><span>分攤人</span>
+        <div id="split-bill_flexbox">
+        <div class="user-icons lively"><i class="fas fa-user"></i></div>
+        </div>
+        </div>
+        <div id="manualTrack__keypad__bar">
+        <hr><span id="current_date"></span>
+        <hr>
+        </div>
+        <div id="manualTrack__footer__bar"><a class="menu-flex lively" href="#__Mainpage__homepage__container" target="_top" onclick="change_page(0)"><span>確認記帳</span></a></div>
+        -->
+      </div>
+      <div class="tab-inner" id="__Mainpage__cameraTrack__container">
+        <div id="camareTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span class="manualTrack_title" id="current_date"></span></div>
+        <div id="cameraTrack__form__bar">
+          <div class="camera">
+            <video id="video">Video stream not available.</video>
+            <button id="startbtn">Take photo</button>
+          </div>
+          <canvas id="canvas"></canvas>
+          <div class="output"><img id="photo" alt="photo taken"></div>
+          <button class="menu-flex_temp lively" id="scanning-confirm" type="button" onclick="change_page(0);add_notificationimg();">編輯帳目</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./app_register.js"></script>
+    <script src="./app_BeiBei.js"></script>
+    <script type="text/javascript" src="./mainpage.js"></script>
+    <script src="BeiBei.js"></script>
+  </body>
+</html>
