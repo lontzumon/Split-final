@@ -290,6 +290,7 @@ body {
     transition: 0.5s;
     border: 2.5px solid #000000;
     box-shadow: 3px 3px 0px #000000;
+	z-index: 2;
 }
 .__Page7__bottomimg{
 	width: 4vh;
@@ -298,7 +299,7 @@ body {
     position: relative;
 }
 #__Page7__bottomimg2,#__Page7__bottomimg3{
-	z-index:-1;
+	z-index:1;
 }
 /*
 .__Page7__informphoto{
