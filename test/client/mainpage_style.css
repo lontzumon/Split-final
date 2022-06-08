@@ -8,6 +8,11 @@ button {
     font-size: 20px;
 }
 
+input {
+    outline: none;
+    box-shadow: none;
+}
+
 ::placeholder {
     color: #000;
     opacity: 1.0;
@@ -26,21 +31,33 @@ span {
     Overall Architecture 
 */
 
-/* #__Register__fullscreen {} */
+#__Register__fullscreen {
+    position: relative;
+}
 
 #__Register__form-normal__container {
     height: 35vh;
     margin: 25vh auto 3.5vh;
+    position: relative;
 }
 
 #__Register__form-quick__container {
     height: 10vh;
     margin: 0 auto 14vh;
+    position: relative;
 }
 
-/* #__Register__wallet__container {} */
-/* #__Register__join-wallet__container {} */
-/* #__Register__new-wallet__container {} */
+#__Register__wallet__container {
+    position: relative;
+}
+
+#__Register__join-wallet__container {
+    position: relative;
+}
+
+#__Register__new-wallet__container {
+    position: relative;
+}
 
 #__Register__join-wallet__container p {
     font-size: 20px;
@@ -147,6 +164,7 @@ span {
 /* brand style */
 .banner-padding {
     height: 12.5vh;
+    position: relative;
 }
 /* 
 .between {
