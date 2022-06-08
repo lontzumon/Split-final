@@ -1,0 +1,13 @@
+{
+  "name": "Split 智慧共享錢包",
+  "short_name": "Split",
+  "start_url": "./Split_raw.html",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "icons": [
+    {"src": "midterm_icon/split_applogo.png", "sizes":"192x192", "type":"image/png"},
+    {"src": "midterm_icon/split_mainlogo.png", "sizes":"512x512", "type":"image/png"}
+  ],
+  "background_color":"#ffffff",
+  "theme_color":"#6BDCFF"
+}
