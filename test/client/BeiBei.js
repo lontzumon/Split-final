@@ -18,7 +18,7 @@ $(function(){
 
 function change_page(page_number){
 	var container = document.getElementById("__Page__menu__container");
-	if(page_number==0 |page_number==1 |page_number==3 |page_number==4){
+	if(page_number==0 |page_number==1 |page_number==3 |page_number==4 | page_number==8){
 		container.style.display = "flex";
 	}else{
 		container.style.display = "none";
@@ -29,6 +29,52 @@ function change_page(page_number){
 	
 }
 
+
+let cardbook = document.querySelector('#__Page1__cardbook');
+let cardbook__bar = document.querySelector('#__Page1__cardbook__bar');
+
+function moveElementLeft() {
+	var xi = new WebKitCSSMatrix(window.getComputedStyle(cardbook).transform);
+	var vw = xi.m41 * (100 / document.documentElement.clientWidth);
+	if(vw == 0)	{
+		cardbook.style.transform = "translateX(-100vw)";
+		$('#__Page1__dot:nth-child(1)').removeClass("dot_chosen");
+		$('#__Page1__dot:nth-child(2)').addClass("dot_chosen");
+	}	else if(vw >= -110) {
+		cardbook.style.transform = "translateX(-200vw)";
+		$('#__Page1__dot:nth-child(2)').removeClass("dot_chosen");
+		$('#__Page1__dot:nth-child(3)').addClass("dot_chosen");
+	}
+}
+
+function moveElementRight() {
+	var xi = new WebKitCSSMatrix(window.getComputedStyle(cardbook).transform);
+	var vw = xi.m41 * (100 / document.documentElement.clientWidth);
+	if(vw <= -200) {
+		cardbook.style.transform = "translateX(-100vw)";
+		$('#__Page1__dot:nth-child(3)').removeClass("dot_chosen");
+		$('#__Page1__dot:nth-child(2)').addClass("dot_chosen");
+	}
+	else if(vw <= -100) {
+		cardbook.style.transform = "translateX(0vw)";
+		$('#__Page1__dot:nth-child(2)').removeClass("dot_chosen");
+		$('#__Page1__dot:nth-child(1)').addClass("dot_chosen");
+	}
+}
+
+function handleClick() { console.log('click'); }
+function handleLong()  { console.log('long'); }
+function handleLeft()  { console.log('left');  moveElementLeft(); }
+function handleRight() { console.log('right'); moveElementRight(); }
+
+EventUtil.bindEvent(cardbook__bar, 'click', handleClick);
+EventUtil.bindEvent(cardbook__bar, 'longpress', handleLong);
+EventUtil.bindEvent(cardbook__bar, 'swipeLeft', handleLeft);
+EventUtil.bindEvent(cardbook__bar, 'swipeRight', handleRight);
+
+$("#imgUpload").click(function(){
+	$("#__Page2__photoMode__container").toggleClass("dark-page");
+});
 
 
 /*

@@ -122,10 +122,10 @@ span {
 }
 
 #manualTrack__header__bar {
-    border: 3px solid #000000;
-    border-radius: 15px 15px 0px 0px;
-    border-bottom: 0;
     background-color: #fff333;
+    border: 3px solid #000000;
+    border-bottom: 0;
+    border-radius: 15px 15px 0px 0px;
     padding-top: 2.25vh;
     height: 2.75vh;
 }
@@ -473,7 +473,7 @@ label {
 
 .break_style1 {
     border: 0;
-    border-top: 1px double #494949;
+    border-top: 2px double #494949;
     margin: 0 auto;
     width: 86vw;
 }
@@ -508,9 +508,11 @@ label {
     border: 3px solid #000000;
     border-top: 0;
     display: inline-block;
-    height: 8vh;
     padding-top: 2vh;
-    width: 98.4vw;
+    height: 8vh;
+    /* width: 98.4vw; */
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 .account_name {

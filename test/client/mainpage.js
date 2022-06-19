@@ -15,6 +15,7 @@ function formatDate(date) {
 //     $("#__overview__flexbox__bar").children(number).style['display'] = inline-flex;
 // }
 
+/* Self-Executing Anonymous Function (IIFE) */
 (function () {
     var width = 320;
     var height = 0;
@@ -24,23 +25,23 @@ function formatDate(date) {
     var photo = null;
     var startbtn = null;
 
-    function showViewLiveResultButton() {
-        if (window.self !== window.top) {
-            // Ensure that if our document is in a frame, we get the user
-            // to first open it in its own tab or window. Otherwise, it
-            // won't be able to request permission for camera access.
-            document.querySelector(".contentarea").remove();
-            const button = document.createElement("button");
-            button.textContent = "View live result of the example code above";
-            document.body.append(button);
-            button.addEventListener('click', () => window.open(location.href));
-            return true;
-        }
-        return false;
-    }
+    // function showViewLiveResultButton() {
+    //     if (window.self !== window.top) {
+    //         // Ensure that if our document is in a frame, we get the user
+    //         // to first open it in its own tab or window. Otherwise, it
+    //         // won't be able to request permission for camera access.
+    //         document.querySelector(".contentarea").remove();
+    //         const button = document.createElement("button");
+    //         button.textContent = "View live result of the example code above";
+    //         document.body.append(button);
+    //         button.addEventListener('click', () => window.open(location.href));
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     function startup() {
-        if (showViewLiveResultButton()) { return; }
+        // if (showViewLiveResultButton()) { return; }
         video = document.getElementById('video');
         canvas = document.getElementById('canvas');
         photo = document.getElementById('photo');
@@ -48,12 +49,7 @@ function formatDate(date) {
 
         navigator.mediaDevices.getUserMedia(
             {
-                video: {
-                    facingMode: {
-                        exact: 'environment'
-                    }
-                },
-                audio: false
+                video: { facingMode: 'environment' }, audio: false
             }
         )
             .then(function (stream) {
@@ -114,7 +110,7 @@ function formatDate(date) {
     window.addEventListener('load', startup, false);
 })();
 
-$(document).ready(); {
+$(document).ready(function() {
     $("#fab-add").click(function () {
         $(this).toggleClass('gray');
         // $(this).text(function(i, text) {
@@ -126,4 +122,4 @@ $(document).ready(); {
 
     date = new Date();
     $("#current_date").html(formatDate(date));
-}
+});

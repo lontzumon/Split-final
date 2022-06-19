@@ -2,12 +2,15 @@
 <html lang="zh-TW">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight + ", initial-scale=1.0");
+    </script>
     <title>Mainpage</title>
-    <link rel="apple-touch-icon" size="180x180" href="midterm_icon/split_applogo.png">
-    <link rel="icon" type="image/png" size="32x32" href="midterm_icon/split_applogo.png">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" type="image/png" size="91x91" href="midterm_icon/split_applogo.png">
+    <link rel="icon" type="image/png" size="91x91" href="midterm_icon/split_applogo.png">
+    <link rel="manifest" type="application/manifest+json" href="./manifest.webmanifest">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="./mainpage_style.css">
@@ -23,7 +26,10 @@
         <li><a href="#__Page16__fullscreen">edit_pocketorname</a></li>
         <li><a href="#__Register__fullscreen">registration</a></li>
         <li><a href="#__Mainpage__manualTrack__container">__Mainpage__manualTrack__container</a></li>
-        <li><a href="#__Mainpage__cameraTrack__container">#__Mainpage__cameraTrack__container</a></li>
+        <li><a href="#__Mainpage__cameraTrack__container">__Mainpage__cameraTrack__container</a></li>
+        <li><a href="#__Page1__fullscreen">carddeck</a></li>
+        <li><a href="#__Page2__fullscreen">edit_card</a></li>
+        <li><a href="#__Page3__fullscreen">send_card</a></li>
       </ul>
       <div class="tab-inner" id="__Register__fullscreen">
         <div id="__Register__form-normal__container">
@@ -87,19 +93,13 @@
             <p class="__Page__menu__word" id="__Page__menu__page1" onclick="change_page(0)">首頁</p>
           </div>
           <div id="__Page__menu__check">
-            <p class="__Page__menu__word" id="__Page__menu__page2" onclick="change_page(1)">分帳</p>
-          </div>
-          <div id="__Page__menu__result_check">
-            <p class="__Page__menu__word" id="__Page__menu__page3">結算紀錄</p>
+            <p class="__Page__menu__word" id="__Page__menu__page2" onclick="change_page(1)">記帳本</p>
           </div>
           <div id="__Page__menu__funny">
-            <p class="__Page__menu__word" id="__Page__menu__page4">梗圖</p>
+            <p class="__Page__menu__word" id="__Page__menu__page3" onclick="change_page(8)">卡牌冊</p>
           </div>
-          <div id="__Page__menu__pocket_check" onclick="change_page(2)">
-            <p class="__Page__menu__word" id="__Page__menu__page5">錢包總覽</p>
-          </div>
-          <div id="__Page__menu__about_us">
-            <p class="__Page__menu__word" id="__Page__menu__page6">團隊介紹</p>
+          <div id="__Page__menu__pocket_check">
+            <p class="__Page__menu__word" id="__Page__menu__page4" onclick="change_page(2)">錢包總覽</p>
           </div>
         </div>
       </div>
@@ -141,19 +141,19 @@
           <p class="__Page6__bill_word" id="__Page6__bill_word" onclick="add_checkbox2()">待分帳項目</p>
         </div>
         <div id="__Page6__bill__container">
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page6__bill_content2" id="__Page6__bill_content2 1"></div>4月電費 $3260<br>
           </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page6__bill_content2" id="__Page6__bill_content2 2"></div>4月水費 $562<br>
           </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page6__bill_content2" id="__Page6__bill_content2 3"></div>0425 聚餐 $780<br>
           </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page6__bill_content2" id="__Page6__bill_content2 4"></div>0425 家樂福 $924<br>
           </label>
-          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page6__bill_content2" id="__Page6__bill_content2 5"></div>0421 Uber $368<br>
           </label>
         </div>
@@ -182,13 +182,13 @@
           <p class="__Page18__bill_word2" id="__Page18__bill_word">4月電費 $3260元</p>
         </div>
         <div id="__Page18__personcheck__container">
-          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page18__bill_content2" id="__Page18__bill_content2 1"></div>拉拉 815<br>
           </label>
-          <label class="__Page18__bill_chseck" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page18__bill_content2" id="__Page18__bill_content2 2"></div>小波 815<br>
           </label>
-          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstChild.id)">
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
             <div class="__Page18__bill_content2" id="__Page18__bill_content2 3"></div>迪西 815<br>
           </label>
         </div>
@@ -294,7 +294,6 @@
           </form>
         </div>
         <div id="manualTrack__timer__bar"><span id="current_date"></span></div>
-        <div id="manualTrack__keypad__bar"><img class="keypad" src="./midterm_icon/keypad.png"></div>
         <!--
         <div id="manualTrack__input__bar"><span>帳目名稱</span>
         <lable>$
@@ -327,11 +326,268 @@
           <button class="menu-flex_temp lively" id="scanning-confirm" type="button" onclick="change_page(0);add_notificationimg();">編輯帳目</button>
         </div>
       </div>
+      <div class="tab-inner" id="__Page1__fullscreen">
+        <div id="__Page1__photo__container">
+          <div id="__Page1__photo__bar"><img id="__Page1__photoImg" src="./midterm_photo/sun-05.png" alt="大頭照"></div>
+        </div>
+        <div id="__Page1__description__container">
+          <div id="__Page1__description__bar">
+            <p id="__Page1__title">卡牌冊</p>
+            <div id="__Page1__info">
+              <div id="__Page1__unlock">
+                <p id="__Page1__unlockText">已解鎖：</p>
+                <p id="__Page1__unlockAmount">14</p>
+              </div>
+              <div id="__Page1__rank">
+                <p id="__Page1__rankText">錢包內排名：#</p>
+                <p id="__Page1__rankNumber">1</p>
+              </div>
+            </div>
+            <div id="__Page1__underline"></div>
+          </div>
+        </div>
+        <div id="__Page1__cardbook__container">
+          <div id="__Page1__cardbook__bar">
+            <div id="__Page1__selection">
+              <p id="__Page1__normal">一般卡</p>
+              <div id="__Page1__divisionline"></div>
+              <p id="__Page1__special">特殊卡</p>
+            </div>
+            <div id="__Page1__cardbook">
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card" onclick="change_page(9);">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0分期卡</p>
+                  </div>
+                  <div id="__Page1__card" onclick="change_page(9);">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0討債卡</p>
+                  </div>
+                  <div class="bg-lock" id="__Page1__card">
+                    <div class="lock" id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1分期卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1討債卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2分期卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2討債卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="__Page1__dotline">
+              <div class="dot_chosen" id="__Page1__dot"></div>
+              <div id="__Page1__dot"></div>
+              <div id="__Page1__dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner dark-page" id="__Page2__fullscreen">
+        <div id="__Page2__header__container">
+          <p id="__Page2__title">編輯卡牌</p>
+        </div>
+        <div id="__Page2__card__container">
+          <div id="__Page2__card__bar">
+            <div id="__Page2__cardName">
+              <p id="__Page2__cardNameText">討債卡</p>
+            </div>
+            <div id="__Page2__cardStar"></div>
+            <div id="__Page2__imgUpload">
+              <div id="__Page2__cameraImg"></div>
+              <p id="__Page2__uploadText">上傳圖片</p>
+            </div>
+            <div id="__Page2__spec">
+              <p id="__Page2__specText">功能說明</p>
+              <textarea id="__Page2__specInput" readonly="" disabled="disabled" type="text">發給那個欠錢不還的冤親債主。</textarea>
+            </div>
+            <div id="__Page2__message">
+              <p id="__Page2__messageText">想對他說的話(點按編輯, 限20字)</p>
+              <textarea id="__Page2__messageInput" type="text" cols="20" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+        <div id="__Page2__button__container">
+          <div id="__Page2__button__bar">
+            <div class="button_unchosen" id="__Page2__cancel" onclick="change_page(8);">
+              <p id="__Page2__cancelText">取消</p>
+            </div>
+            <div class="button_chosen" id="__Page2__next" onclick="change_page(10);">
+              <p id="__Page2__nextText">下一步</p>
+            </div>
+          </div>
+        </div>
+        <div class="invisible" id="__Page2__photoMode__container">
+          <div id="__Page2__photoMode__bar">
+            <div id="__Page2__photoUpload">
+              <p id="__Page2__photoUploadText">上傳照片</p>
+            </div>
+            <div id="__Page2__photoMode__divisionline"></div>
+            <div id="__Page2__photoCamera">
+              <p id="__Page2__photoCameraText">拍攝照片</p>
+            </div>
+          </div>
+          <div id="__Page2__permission__bar">
+            <div id="__Page2__permission">
+              <p id="__Page2__permissionText">要允許「Split!」<br>使用您的相簿嗎？</p>
+            </div>
+            <div id="__Page2__permission__divisionline"></div>
+            <div id="__Page2__permissionButton">
+              <div id="__Page2__notallow">
+                <p id="__Page2__notallowText">不允許</p>
+              </div>
+              <div id="__permissionButton__divisionline"></div>
+              <div id="__Page2__allow">
+                <p id="__Page2__allowText">允許</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page3__fullscreen">
+        <div id="__Page3__header__container">
+          <p id="__Page3__title">發送卡牌</p>
+        </div>
+        <div id="__Page3__card__container">
+          <div id="__Page3__car__bar"></div>
+        </div>
+        <div id="__Page3__send__container">
+          <div id="__Page3__send__bar">
+            <div id="__Page3__sendbox">
+              <p id="__Page3__sendText">發送對象</p>
+            </div>
+            <div id="__Page3__memberbox"></div>
+          </div>
+        </div>
+        <div id="__Page3__button__container">
+          <div id="__Page3__button__bar">
+            <div id="__Page3__cancel" onclick="change_page(9);">
+              <p id="__Page3__cancelText">取消</p>
+            </div>
+            <div class="button_chosen" id="__Page3__confirm" onclick="change_page(8);">
+              <p id="__Page3__confirmText">確認</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./app_register.js"></script>
     <script src="./app_BeiBei.js"></script>
     <script type="text/javascript" src="./mainpage.js"></script>
+    <script src="EventUtil.js"></script>
     <script src="BeiBei.js"></script>
   </body>
 </html>
