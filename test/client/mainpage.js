@@ -122,4 +122,13 @@ $(document).ready(function() {
 
     date = new Date();
     $("#current_date").html(formatDate(date));
+
+    $('#account_cost').inputmask({
+        alias: 'currency',
+        digits: 0,
+        rightAlign: 0,
+        placeholder: '0',
+        clearMaskOnLostFocus: true,
+        // jitMasking: true
+    })
 });

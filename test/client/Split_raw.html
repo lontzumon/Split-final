@@ -256,13 +256,13 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__manualTrack__container">
-        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span class="manualTrack_title">新增支出</span></div>
+        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span id="current_date"></span></div>
         <div id="manualTrack__form__bar">
           <form id="spending-tracker">
             <div id="basis_infos">
               <input class="account_name" id="account_name" type="text" name="account_name" placeholder="帳目名稱">
               <label for="account_name"><img src="./midterm_icon/edit.png" alt="cancel" onclick=""></label>
-              <input class="account_cost" inputmode="numeric" pattern="[0-9]*" placeholder="$ 0" type="text" name="account_cost">
+              <input id="account_cost" type="text" name="account_cost" placeholder="$ 0">
               <hr class="break_style1">
             </div>
             <div id="other_infos">
@@ -293,7 +293,6 @@
             <button class="menu-flex_temp lively" id="spending-confirm" type="button" onclick="change_page(0);add_notificationimg();">確認記帳</button>
           </form>
         </div>
-        <div id="manualTrack__timer__bar"><span id="current_date"></span></div>
         <!--
         <div id="manualTrack__input__bar"><span>帳目名稱</span>
         <lable>$
@@ -587,6 +586,7 @@
     <script src="./app_register.js"></script>
     <script src="./app_BeiBei.js"></script>
     <script type="text/javascript" src="./mainpage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <script src="EventUtil.js"></script>
     <script src="BeiBei.js"></script>
   </body>

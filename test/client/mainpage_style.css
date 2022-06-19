@@ -122,7 +122,7 @@ span {
 }
 
 #manualTrack__header__bar {
-    background-color: #fff333;
+    background-color: #f1f1f1;
     border: 3px solid #000000;
     border-bottom: 0;
     border-radius: 15px 15px 0px 0px;
@@ -132,13 +132,6 @@ span {
 
 #manualTrack__form__bar {
     height: 38vh;
-}
-
-#manualTrack__timer__bar {
-    background-color: #E5E5E5;
-    border: 3px solid #000000;
-    height: 5vh;
-    line-height: 5vh;
 }
 
 #__Mainpage__cameraTrack__container {
@@ -504,7 +497,7 @@ label {
 } */
 
 #basis_infos {
-    background-color: #fff333;
+    background-color: #f1f1f1;
     border: 3px solid #000000;
     border-top: 0;
     display: inline-block;
@@ -516,7 +509,7 @@ label {
 }
 
 .account_name {
-    background-color: #fff333;
+    background-color: #f1f1f1;
     border: none;
     font-size: 20px;
     outline: none;
@@ -529,8 +522,8 @@ label {
     font-size: 20px;
 }
 
-.account_cost {
-    background-color: #fff333;
+#account_cost {
+    background-color: #f1f1f1;
     border: none;
     font-size: 32px;
     outline: none;
@@ -540,7 +533,7 @@ label {
     width: 55vw;
 }
 
-.account_cost::placeholder {
+#account_cost::placeholder {
     font-size: 32px;
 }
 
