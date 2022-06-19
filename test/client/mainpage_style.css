@@ -515,7 +515,7 @@ label {
     outline: none;
     padding-left: 0;
     height: 4.5vh;
-    width: 21vw;
+    width: 22vw;
 }
 
 .account_name::placeholder {
@@ -530,7 +530,7 @@ label {
     padding-left: 0;
     text-align: right;
     height: 4.5vh;
-    width: 55vw;
+    width: 54vw;
 }
 
 #account_cost::placeholder {
