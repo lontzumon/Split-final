@@ -126,7 +126,7 @@ span {
     border: 3px solid #000000;
     border-bottom: 0;
     border-radius: 15px 15px 0px 0px;
-    padding-top: 2.25vh;
+    padding: 2.25vh 5vw;
     height: 2.75vh;
 }
 
@@ -139,16 +139,27 @@ span {
     height: 93.5vh
 }
 
-#cameraTrack__form__bar {
-    height: 43vh;
+#cameraTrack__header__bar {
+    background-color: #f1f1f1;
+    border: 3px solid #000000;
+    border-radius: 15px 15px 0px 0px;
+    padding: 2.25vh 5vw;
+    height: 2.75vh;   
 }
 
-#cameraTrack__timer__bar {
+#cameraTrack__form__bar {
+    border: 3px solid #000000;
+    border-top: 0;
+    display: block;
+    height: 85.25vh;
+}
+
+/* #cameraTrack__timer__bar {
     background-color: #E5E5E5;
     border: 3px solid #000000;
     height: 5vh;
     line-height: 5vh;
-}
+} */
 
 /* 
     Detail of all elements 
@@ -436,8 +447,6 @@ a.quick_button i::before {
 
 .cancel-icon {
     display: flex;
-    /* padding-top: 3vh; */
-    padding-left: 3vw;
     position: fixed;
 }
 
@@ -447,18 +456,6 @@ a.quick_button i::before {
     margin-top: calc(15vh);
     padding-left: 2vw;
 }
-
-.account_name {
-    width: 21vw;
-}
-
-.account_cost {
-    width: 50vw;
-}
-
-/* 
-    New Style 
-*/
 
 label {
     font-size: 20px;
@@ -473,28 +470,17 @@ label {
 
 .break_style2 {
     border: 0;
-    border-top: 1px double #494949;
-    margin: 2vh auto;
+    border-top: 2px solid #C4C4C4;
+    margin: 1vh auto 0;
     width: 86vw;
 }
 
-.cancel-icon {
-    display: flex;
-    /* padding-top: 3vh; */
-    padding-left: 0vw;
+#manual-submit {
+    display: inline;
+    font-size: 20px;
     position: fixed;
+    transform: translateX(22.25vw);
 }
-
-/* .__Page__menualter {
-    height: 5vw;
-    width: 5vw;
-    margin-top: calc(15vh);
-    padding-left: 2vw;
-} */
-
-/* .manualTrack_title {
-    font-size: 16px;
-} */
 
 #basis_infos {
     background-color: #f1f1f1;
@@ -502,24 +488,25 @@ label {
     border-top: 0;
     display: inline-block;
     padding-top: 2vh;
-    height: 8vh;
+    height: 9.5vh;
     /* width: 98.4vw; */
     width: 100vw;
     box-sizing: border-box;
 }
 
-.account_name {
+#account_name {
     background-color: #f1f1f1;
     border: none;
     font-size: 20px;
     outline: none;
     padding-left: 0;
-    height: 4.5vh;
+    /* height: 4.5vh; */
     width: 22vw;
 }
 
-.account_name::placeholder {
+#account_name::placeholder {
     font-size: 20px;
+    color: #666;
 }
 
 #account_cost {
@@ -529,7 +516,7 @@ label {
     outline: none;
     padding-left: 0;
     text-align: right;
-    height: 4.5vh;
+    /* height: 4.5vh; */
     width: 54vw;
 }
 
@@ -543,17 +530,119 @@ label {
     display: block;
     padding: 3vh 7vw 0;
     text-align: left;
+    height: 73vh;
     width: 84.4vw;
 }
 
-.comment {
+#comment-block {
+    height: 8vh;
+}
+
+label[for="comment"] {
+    font-size: 18px;
+    color: #444;
+}
+
+#comment {
     border: none;
+    font-size: 18px;
+    margin-top: 2.25vh;
     outline: none;
     width: 70vw;
 }
 
-.splitter {
+#new-record {
+    height: 6.5vw;
+    width: 6.5vw;
+    float: left;
+    padding-right: 3vh;
+    padding-top: 0.5vh;
+}
+
+#record-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.record-style {
+    border-bottom: 2px solid #C4C4C4;
+    display: flex;
+    align-items: center;
     font-size: 20px;
+    height: 4vh;
+    padding-right: 2vw;
+}
+
+.record-name {
+    border: none;
+    font-size: 18px;
+    outline: none;
+    margin-top: 3px;
+    width: 43vw;
+}
+
+.record-cost {
+    border: none;
+    font-size: 20px;
+    outline: none;
+    margin-top: 3px;
+    text-align: right;
+    width: 25.6vw;
+}
+
+#payer {
+    height: 5.5vh;
+}
+
+#splitter {
+    height: 5.5vh;
+}
+
+.alloc_text, .alloc_img, .alloc_type, .alloc_next {
+    display: inline-block;
+}
+
+.alloc_text {
+    font-size: 18px;
+    width: 20vw;
+}
+
+.alloc_img {
+    font-size: 18px;
+    width: 45.5vw;
+}
+
+.alloc_type {
+    font-size: 18px;
+    width: 13vw;
+}
+
+.small_icon {
+    height: 3.5vh;
+    width: 3.5vh;
+}
+
+.remaining {
+    display: block;
+    font-size: 16px;
+    margin-top: 1vh;
+    text-align: right;
+}
+
+#camera-submit {
+    display: inline;
+    font-size: 20px;
+    position: fixed;
+    transform: translateX(18vw);
+}
+
+.camera_msg {
+    display: block;
+}
+
+/* 
+.splitter {
+    font-size: 18px;
     text-align: left;
 }
 
@@ -590,18 +679,15 @@ input[type="checkbox"][id^="user"] {
     border: 5px solid #fff333;
     border-radius: 50%;
     transform: scale(0.92);
-    /* z-index: -1; */
+    // z-index: -1;
 }
 
 #spending-confirm {
     transform: translate(30vw, 32.5vh);
 }
+*/
 
-.keypad {
-    height: 33vh;
-    width: 386px;
-}
-
+/* 
 #video {
     border: 1px solid black;
     box-shadow: 2px 2px 3px black;
@@ -643,3 +729,4 @@ input[type="checkbox"][id^="user"] {
     font-size: 14px;
     color: rgba(255, 255, 255, 1.0);
 }
+*/

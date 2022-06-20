@@ -256,73 +256,61 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__manualTrack__container">
-        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span id="current_date"></span></div>
+        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
+          <div id="manual-submit" onclick="">OK</div>
+        </div>
         <div id="manualTrack__form__bar">
           <form id="spending-tracker">
             <div id="basis_infos">
-              <input class="account_name" id="account_name" type="text" name="account_name" placeholder="帳目名稱">
+              <input id="account_name" type="text" name="account_name" placeholder="帳單名稱">
               <label for="account_name"><img src="./midterm_icon/edit.png" alt="cancel" onclick=""></label>
               <input id="account_cost" type="text" name="account_cost" inputmode="decimal" placeholder="$ 0">
               <hr class="break_style1">
             </div>
             <div id="other_infos">
-              <label>品項
-                <input class="comment" type="text" name="comment">
-              </label>
-              <hr class="break_style2">
-              <p class="splitter">分攤人</p>
-              <ul id="checkbox">
-                <li>
-                  <input id="user1" type="checkbox">
-                  <label for="user1"><img src="./midterm_photo/ppl-07.png"></label>
-                </li>
-                <li>
-                  <input id="user2" type="checkbox">
-                  <label for="user2"><img src="./midterm_photo/ppl-08.png"></label>
-                </li>
-                <li>
-                  <input id="user3" type="checkbox">
-                  <label for="user3"><img src="./midterm_photo/ppl-09.png"></label>
-                </li>
-                <li>
-                  <input id="user4" type="checkbox">
-                  <label for="user4"><img src="./midterm_photo/ppl-10.png"></label>
-                </li>
-              </ul>
+              <div id="new-record"><img src="./final_icon/Group 20.png" alt="cancel" onclick="add_record()"></div>
+              <div id="record-flexbox">
+                <div class="record-style">
+                  <input class="record-name" type="text" name="name_0" placeholder="品項">
+                  <input class="record-cost" type="text" name="cost_0" inputmode="decimal" placeholder="$ 0">
+                </div>
+              </div>
+              <div id="comment-block">
+                <label for="comment">備註
+                  <input id="comment" type="text" name="comment">
+                </label>
+                <hr class="break_style2">
+              </div>
+              <div id="allocation">
+                <div id="payer" onclick="">
+                  <div class="alloc_text">付款人</div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"><span id="username">丁丁</span></div>
+                  <div class="alloc_type">全部</div>
+                  <div class="alloc_next"><img src="./final_icon/vector.png" alt="詳細資料"></div>
+                </div>
+                <hr class="break_style2">
+                <div id="splitter" onclick="">
+                  <div class="alloc_text">分攤人</div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"><span id="username">丁丁</span></div>
+                  <div class="alloc_type">平分</div>
+                  <div class="alloc_next"><img src="./final_icon/vector.png" alt="詳細資料"></div>
+                </div>
+                <hr class="break_style2"><span class="remaining">零頭 $0.00</span>
+              </div>
             </div>
-            <button class="menu-flex_temp lively" id="spending-confirm" type="button" onclick="change_page(0);add_notificationimg();">確認記帳</button>
           </form>
         </div>
-        <!--
-        <div id="manualTrack__input__bar"><span>帳目名稱</span>
-        <lable>$
-        <input inputmode="numeric" pattern="[0-9]*" placeholder="0" type="text" name="expense">
-        </lable>
-        <hr class="break_style">
-        </div>
-        <div id="manualTrack__infos__bar"><span>備註</span>
-        <hr class="break_style"><span>分攤人</span>
-        <div id="split-bill_flexbox">
-        <div class="user-icons lively"><i class="fas fa-user"></i></div>
-        </div>
-        </div>
-        <div id="manualTrack__keypad__bar">
-        <hr><span id="current_date"></span>
-        <hr>
-        </div>
-        <div id="manualTrack__footer__bar"><a class="menu-flex lively" href="#__Mainpage__homepage__container" target="_top" onclick="change_page(0)"><span>確認記帳</span></a></div>
-        -->
       </div>
       <div class="tab-inner" id="__Mainpage__cameraTrack__container">
-        <div id="camareTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick=""><span class="manualTrack_title" id="current_date"></span></div>
+        <div id="cameraTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
+          <div id="camera-submit" onclick="">Next</div>
+        </div>
         <div id="cameraTrack__form__bar">
           <div class="camera">
             <video id="video">Video stream not available.</video>
             <button id="startbtn">Take photo</button>
           </div>
-          <canvas id="canvas"></canvas>
-          <div class="output"><img id="photo" alt="photo taken"></div>
-          <button class="menu-flex_temp lively" id="scanning-confirm" type="button" onclick="change_page(0);add_notificationimg();">編輯帳目</button>
+          <canvas id="canvas"></canvas><span class="camera_msg">辨識中...</span>
         </div>
       </div>
       <div class="tab-inner" id="__Page1__fullscreen">
