@@ -687,6 +687,14 @@ input[type="checkbox"][id^="user"] {
 }
 */
 
+.preview-container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border: 3px dotted #ccc;
+    margin: 0px auto;
+}
+
 /* 
 #video {
     border: 1px solid black;
