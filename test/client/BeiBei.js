@@ -377,3 +377,743 @@ function copy_inviteid(){   /*主要增加人的function*/
 	container.select();
 	document.execCommand("copy");
 }
+
+
+
+function firstadds(){
+	page38__delete_people();
+	for(var i=0;i<4;i++){
+			add_equalmode_person(i+1,1);
+		}
+}
+function Page37__checkadds(){
+	page37__delete_people();
+	for(var i=0;i<4;i++){
+			add_equalmode_person(i+1,3);
+		}
+}
+
+function Page62__adds(page){
+	page62__delete_people();
+	var next = document.getElementById("__Page62__next");
+	page62__notification(2);
+	if(page==1){
+		next.onclick = function() {
+			page62__changenotification(1);
+			page62__notification(1);
+			
+		};
+	}
+	else{
+		next.onclick = function() {
+			page62__changenotification(2);
+			page62__notification(1);
+			
+		};
+	}
+	for(var i=0;i<4;i++){
+			add_realcostmode_person(2,i+1);
+		}
+}
+function Page62__checkadds(){
+	var next = document.getElementById("__Page62__next");
+	next.onclick = function() {
+		Page62__adds(2);
+	};
+	
+	page62__delete_people();
+	for(var i=0;i<4;i++){
+			add_equalmode_person(i+1,2);
+		}
+}
+
+
+
+
+function choose_type(thistype_id){
+	var type1 = document.getElementById("__Page38__addtype__bar");
+	var typeimg = document.getElementById("__Page38__typeimg");
+	var type2 = document.getElementById("__Page38__percenttype__bar");
+	var typeimg2 = document.getElementById("__Page38__typeimg2");
+	var type3 = document.getElementById("__Page38__realcosttype__bar");
+	var typeimg3 = document.getElementById("__Page38__typeimg3");
+	var type4 = document.getElementById("__Page38__additionalcosttype__bar");
+	var typeimg4 = document.getElementById("__Page38__typeimg4");
+	var text1 = document.getElementById("__Page38__paytypetext");
+	var text2 = document.getElementById("__Page38__paytypetext2");
+	var text3 = document.getElementById("__Page38__costtotal1");
+	var text4 = document.getElementById("__Page38__costtotal2");
+	var text5 = document.getElementById("__Page38__costtotal3");
+	
+	
+	type1.style.border = "0px solid #000000";
+	type1.style.backgroundColor = "#FFFFFF";
+	typeimg.style.filter = "invert(50%)";
+	type2.style.border = "0px solid #000000";
+	type2.style.backgroundColor = "#FFFFFF";
+	typeimg2.style.filter = "invert(50%)";
+	type3.style.border = "0px solid #000000";
+	type3.style.backgroundColor = "#FFFFFF";
+	typeimg3.style.filter = "invert(50%)";
+	type4.style.border = "0px solid #000000";
+	type4.style.backgroundColor = "#FFFFFF";
+	typeimg4.style.filter = "invert(50%)";
+	
+	console.log("document.getElementById(thistype_id): "+document.getElementById("thistype_id"));
+	console.log("this.id: "+thistype_id);
+	console.log(thistype_id.includes("percent"));
+	document.getElementById(thistype_id).style.border = "3px solid #000000";
+	document.getElementById(thistype_id).style.backgroundColor = "#FFF333";
+	
+	page38__delete_people();
+	
+	
+	if(thistype_id.includes("addtype")){
+		text1.innerText = '平分';
+		text2.innerText = '選擇一起平分的成員。';
+		text3.innerText = '每人平均 $';
+		text4.innerText = '0.00';
+		text5.innerText = '';
+		typeimg.style.filter = "invert(0%)";
+		for(var i=0;i<equalpeople;i++){
+			add_equalmode_person(i+1,1);
+		}
+	}
+	
+	if(thistype_id.includes("percent")){
+		text1.innerText = '比例';
+		text2.innerText = '依照每位成員占比分配。';
+		text3.innerText = '未分配\xa0';
+		text4.innerText = '0.0';
+		text5.innerText = '\xa0%';
+		typeimg2.style.filter = "invert(0%)";
+		for(var i=0;i<equalpeople;i++){
+			add_percentagemode_person(i+1);
+		}
+	}
+	
+	if(thistype_id.includes("real")){
+		text1.innerText = '實際花費';
+		text2.innerText = '輸入每位成員的實際花費金額';
+		text3.innerText = '未分配  $\xa0';
+		text4.innerText = '0.00';
+		text5.innerText = '';
+		typeimg3.style.filter = "invert(0%)";
+		for(var i=0;i<equalpeople;i++){
+			add_realcostmode_person(1,i+1);
+		}
+	}
+	
+	if(thistype_id.includes("additional")){
+		text1.innerText = '額外支出';
+		text2.innerText = '扣除成員個人額外支出';
+		text3.innerText = '';
+		text4.innerText = '';
+		text5.innerText = '';
+		typeimg4.style.filter = "invert(0%)";
+		for(var i=0;i<equalpeople;i++){
+			add_additionalcostmode_person(i+1);
+		}
+	}
+	/*
+	border: 0px solid #000000;
+	background-color: #FFFFFF;
+	
+	border: 3px solid #000000;
+	background-color: #FFF333;*/
+}
+
+
+
+
+
+
+
+var equalpeople = 4;
+function add_equalmode_person(number,page){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	if(page==1){
+		var pages = "__Page38__";
+		var container = document.getElementById("__Page38__people__container");
+	}else if(page==2){
+		var pages = "__Page62__";
+		var container = document.getElementById("__Page62__people__container");
+	}else if(page==3){
+		var pages = "__Page37__";
+		var container = document.getElementById("__Page37__people__container");
+	}
+	
+	var photo = document.createElement("div");
+	photo.id = "__Page38__informphoto";
+	var img = document.createElement("img");
+　　img.classList.add("__Page38__informphotoimg");
+　　img.src = "./midterm_photo/ppl-07.png";	
+	photo.appendChild(img);
+	
+	var peoplename = document.createElement("div");
+	peoplename.id = "__Page38__peoplename__bar";
+	var __Page38__peoplename = document.createElement('P');
+	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
+	__Page38__peoplename.textContent = "丁丁";	
+	peoplename.appendChild(__Page38__peoplename);
+	
+	var calculate = document.createElement("div");
+　　calculate.id = "__Page38__calculate__bar";
+	var equal = document.createElement("div");
+　　equal.id = pages+"equal "+number;
+	equal.classList.add("__Page38__equal");
+/*	
+	var equals = document.createElement("div");
+　　equals.id = "__Page38__equals";
+	var img2 = document.createElement("img");
+　　img2.classList.add("__Page38__equal_check");
+	img2.id = "__Page38__equal_check";
+　　img2.src = "./midterm_icon/yes.png";	
+	equal.appendChild(equals);
+	equals.appendChild(img2);
+*/
+	calculate.appendChild(equal);
+	equal.onclick = function() {
+		change_equalcheckbox_color(this.id);
+	};
+	
+	// initialize
+	var label = document.createElement("label");
+	label.id = "delete_id";
+	label.classList.add("__Page38__peoplepay");
+	
+	var decorate = document.createElement("div");
+　　decorate.id = "__Page38__decorate2__container";
+	
+	container.appendChild(label);
+	container.appendChild(decorate);
+	
+	label.appendChild(photo);
+	label.appendChild(peoplename);  	/* this need to edit  (var page6_item_date  page6_item_cost)  */
+	label.appendChild(calculate);
+	
+	/*
+	container.insertBefore(decorate,container.firstChild);
+	container.insertBefore(label,container.firstChild);
+	*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function change_equalcheckbox_color(this_id){
+	console.log("document.getElementById(this_id): " + document.getElementById(this_id));
+	console.log("document.getElementById(this_id).style.backgroundColor: " + document.getElementById(this_id).style.backgroundColor);
+	console.log("document.getElementById(this_id).Firstchild: " + document.getElementById(this_id).Firstchild);
+	if (document.getElementById(this_id).style.backgroundColor == "rgb(73, 73, 73)") {
+        document.getElementById(this_id).style.backgroundColor = '#FFFFFF';
+		
+		document.getElementById(this_id).innerHTML = "";
+		/*document.getElementById(this_id).removeChild(document.getElementById(this_id.child));*/
+		
+
+    }else{
+		
+		document.getElementById(this_id).style.backgroundColor = '#494949';
+		
+		
+		var equals = document.createElement("div");
+　　	equals.id = "__Page38__equals";
+		var img2 = document.createElement("img");
+　　	img2.classList.add("__Page38__equal_check");
+		img2.id = "__Page38__equal_check";
+　　	img2.src = "./midterm_icon/yes.png";	
+		equals.appendChild(img2);
+		document.getElementById(this_id).appendChild(equals);
+		
+	}
+}
+
+/*
+<img class="__Page38__equal_check" id="__Page38__equal_check" src="./midterm_icon/yes.png" alt="check">
+*/
+/*
+<input class="__Page38__percentage" type="text" inputmode="decimal" placeholder="0.00">
+*/
+
+
+function add_percentagemode_person(number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	
+	var container = document.getElementById("__Page38__people__container");
+	
+	var photo = document.createElement("div");
+	photo.id = "__Page38__informphoto";
+	var img = document.createElement("img");
+　　img.classList.add("__Page38__informphotoimg");
+　　img.src = "./midterm_photo/ppl-07.png";	
+	photo.appendChild(img);
+	
+	var peoplename = document.createElement("div");
+	peoplename.id = "__Page38__peoplename__bar";
+	var __Page38__peoplename = document.createElement('P');
+	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
+	__Page38__peoplename.textContent = "丁丁";	
+	peoplename.appendChild(__Page38__peoplename);
+	
+	var calculate = document.createElement("div");
+　　calculate.id = "__Page38__calculate__bar";
+	var percentage = document.createElement("div");
+　　percentage.id = "__Page38__calculate_percentage";
+
+
+	var __Page38__percentage = document.createElement('input');
+	__Page38__percentage.setAttribute('class', '__Page38__percentage');
+	__Page38__percentage.type = "text";
+	__Page38__percentage.inputmode = "decimal";
+	__Page38__percentage.placeholder = "0.00";
+	__Page38__percentage.id = "__Page38__percentage "+number;
+
+/*
+	var __Page38__percentage = document.createElement('P');
+	__Page38__percentage.setAttribute('class', '__Page38__percentage');
+	__Page38__percentage.textContent = "0.00";
+*/	
+	
+	var __Page38__percentage2 = document.createElement('P');
+	__Page38__percentage2.setAttribute('class', '__Page38__percentage2');
+	__Page38__percentage2.textContent = "%";
+	percentage.appendChild(__Page38__percentage);
+	percentage.appendChild(__Page38__percentage2);
+	var percentage2 = document.createElement("div");
+　　percentage2.id = "__Page38__calculate_percentage";
+	var __Page38__percentage3 = document.createElement('P');
+	__Page38__percentage3.setAttribute('class', '__Page38__percentage3');
+	__Page38__percentage3.textContent = "= $";
+	var __Page38__percentage4 = document.createElement('P');
+	__Page38__percentage4.setAttribute('class', '__Page38__percentage4');
+	__Page38__percentage4.textContent = "0.00";
+	percentage2.appendChild(__Page38__percentage3);
+	percentage2.appendChild(__Page38__percentage4);
+	calculate.appendChild(percentage);
+	calculate.appendChild(percentage2);
+	
+
+	
+	// initialize
+	var label = document.createElement("label");
+	label.id = "delete_id";
+	label.classList.add("__Page38__peoplepay");
+	
+	var decorate = document.createElement("div");
+　　decorate.id = "__Page38__decorate2__container";
+	
+	container.appendChild(label);
+	label.appendChild(photo);
+	label.appendChild(peoplename);  	/* this need to edit  (var page6_item_date  page6_item_cost)  */
+	label.appendChild(calculate);
+	container.appendChild(decorate);
+}
+
+
+function add_realcostmode_person(mode,number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	if(mode==1){
+		var container = document.getElementById("__Page38__people__container");
+	}else{
+		var container = document.getElementById("__Page62__people__container");
+	}
+	var photo = document.createElement("div");
+	photo.id = "__Page38__informphoto";
+	var img = document.createElement("img");
+　　img.classList.add("__Page38__informphotoimg");
+　　img.src = "./midterm_photo/ppl-07.png";	
+	photo.appendChild(img);
+	
+	var peoplename = document.createElement("div");
+	peoplename.id = "__Page38__peoplename__bar";
+	var __Page38__peoplename = document.createElement('P');
+	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
+	__Page38__peoplename.textContent = "丁丁";	
+	peoplename.appendChild(__Page38__peoplename);
+	
+	var calculate = document.createElement("div");
+　　calculate.id = "__Page38__calculate__bar";
+	var realcost = document.createElement("div");
+　　realcost.id = "__Page38__calculate_realcost";
+	var __Page38__realcost = document.createElement('P');
+	__Page38__realcost.setAttribute('class', '__Page38__realcost');
+	__Page38__realcost.textContent = "$\xa0";
+	
+/*	
+	var __Page38__realcost2 = document.createElement('P');
+	__Page38__realcost2.setAttribute('class', '__Page38__realcost2');
+	__Page38__realcost2.textContent = "0.00";
+*/	
+	var __Page38__realcost2 = document.createElement('input');
+	__Page38__realcost2.setAttribute('class', '__Page38__realcost2');
+	__Page38__realcost2.type = "text";
+	__Page38__realcost2.inputmode = "decimal";
+	__Page38__realcost2.placeholder = "0.00";
+	__Page38__realcost2.id = "__Page38__realcost2 "+number;
+	
+	
+	
+	realcost.appendChild(__Page38__realcost);
+	realcost.appendChild(__Page38__realcost2);
+	calculate.appendChild(realcost);
+
+	
+	// initialize
+	var label = document.createElement("label");
+	label.id = "delete_id";
+	label.classList.add("__Page38__peoplepay");
+	
+	var decorate = document.createElement("div");
+　　decorate.id = "__Page38__decorate2__container";
+	
+	container.appendChild(label);
+	label.appendChild(photo);
+	label.appendChild(peoplename);  	/* this need to edit  (var page6_item_date  page6_item_cost)  */
+	label.appendChild(calculate);
+	container.appendChild(decorate);
+}
+
+
+function add_additionalcostmode_person(number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	
+	var container = document.getElementById("__Page38__people__container");
+	
+	var photo = document.createElement("div");
+	photo.id = "__Page38__informphoto";
+	var img = document.createElement("img");
+　　img.classList.add("__Page38__informphotoimg");
+　　img.src = "./midterm_photo/ppl-07.png";	
+	photo.appendChild(img);
+	
+	var peoplename = document.createElement("div");
+	peoplename.id = "__Page38__peoplename__bar";
+	var __Page38__peoplename = document.createElement('P');
+	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
+	__Page38__peoplename.textContent = "丁丁";	
+	peoplename.appendChild(__Page38__peoplename);
+	
+	var calculate = document.createElement("div");
+　　calculate.id = "__Page38__calculate__bar";
+	var additionalcost = document.createElement("div");
+　　additionalcost.id = "__Page38__calculate_realcost";
+	var __Page38__additionalcost = document.createElement('P');
+	__Page38__additionalcost.setAttribute('class', '__Page38__additionalcost');
+	__Page38__additionalcost.textContent = "$\xa0";
+	
+	var __Page38__additionalcost2 = document.createElement('input');
+	__Page38__additionalcost2.setAttribute('class', '__Page38__additionalcost2');
+	__Page38__additionalcost2.type = "text";
+	__Page38__additionalcost2.inputmode = "decimal";
+	__Page38__additionalcost2.placeholder = "0.00";
+	__Page38__additionalcost2.id = "__Page38__additionalcost2 "+number;
+/*
+	var __Page38__additionalcost2 = document.createElement('P');
+	__Page38__additionalcost2.setAttribute('class', '__Page38__additionalcost2');
+	__Page38__additionalcost2.textContent = "0.00";
+*/
+	
+	
+	additionalcost.appendChild(__Page38__additionalcost);
+	additionalcost.appendChild(__Page38__additionalcost2);
+	var additionalcost2 = document.createElement("div");
+　　additionalcost2.id = "__Page38__calculate_percentage";
+	var __Page38__additionalcost3 = document.createElement('P');
+	__Page38__additionalcost3.setAttribute('class', '__Page38__additionalcost3');
+	__Page38__additionalcost3.textContent = "+ $\xa0";
+	var __Page38__additionalcost4 = document.createElement('P');
+	__Page38__additionalcost4.setAttribute('class', '__Page38__additionalcost4');
+	__Page38__additionalcost4.textContent = "0.00";
+	additionalcost2.appendChild(__Page38__additionalcost3);
+	additionalcost2.appendChild(__Page38__additionalcost4);
+	calculate.appendChild(additionalcost);
+	calculate.appendChild(additionalcost2);
+	
+
+	
+	// initialize
+	var label = document.createElement("label");
+	label.id = "delete_id";
+	label.classList.add("__Page38__peoplepay");
+	
+	var decorate = document.createElement("div");
+　　decorate.id = "__Page38__decorate2__container";
+	
+	container.appendChild(label);
+	label.appendChild(photo);
+	label.appendChild(peoplename);  	/* this need to edit  (var page6_item_date  page6_item_cost)  */
+	label.appendChild(calculate);
+	container.appendChild(decorate);
+}
+
+function page37__delete_people(){
+	var delete_parentnode = document.getElementById("__Page37__people__container");
+	delete_parentnode.innerHTML = "";
+}
+function page38__delete_people(){
+	var delete_parentnode = document.getElementById("__Page38__people__container");
+	delete_parentnode.innerHTML = "";
+}
+function page62__delete_people(){
+	var delete_parentnode = document.getElementById("__Page62__people__container");
+	delete_parentnode.innerHTML = "";
+}
+
+function page62__notification(type){
+	var div = document.getElementById("__Page62__inform__container");
+	if(type==1){
+		div.style.display = "block";
+	}else{
+		div.style.display = "none";
+	}
+}
+
+function page62__changenotification(type){
+	var text1 = document.getElementById("__Page62__informtext1");
+	var text2 = document.getElementById("__Page62__informtext2");
+	var text3 = document.getElementById("__Page62__handsetting");
+	var text4 = document.getElementById("__Page62__luckysetting");
+
+	
+	
+	
+	if(type==1){
+		text1.textContent = "目前有除不盡的款項";
+		text2.textContent = "請問您要參加命運大轉盤嗎？";
+		text3.textContent = "否，手動指定";
+		text4.textContent = "是，試試手氣";
+		text3.onclick = function() {
+			Page62__checkadds();
+			page62__notification(2);
+		};
+		text4.onclick = function() {
+			change_page(14);
+			page62__notification(2);
+			page66_text_restore();
+		};
+	}else{
+		text1.textContent = "家樂福 款項已結算，";
+		text2.textContent = "請問是否發動特殊卡牌給欠款人？";
+		text3.textContent = "否，使用預設";
+		text4.textContent = "是，立即選擇";
+		text3.onclick = function() {
+			change_page(15);
+		};
+		text4.onclick = function() {
+			change_page(8);
+		};
+	}
+}
+
+
+
+
+function page44__choose_type(thistype_id){
+	var type1 = document.getElementById("__Page44__notpay__bar");
+	var typetext1 = document.getElementById("__Page44__selectword1");
+	var type2 = document.getElementById("__Page44__needpay__bar");
+	var typetext2 = document.getElementById("__Page44__selectword2");
+	var type3 = document.getElementById("__Page44__havepayed__bar");
+	var typetext3 = document.getElementById("__Page44__selectword3");
+	
+	
+	
+	
+	typetext1.style.color = "#FFFFFF";
+	type1.style.backgroundColor = "#383838";
+	typetext2.style.color = "#FFFFFF";
+	type2.style.backgroundColor = "#383838";
+	typetext3.style.color = "#FFFFFF";
+	type3.style.backgroundColor = "#383838";
+	
+
+	document.getElementById(thistype_id).style.backgroundColor = "#FFFFFF";
+	
+	
+	
+	if(thistype_id.includes("notpay")){
+		typetext1.style.color = "#383838";
+	}
+	
+	if(thistype_id.includes("needpay")){
+		typetext2.style.color = "#383838";
+	}
+	
+	if(thistype_id.includes("havepayed")){
+		typetext3.style.color = "#383838";
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//轉盤部分
+let canvas = document.getElementById('__Page61__canvas'),
+context = canvas.getContext('2d'),
+OUTSIDE_RADIUAS = 130,   // 轉盤的半徑 200
+INSIDE_RADIUAS = 0,      // 用於非零環繞原則的內圓半徑
+TEXT_RADIUAS = 104,      // 轉盤內文字的半徑 160
+CENTER_X = canvas.width / 2,
+CENTER_Y = canvas.height / 2,
+awards = [               // 轉盤內的獎品個數以及內容
+'丁丁', '迪西', '拉拉', '小波'
+],
+startRadian = 0,                             // 繪製獎項的起始角，改變該值實現旋轉效果
+awardRadian = (Math.PI * 2) / awards.length, // 每一個獎項所佔的弧度
+duration = 4000,     // 旋轉事件
+velocity = 10,       // 旋轉速率
+spinningTime = 0,    // 旋轉當前時間
+spinTotalTime,       // 旋轉時間總長
+spinningChange;      // 旋轉變化值的峰值
+/**
+* 緩動函數，由快到慢
+* @param {Num} t 當前時間
+* @param {Num} b 初始值
+* @param {Num} c 變化值
+* @param {Num} d 持續時間
+*/
+function easeOut(t, b, c, d) {
+if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+return -c / 2 * ((--t) * (t - 2) - 1) + b;
+};
+/**
+* 繪製轉盤
+*/
+function drawRouletteWheel() {
+// ----- ① 清空頁面元素，用於逐幀動畫
+/*context.clearRect(0, 0, canvas.width, canvas.height);*/
+// -----
+for (let i = 0; i < awards.length; i ++) {
+let _startRadian = startRadian + awardRadian * i,  // 每一個獎項所佔的起始弧度
+_endRadian =   _startRadian + awardRadian;     // 每一個獎項的終止弧度
+// ----- ② 使用非零環繞原則，繪製圓盤
+context.save();
+if (i % awards.length === 0) context.fillStyle = '#A9A9A9'
+else if (i % awards.length === 1) context.fillStyle = '#C0C0C0';
+else if (i % awards.length === 2) context.fillStyle = '#DCDCDC';
+else if (i % awards.length === 3) context.fillStyle = '#F0EFEF';
+context.beginPath();
+context.arc(canvas.width / 2, canvas.height / 2, OUTSIDE_RADIUAS, _startRadian, _endRadian, false);
+context.arc(canvas.width / 2, canvas.height / 2, INSIDE_RADIUAS, _endRadian, _startRadian, true);
+context.fill();
+context.restore();
+// -----
+// ----- ③ 繪製文字
+context.save();
+context.font = 'bold 16px Helvetica, Arial';
+context.fillStyle = '#000000';
+context.translate(
+CENTER_X + Math.cos(_startRadian + awardRadian / 2) * TEXT_RADIUAS,
+CENTER_Y + Math.sin(_startRadian + awardRadian / 2) * TEXT_RADIUAS
+);
+context.rotate(_startRadian + awardRadian / 2 + Math.PI / 2);
+context.fillText(awards[i], -context.measureText(awards[i]).width / 2, 0);
+context.restore();
+// -----
+}
+// ----- ④ 繪製指針
+
+
+/*
+context.save();
+
+
+context.beginPath();
+context.moveTo(CENTER_X, CENTER_Y - OUTSIDE_RADIUAS + 8);
+context.lineTo(CENTER_X - 10, CENTER_Y - OUTSIDE_RADIUAS);
+context.lineTo(CENTER_X - 4, CENTER_Y - OUTSIDE_RADIUAS);
+context.lineTo(CENTER_X - 4, CENTER_Y - OUTSIDE_RADIUAS - 10);
+context.lineTo(CENTER_X + 4, CENTER_Y - OUTSIDE_RADIUAS - 10);
+context.lineTo(CENTER_X + 4, CENTER_Y - OUTSIDE_RADIUAS);
+context.lineTo(CENTER_X + 10, CENTER_Y - OUTSIDE_RADIUAS);
+context.closePath();
+context.fill();
+context.restore();
+*/
+
+// -----
+}
+/**
+* 開始旋轉
+*/
+function rotateWheel() {
+// 當 當前時間 大於 總時間，停止旋轉，並返回當前值
+spinningTime += 20;
+if (spinningTime >= spinTotalTime) {
+	
+
+page66_text_edit(getValue()); return
+
+/*console.log(getValue()); return*/
+}
+let _spinningChange = (spinningChange - easeOut(spinningTime, 0, spinningChange, spinTotalTime)) * (Math.PI / 180);
+startRadian += _spinningChange
+drawRouletteWheel();
+window.requestAnimationFrame(rotateWheel);
+}
+/**
+* 旋轉結束，獲取值
+*/
+function getValue() {
+let startAngle = startRadian * 180 / Math.PI,       // 弧度轉換為角度
+awardAngle = awardRadian * 180 / Math.PI,
+pointerAngle = 90,                              // 指針所指向區域的度數，該值控制選取哪個角度的值
+overAngle = (startAngle + pointerAngle) % 360,  // 無論轉盤旋轉了多少圈，產生了多大的任意角，我們只需要求到當前位置起始角在360°範圍內的角度值
+restAngle = 360 - overAngle,                    // 360°減去已旋轉的角度值，就是剩下的角度值
+index = Math.floor(restAngle / awardAngle);     // 剩下的角度值 除以 每一個獎品的角度值，就能得到這是第幾個獎品
+return awards[index];
+}
+window.onload = function(e) {
+drawRouletteWheel();
+}
+document.getElementById('spin_button').addEventListener('click', () => {
+spinningTime = 0;                                // 初始化當前時間
+spinTotalTime = Math.random() * 3 + duration;    // 隨機定義一個時間總量
+spinningChange = Math.random() * 10 + velocity;  // 隨機頂一個旋轉速率
+rotateWheel();
+})
+
+
+function page66_text_restore(){
+	var text1 = document.getElementById("__Page61__costtotal1");
+	var notification = document.getElementById("__Page61__inform__container");
+	notification.style.display = "none";
+	text1.innerText = "零頭 $";
+}
+function page66_text_edit(name){
+	var text1 = document.getElementById("__Page61__costtotal1");
+	var text2 = document.getElementById("__Page61__informtext1");
+	var notification = document.getElementById("__Page61__inform__container");
+	
+	
+	notification.style.display = "block";
+	text1.innerText = name +"\xa0+\xa0$";
+	text2.innerText = "恭喜\xa0"+ name+ "\xa0成為這次的倒楣鬼，";
+}
