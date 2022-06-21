@@ -18,7 +18,7 @@ $(function(){
 
 function change_page(page_number){
 	var container = document.getElementById("__Page__menu__container");
-	if(page_number==0 |page_number==1 |page_number==3 |page_number==4 | page_number==8){
+	if(page_number==0 |page_number==1 |page_number==3 |page_number==4 | page_number==8 | page_number==15){
 		container.style.display = "flex";
 	}else{
 		container.style.display = "none";
@@ -274,14 +274,14 @@ function checkbill_openorclose(){ /*if mouse touchs the home star,the star will 
 	var __Page7__bottomimg2 = document.getElementById('__Page7__bottomimg2');
 	var __Page7__bottomimg3 = document.getElementById('__Page7__bottomimg3');  
 	if(checkbill_close==0){ //0 means open menu 1 means close menu
-		__Page7__bottomimg.style.transform = "rotate(90deg)";
+		/*__Page7__bottomimg.style.transform = "rotate(90deg)";*/
 		__Page7__bottomimg.style.backgroundColor = '#C4C4C4';
 		__Page7__bottomimg2.style.transform = "translate(-8vh ,-8vh)";
 		__Page7__bottomimg3.style.transform = "translate(8vh ,-8vh)";
 		
 		checkbill_close=1;
 	}else{
-		__Page7__bottomimg.style.transform = "rotate(0deg)";
+		/*__Page7__bottomimg.style.transform = "rotate(0deg)";*/
 		__Page7__bottomimg.style.backgroundColor = '#FFF333';
 		__Page7__bottomimg2.style.transform = "translate(0 ,0)";
 		__Page7__bottomimg3.style.transform = "translate(0 ,0)";
@@ -1116,4 +1116,38 @@ function page66_text_edit(name){
 	notification.style.display = "block";
 	text1.innerText = name +"\xa0+\xa0$";
 	text2.innerText = "恭喜\xa0"+ name+ "\xa0成為這次的倒楣鬼，";
+}
+
+function page47__rotatecard(){
+	
+	var front = document.getElementById("__Page47__cardfront__bar");
+	var back = document.getElementById("__Page47__cardback__bar");
+	var notification = document.getElementById("__Page47__informnotification__container");
+	back.style.transform = "rotatey(180deg)";
+	front.style.transform = "rotatey(0deg)";
+	notification.style.display = "block";
+
+	setTimeout("page47__open()", 2500 );
+}
+function page47__open(){
+	var notification = document.getElementById("__Page47__informnotification__container");
+	/*
+	var html__fullscreen = document.getElementById("html__fullscreen");
+	html__fullscreen.style.filter = "brightness(50%)";
+	notification.style.filter = "brightness(100%)";	
+	$('#html__fullscreen').not('#__Page47__informnotification__container').css('-webkit-filter', 'brightness(50%)');
+	*/
+	notification.style.transform = "rotatey(0deg)";
+}
+function page47__restore(){
+	var front = document.getElementById("__Page47__cardfront__bar");
+	var back = document.getElementById("__Page47__cardback__bar");
+	var notification = document.getElementById("__Page47__informnotification__container");
+	/*var html__fullscreen = document.getElementById("html__fullscreen");
+	html__fullscreen.style.filter = "brightness(100%)";*/
+	back.style.transform = "rotatey(0deg)";
+	front.style.transform = "rotatey(-180deg)";
+	notification.style.transform = "rotatey(-90deg)";
+	notification.style.display = "none";
+	
 }
