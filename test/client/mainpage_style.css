@@ -4,7 +4,7 @@ a {
 }
 
 button {
-    font-family: Inter !important;
+    font-family: 'Inter' !important;
     font-size: 20px;
 }
 
@@ -19,11 +19,13 @@ input {
 } 	
 
 p {
+    font-family: 'Inter' !important;
     font-size: 16px;
     text-align: center;
 }
 
 span {
+    font-family: 'Inter' !important;
     font-size: 20px;
 }
 
@@ -632,12 +634,14 @@ label[for="comment"] {
 #camera-submit {
     display: inline;
     font-size: 20px;
+    font-weight: 700;
     position: fixed;
-    transform: translateX(18vw);
+    transform: translateX(17.75vw);
 }
 
 .camera_msg {
-    display: block;
+    display: inline-block;
+    margin-top: 8vh;
 }
 
 /* 
@@ -687,12 +691,17 @@ input[type="checkbox"][id^="user"] {
 }
 */
 
+#Webapp {
+    padding-top: 6vh;
+}
+
 .preview-container {
     width: 300px;
     height: 300px;
     overflow: hidden;
-    border: 3px dotted #ccc;
-    margin: 0px auto;
+    border: 4px solid #000000;
+    border-radius: 20px;
+    margin: 0 auto;
 }
 
 /* 

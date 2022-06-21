@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="./mainpage_style.css">
     <link rel="stylesheet" href="BeiBei.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" charset="utf-8"></script>
   </head>
   <body>
     <div id="__fullscreen">
@@ -308,21 +311,21 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__cameraTrack__container">
-        <div id="cameraTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
-          <div id="camera-submit" onclick="">Next</div>
+        <div id="cameraTrack__header__bar"><img class="cancel-icon" id="stop_scan" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
+          <div id="camera-submit" onclick="change_page(6)">Next</div>
         </div>
         <div id="cameraTrack__form__bar">
           <div id="Webapp">
             <div class="preview-container">
               <video id="preview"></video>
             </div>
+            <div class="cameras"><span class="empty" v-if="cameras.length === 0">找不到鏡頭</span><span v-for="camera in cameras"><span v-if="camera.id != activeCameraId" :title="formatName(camera.name)"></span></span></div>
             <div class="scans">
               <transition-group name="scans" tag="ul">
-                <li v-for="scan in scans" :key="scan.date" :title="scan.content" vhtml="utf8(scan.content)"></li>
+                <li v-for="scan in scans" :key="scan.date" :title="scan.content" v-model="parsing(scan.content)"> </li>
               </transition-group>
             </div>
-          </div>
-          <!-- <span class="camera_msg">辨識中...</span> -->
+          </div><span class="camera_msg">辨識中...</span>
         </div>
       </div>
       <div class="tab-inner" id="__Page1__fullscreen">
@@ -905,9 +908,6 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./app_register.js"></script>
     <script src="./app_BeiBei.js"></script>

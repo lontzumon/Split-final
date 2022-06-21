@@ -4,40 +4,45 @@ var Webapp = new Vue({
         scanner: null,
         activeCameraId: null,
         cameras: [],
-        scans: [],
+        scans: []
     },
 
     mounted: function () {
         var self = this;
-        self.scanner = new Instascan.Scanner({
-            video: document.getElementById('preview'),
-            mirror: false,
-            refractoryPeriod: 1000,
-            scanPeriod: 1
+        document.getElementById('__Page7__bottomimg3').addEventListener('click', e => {
+            self.scanner = new Instascan.Scanner({
+                video: document.getElementById('preview'),
+                mirror: false,
+                refractoryPeriod: 1000,
+                scanPeriod: 1
+            });
+            self.scanner.addListener('scan', function (content, image) {
+                self.scans.unshift({ date: (new Date().toLocaleString()), content: content });
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+                self.cameras = cameras;
+                if (cameras.length == 0) {
+                    console.error('沒找到相機元素!!');
+                }
+                else if (cameras.length > 0) {
+                    self.activeCameraId = cameras[cameras.length-1].id;
+                    self.scanner.start(cameras[cameras.length-1]);
+                } else {
+                    console.log("可開啟視訊鏡頭");
+                }
+            }).catch(function (e) {
+                console.error(e);
+            });
         });
-        self.scanner.addListener('scan', function (content, image) {
-            self.scans.unshift({ date: new Date().toLocaleString(), content: content });
-            // if (content.indexOf('isyou.org') > -1) {
-            //   document.getElementById("meL").href = content;
-            //   document.getElementById("meL").click();
-            // } else {
-            //   alert("QRcode 可能不正確!!");
-            //   exit;
-            // }
+        document.getElementById('stop_scan').addEventListener('click', e => {
+            self.scanner.stop().then(function() {
+                console.log('Scanner stopped');
+            })
         });
-        Instascan.Camera.getCameras().then(function (cameras) {
-            self.cameras = cameras;
-            if (cameras.length == 0) {
-                console.error('沒找到相機元素!!');
-            }
-            else if (cameras.length > 0) {
-                self.activeCameraId = cameras[3].id;
-                self.scanner.start(cameras[3]);
-            } else {
-                console.log("可開啟視訊鏡頭");
-            }
-        }).catch(function (e) {
-            console.error(e);
+        document.getElementById('camera_submit').addEventListener('click', e => {
+            self.scanner.stop().then(function() {
+                console.log('Scanner stopped');
+            })
         });
     },
 
