@@ -293,14 +293,14 @@
               <div id="allocation">
                 <div id="payer" onclick="">
                   <div class="alloc_text">付款人</div>
-                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"><span id="username">丁丁</span></div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
                   <div class="alloc_type">全部</div>
                   <div class="alloc_next" id="__Mainpage__alloc_next__manualTrack1" onclick="change_page(12);Page37__checkadds();"><img src="./final_icon/Vector.png" alt="詳細資料"></div>
                 </div>
                 <hr class="break_style2">
                 <div id="splitter" onclick="">
                   <div class="alloc_text">分攤人</div>
-                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"><span id="username">丁丁</span></div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
                   <div class="alloc_type">平分</div>
                   <div class="alloc_next" id="__Mainpage__alloc_next__manualTrack2" onclick="change_page(11);firstadds();"><img src="./final_icon/Vector.png" alt="詳細資料"></div>
                 </div>
@@ -322,7 +322,7 @@
             <div class="cameras"><span class="empty" v-if="cameras.length === 0">找不到鏡頭</span><span v-for="camera in cameras"><span v-if="camera.id != activeCameraId" :title="formatName(camera.name)"></span></span></div>
             <div class="scans">
               <transition-group name="scans" tag="ul">
-                <li v-for="scan in scans" :key="scan.date" :title="scan.content" v-model="parsing(scan.content)"> </li>
+                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ utf8(scan.content) }}</li>
               </transition-group>
             </div>
           </div><span class="camera_msg">辨識中...</span>

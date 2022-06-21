@@ -39,7 +39,7 @@ var Webapp = new Vue({
                 console.log('Scanner stopped');
             })
         });
-        document.getElementById('camera_submit').addEventListener('click', e => {
+        document.getElementById('camera-submit').addEventListener('click', e => {
             self.scanner.stop().then(function() {
                 console.log('Scanner stopped');
             })

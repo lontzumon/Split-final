@@ -274,12 +274,6 @@ a.quick_button i::before {
     width: 14.75vh;
 }
 
-#username {
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 3.25vh;
-}
-
 #__walletMenu__bar {
     align-items: center;
     flex-direction: column;
@@ -473,7 +467,7 @@ label {
 .break_style2 {
     border: 0;
     border-top: 2px solid #C4C4C4;
-    margin: 1vh auto 0;
+    margin: 0.5vh auto 1vh;
     width: 86vw;
 }
 
@@ -537,7 +531,7 @@ label {
 }
 
 #comment-block {
-    height: 8vh;
+    height: 11vh;
 }
 
 label[for="comment"] {
@@ -548,7 +542,7 @@ label[for="comment"] {
 #comment {
     border: none;
     font-size: 18px;
-    margin-top: 2.25vh;
+    margin: 2.25vh 0 0.5vh;
     outline: none;
     width: 70vw;
 }
@@ -592,13 +586,13 @@ label[for="comment"] {
     width: 25.6vw;
 }
 
-#payer {
+/* #payer {
     height: 5.5vh;
 }
 
 #splitter {
     height: 5.5vh;
-}
+}*/
 
 .alloc_text, .alloc_img, .alloc_type, .alloc_next {
     display: inline-block;
@@ -606,17 +600,22 @@ label[for="comment"] {
 
 .alloc_text {
     font-size: 18px;
-    width: 20vw;
+    width: 18vw;
 }
 
 .alloc_img {
     font-size: 18px;
-    width: 45.5vw;
+    width: 47vw;
+    vertical-align: middle;
 }
 
 .alloc_type {
     font-size: 18px;
-    width: 13vw;
+    width: 12vw;
+}
+
+.alloc_next {
+    width: 3vw;
 }
 
 .small_icon {
