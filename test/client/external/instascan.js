@@ -30882,7 +30882,7 @@ var Analyzer = function () {
         return null;
       }
 
-      if (!this.imageBuffer) {
+      // if (!this.imageBuffer) {
         var videoWidth = this.video.videoWidth;
         var videoHeight = this.video.videoHeight;
 
@@ -30896,8 +30896,8 @@ var Analyzer = function () {
 
         this.canvasContext = this.canvas.getContext('2d');
         this.imageBuffer = ZXing._resize(this.sensorWidth, this.sensorHeight);
-        return null;
-      }
+        // return null;
+      // }
 
       this.canvasContext.drawImage(this.video, this.sensorLeft, this.sensorTop, this.sensorWidth, this.sensorHeight);
 

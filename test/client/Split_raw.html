@@ -322,7 +322,7 @@
             <div class="cameras"><span class="empty" v-if="cameras.length === 0">找不到鏡頭</span><span v-for="camera in cameras"><span v-if="camera.id != activeCameraId" :title="formatName(camera.name)"></span></span></div>
             <div class="scans">
               <transition-group name="scans" tag="ul">
-                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ utf8(scan.content) }}</li>
+                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ parsing(utf8(scan.content)) }}</li>
               </transition-group>
             </div>
           </div><span class="camera_msg">辨識中...</span>
