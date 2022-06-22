@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import express from 'express'
-import mysql   from 'mysql'
+import expressWs from 'express-ws'
+import mysql from 'mysql'
 import sessions from 'express-session'
 import cookieParser from 'cookie-parser'
 import file from 'session-file-store'
@@ -13,10 +14,18 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname  = dirname(__filename)
 const __rootname = dirname(__dirname)
 // config and connect to mysql
-import { config }  from './config.js'
+const config = {
+  'mysql': {
+    'database': 'wp2022_group8',
+    'host': 'localhost',
+    'password': 'G2FxUI4XqP1TwkerEkHvzmpUIPWrOrkoBFqyNINMlbE=',
+    'user': 'wp2022_group8'
+  }
+}
 var connection = mysql.createConnection(config.mysql)
 // construct a web server instance
 const app  = express()
+expressWs(app);
 const port = 5554
 // set the cookie parser
 app.use(cookieParser())
@@ -34,7 +43,6 @@ app.use(sessions({
   }),
   resave: true,
 }))
-var session
 // start the server
 app.listen(port, () => {
   console.log(`listening on port: ${port}`)
@@ -58,13 +66,14 @@ const queryPromise = sql => {
 /***********user************/
 // user signup
 app.get('/signupUser', (req, res) => {
-  const uname = req.query.mail
-  const email = req.query.mail
-  const pswd = req.query.password
-  let sql  = `INSERT INTO user (username, password, mail) VALUES ("${uname}", "${pswd}", "${email}")`
+  const param = {
+    mail: req.query.mail,
+    pswd: req.query.password
+  }
+  let sql  = `INSERT INTO user (username, password, mail) VALUES ("${param.mail}", "${param.pswd}", "${param.mail}")`
   connection.query(sql, err => {
     if(err) res.status(500).send(err)
-    else res.send("User is added")
+    else res.send(param)
   })
 })
 // user login
@@ -77,7 +86,6 @@ app.get('/loginUser', (req, res) => {
     if(err) res.send("No this user")
     else if(results == []) res.send("No User mail")
     else if(results[0].password == pswd) {
-      session = req.session
       session.uid = results[0].uid
       res.send("Success!")
     }
@@ -93,8 +101,22 @@ app.get('/showUsername', (req, res) => {
     res.send(results[0].username)
   })
 })
+// 重複註冊檢查
+app.get('/checkPast', (req, res) => {
+  var mail = req.query.mail
+  let sql = `SELECT uid FROM user WHERE mail = "${mail}"`
+  queryPromise(sql).then(result => {
+    if(result[0] != null) res.send(true);
+    else res.send(false);
+  }).then(none => {
+    console.log("Check Successfully!")
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  })
+})
 /***********wallet************/
-// insert user wallet with code added and promise async
+// insert user wallet with code added
 app.get('/insertWallet', (req, res) => {
   const param = {
     uid: req.session.uid,
@@ -117,21 +139,9 @@ app.get('/insertWallet', (req, res) => {
     res.status(500).send(err);
   })
 })
-// delete user wallet (will cause error)
+// delete user wallet (unimplemented)
 app.get('/deleteWallet', (req, res) => {
   res.status(501).send("cannot delete wallet");
-  /*
-  let wname = req.query.wallet
-  let uname = req.session.username
-  let sql   = `DELETE FROM userWallet WHERE (uid) LIKE
-              (SELECT uid FROM user WHERE username = ${uname})
-              AND (wid) LIKE
-              (SELECT wid FROM wallet WHERE wname = ${wname})`
-  connection.query(sql, err => { if(err) throw err })
-  sql = `DELETE FROM wallet WHERE (wname) LIKE ${wname}`
-  connection.query(sql, err => { if(err) throw err })
-    */
-  // res.send(`Wallet is deleted!`)
 })
 // join wallet
 app.get('/joinWallet', (req, res) => {
@@ -142,9 +152,10 @@ app.get('/joinWallet', (req, res) => {
   connection.query(sql, (err, results) => {
     if(err) throw err
     console.log(`create userWallet`)
+    res.send(`create userWallet`)
   })
 })
-// leave wallet
+// leave wallet (unimplemented)
 app.get('/leaveWallet', (req, res) => {
   res.status(501).send("cannot leave wallet");
   /**/
@@ -159,6 +170,15 @@ app.get('/showWalletName', (req, res) => {
     res.send(results[0].wname)
   })
 })
+// show wallet invite code
+app.get('/showWalletCode', (req, res) => {
+  const uid = req.session.uid
+  let sql = `SELECT code FROM wallet WHERE wid = (SELECT focusWallet FROM user WHERE uid = "${uid}")`
+  connection.query(sql, (err, results) => {
+    if(err) throw err
+    res.send(results[0].code)
+  })
+})
 //switch wallet into null
 app.get('/showAllWallet', (req, res) => {
   const uid = req.session.uid
@@ -167,7 +187,8 @@ app.get('/showAllWallet', (req, res) => {
     sql = `SELECT wid, wname FROM wallet WHERE wid IN (SELECT wid FROM userWallet WHERE uid = ${uid})`
     return queryPromise(sql);
   }).then(result => {
-    res.send(JSON.stringify(result));
+    // res.send(JSON.stringify(result));
+    res.send(result);
   }).catch(err => {
     console.log(err);
     res.status(500).send(err);
@@ -204,25 +225,11 @@ app.get('/setNickname', (req, res) => {
 })
 // get member from wallet
 app.get('/getMember', (req, res) => {
-  let str = ""
-  let sql = `SELECT wid FROM wallet WHERE wname = ${wname}`
+  let uid = req.session.uid
+  let sql = `SELECT username FROM user WHERE uid IN (SELECT uid FROM userWallet WHERE wid = (SELECT focusWallet from user WHERE uid = ${uid}))`
   connection.query(sql, (err, results) => {
     if(err) throw err
-    const wid = results[0].wid
-    sql = `SELECT uid FROM userWallet WHERE wid = ${wid}`
-    connection.query(sql, (err, results) => {
-      if(err) throw err
-      for(var i=0; i<results.length; i++) {
-        const uid = results[i].uid
-        sql = `SELECT username FROM user WHERE uid = ${uid}`
-        connection.query(sql, (err, results) => {
-          if(err) throw err
-          str = str + `${results[0].username}<br>`
-          console.log(str) // here has output
-        })
-      }
-      // console.log(str) -- no output
-    })
+    res.send(results)
   })
 })
 /***********history************/
@@ -235,15 +242,20 @@ app.post('/insertHistory', (req, res) => {
     money: req.body.money,
     tag: req.body.tag,
     getter: req.session.uid,
+    comment: req.body.comment,
     payer: null
   }
-  let sql = `INSERT INTO history (hid, time, item, money, tag) 
-    VALUES ((SELECT focusWallet FROM user WHERE uid=${param.uid}), "${param.time}", "${param.item}", ${param.money}, "${param.tag}")`
-  queryPromise(sql).then(none => {
+  let sql = `SELECT focusWallet from user WHERE uid = ${param.uid}`
+  queryPromise(sql).then(result => {
+    param.wid = result[0].focusWallet;
+    sql = `INSERT INTO history (wid, time, item, money, tag, comment) 
+    VALUES (${param.wid}, "${param.time}", "${param.item}", ${param.money}, "${param.tag}", "${param.comment}")`
+    return queryPromise(sql);
+  }).then(none => {
     sql = `SELECT MAX(hid) AS hid FROM history`
     return queryPromise(sql);
   }).then(result => {
-    param.hid = result;
+    param.hid = result[0].hid;
     sql = `SELECT uid from userWallet where wid=(SELECT focusWallet as wallet FROM user WHERE uid=${param.uid}) ORDER BY uid`
     return queryPromise(sql);
   }).then(result => {
@@ -352,6 +364,7 @@ app.post('/splitMoneyDate', (req, res) => {
     res.status(500).send(err);
   })
 })
+//confirm split
 app.post('/confirmSplit', (req, res) => {
   const param = {
     uid: req.session.uid,
@@ -380,23 +393,91 @@ app.post('/confirmSplit', (req, res) => {
   })
 })
 /***********notification************/
-function addNotification(wallet, message, tag) {
-  if(second === undefined) {
-    const sql = `INSERT INTO notification (wid, message) VALUES (${wallet}, ${message})`
+app.get('/addNotification', (req, res) => {
+  const param = {
+    uid: req.session.uid,
+    time: req.query.time,
+    item: req.query.item
+  };
+  let sql = `SELECT username, focusWallet FROM user WHERE uid = ${param.uid}`
+  queryPromise(sql).then(result => {
+    param.wid = result[0].focusWallet;
+    param.message = `${result[0].username}新增了一筆項目`
+    sql = `INSERT INTO notification (wid, message, time, item) VALUES (${param.wid}, "${param.message}", "${param.time}", "${param.item}")`
     return queryPromise(sql)
-  }
-  else {
-    const sql = `INSERT INTO notification (wid, message, tag) VALUES (${wallet}, ${message}, ${tag})`
-    return queryPromise(sql)
-  }
-}
+  }).then(none => {
+    res.send("notification inserted successfully")
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  })
+})
 app.get('/getNotification', (req, res) => {
   const param = {
-    uid: req.session.uid
-  }
-  let sql = `SELECT message FROM notification where wid=(SELECT focusWallet FROM user WHERE uid=${param.uid}) ORDER BY idx DESC`
+    uid: req.session.uid,
+    message: null
+  };
+  let sql = `SELECT focusWallet FROM user WHERE uid = ${param.uid}`;
   queryPromise(sql).then(result => {
-    res.send(result.message)
+    param.wid = result[0].focusWallet;
+    sql = `SELECT message FROM notification WHERE wid = ${param.wid} ORDER BY nid DESC`;
+    return queryPromise(sql);
+  }).then(result => {
+    res.send(result);
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  })
+})
+/***********card************/
+app.get('setCard', (req, res) => {
+  const param = {
+    uid: req.session.uid,
+    cid: req.query.cardid,
+    unlocked: req.query.cardid,
+    star: req.query.star,
+    picture: req.query.picture,
+    description: req.query.description,
+    talk: req.query.talk,
+  }
+  let updatelist = ['unlocked', 'star', 'picture', 'description', 'talk'];
+  let updated = '';
+  function chooseupdate(key) {
+    if(param[key] !== undefined) {
+      updated += `${key} = ${param[key]}, `
+    }
+  }
+  updatelist.forEach(chooseupdate);
+  updated.substring(0, updated.length - 2);
+  let sql = `UPDATE card SET {$updated} WHERE cardset IN (SELECT cardset FROM userWallet WHERE uid = ${param.uid} AND wid = (SELECT focusWallet FROM user WHERE uid = ${param.uid})) AND cid = ${param.cid}`
+  queryPromise(sql).then(none => {
+      res.send('Success');
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  })
+})
+app.get('/getCard', (req, res) => {
+  const param = {
+    uid: req.session.uid,
+    cid: req.query.cardid
+  }
+  let sql = `SELECT unlocked, star, description, talk FROM card WHERE cardset IN (SELECT cardset FROM userWallet WHERE uid = ${param.uid} AND wid = (SELECT focusWallet FROM user WHERE uid = ${param.uid})) AND cid = ${param.cid}`
+  queryPromise(sql).then(result => {
+      res.send(result[0]);
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send(err);
+  })
+})
+app.get('/getCardPicture', (req, res) => {
+  const param = {
+    uid: req.session.uid,
+    cid: req.query.cardid
+  }
+  let sql = `SELECT picture FROM card WHERE cardset IN (SELECT cardset FROM userWallet WHERE uid = ${param.uid} AND wid = (SELECT focusWallet FROM user WHERE uid = ${param.uid})) AND cid = ${param.cid}`
+  queryPromise(sql).then(result => {
+    res.send(result[0].picture);
   }).catch(err => {
     console.log(err);
     res.status(500).send(err);
