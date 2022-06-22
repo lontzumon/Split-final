@@ -18,10 +18,16 @@ $(function(){
 
 function change_page(page_number){
 	var container = document.getElementById("__Page__menu__container");
+	var photo_container = document.getElementById("__Page__picture__container");
 	if(page_number==0 |page_number==1 |page_number==3 |page_number==4 | page_number==8 | page_number==15){
 		container.style.display = "flex";
 	}else{
 		container.style.display = "none";
+	}
+	if(page_number==0 |page_number==15){
+		photo_container.style.display = "flex";
+	}else{
+		photo_container.style.display = "none";
 	}
 	$($li. eq(page_number) .find('a'). attr ('href')).show().siblings ('.tab-inner').hide();
 	$li. eq(page_number) .addClass('active'). siblings ('.active').removeClass('active');
@@ -917,10 +923,13 @@ function page62__changenotification(type){
 function page44__choose_type(thistype_id){
 	var type1 = document.getElementById("__Page44__notpay__bar");
 	var typetext1 = document.getElementById("__Page44__selectword1");
+	var container1 = document.getElementById("__Page44__item__container");
 	var type2 = document.getElementById("__Page44__needpay__bar");
 	var typetext2 = document.getElementById("__Page44__selectword2");
+	var container2 = document.getElementById("__Page44__needpay__container");
 	var type3 = document.getElementById("__Page44__havepayed__bar");
 	var typetext3 = document.getElementById("__Page44__selectword3");
+	var container3 = document.getElementById("__Page44__havepayed__container");
 	
 	
 	
@@ -939,14 +948,23 @@ function page44__choose_type(thistype_id){
 	
 	if(thistype_id.includes("notpay")){
 		typetext1.style.color = "#383838";
+		container1.style.display = "block";
+		container2.style.display = "none";
+		container3.style.display = "none";
 	}
 	
 	if(thistype_id.includes("needpay")){
 		typetext2.style.color = "#383838";
+		container1.style.display = "none";
+		container2.style.display = "block";
+		container3.style.display = "none";
 	}
 	
 	if(thistype_id.includes("havepayed")){
 		typetext3.style.color = "#383838";
+		container1.style.display = "none";
+		container2.style.display = "none";
+		container3.style.display = "block";
 	}
 	
 }
@@ -1068,8 +1086,8 @@ function rotateWheel() {
 spinningTime += 20;
 if (spinningTime >= spinTotalTime) {
 	
-
-page66_text_edit(getValue()); return
+setTimeout("page66_text_edit(getValue())", 500 ); return
+/*page66_text_edit(getValue()); return*/
 
 /*console.log(getValue()); return*/
 }

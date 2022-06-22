@@ -1281,6 +1281,7 @@ input[type=checkbox]:checked+label {
     height: calc(11vw + 1vh);
     /* margin-left: calc((100vw - 76vw)/2); */
     margin-left: 0;
+	margin-top: 2vh;
 }
 
 #__Page37__people__container {
@@ -1537,7 +1538,7 @@ input[type=checkbox]:checked+label {
 }
 .__Page38__percentage,.__Page38__realcost,.__Page38__additionalcost {
     /* margin: 0.1vh 0 0 0; */
-    font-size: 1vw;
+    font-size: 3vw;
     font-weight: 1000;
 }
 .__Page38__percentage,.__Page38__realcost2,.__Page38__additionalcost2 {
@@ -1545,13 +1546,14 @@ input[type=checkbox]:checked+label {
 	border:0px;
 }
 .__Page38__percentage2,.__Page38__realcost2,.__Page38__additionalcost2{
-	font-size: 1vw;
+	font-size: 3vw;
     font-weight: 1000;
 }
 .__Page38__percentage3,.__Page38__percentage4,.__Page38__additionalcost3,.__Page38__additionalcost4{
-	font-size: 1vw;
+	font-size: 3vw;
     font-weight: 1000;
-	color:#C4C4C4;
+    color: #C4C4C4;
+    margin: 0 0 0 0;
 }
 #__Page38__decorate2__container {
     width: 76vw;
@@ -2132,7 +2134,7 @@ input[type=checkbox]:checked+label {
 #__Page44__item__container {
     height: calc(50vh);
     overflow-x: hidden;
-    /* background-color: white; */
+	/*display: none;*/
 }
 #__Page47__fullscreen {
     margin-top: 6.5vh;
@@ -2351,4 +2353,66 @@ input[type=checkbox]:checked+label {
     box-shadow: 1vw 1vw 0px #000000;
     border-radius: 10px;
     -webkit-text-stroke: 0.5px #000;
+}
+
+
+
+
+#__Page__picture__container {
+    height: 5vh;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 2;
+    right: 1vw;
+	display: none;
+}
+#__Page__photo__bar {
+    width: 4.7vh;
+    height: 4.7vh;
+    background-color: #ffffff;
+    border-radius: 100%;
+    border: 2px solid #494949;
+    margin-top: 7.3vh;
+    margin-right: 5vw;
+}
+#__Page__photoImg {
+    width: 4.7vh;
+    height: 4.7vh;
+}
+#__Page44__needpay__container,#__Page44__havepayed__container {
+    height: calc(50vh);
+    overflow-x: hidden;
+    display: none ;
+}
+.__Page44__needpay__bar,.__Page44__havepayed__bar {
+    font: 5vw int6;
+    position: relative;
+    margin: 0vh 0 0 4vw;
+    display: flex;
+    align-items: start;
+    width: 70vw;
+    height: calc(7vw + 1vh);
+    margin-left: 0vw;
+    flex-direction: row;
+}
+.__Page44__needpayname,.__Page44__havepayedname {
+    font: 5vw int6;
+    /* font-weight: 600; */
+    position: relative;
+    /* margin-right: 6vw; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    width: 90vw;
+    height: calc(7vw + 1vh);
+}
+.__Page44__needpaytext,.__Page44__havepayedtext {
+    font-size: 3.5vw;
+    font-weight: 1000;
+    -webkit-text-stroke: 0.2px #000;
+    margin-bottom: 0;
 }
