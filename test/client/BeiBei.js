@@ -1169,3 +1169,27 @@ function page47__restore(){
 	notification.style.display = "none";
 	
 }
+
+function page44__dateupdate(thistype_id){
+	var year = document.getElementById("__Page44__dateyear");
+	var month = document.getElementById("__Page44__month");
+	var decimal_year = parseInt(year.innerText, 10);
+	var decimal_month = parseInt(month.innerText, 10);
+	if(thistype_id.includes("left")){
+		decimal_month--;
+	}
+	if(thistype_id.includes("right")){
+		decimal_month++;
+	}
+	if(decimal_month>12){
+		month.innerText="0"+(decimal_month-12);
+		year.innerText=(decimal_year+1);
+	}else if(decimal_month>9){
+		month.innerText=(decimal_month);
+	}else if(decimal_month<1){
+		month.innerText=(decimal_month+12);
+		year.innerText=(decimal_year-1);
+	}else{
+		month.innerText="0"+(decimal_month);
+	}
+}

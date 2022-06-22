@@ -15,9 +15,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="./mainpage_style.css">
     <link rel="stylesheet" href="BeiBei.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js" charset="utf-8"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="external/adapter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" charset="utf-8"></script>
+    <!-- <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="external/instascan.js"></script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
   </head>
   <body>
     <div id="__fullscreen">
@@ -574,7 +578,7 @@
           <p id="__Page3__title">發送卡牌</p>
         </div>
         <div id="__Page3__card__container">
-          <div id="__Page3__car__bar"></div>
+          <div id="__Page3__card__bar"></div>
         </div>
         <div id="__Page3__send__container">
           <div id="__Page3__send__bar">
@@ -775,9 +779,18 @@
             <p class="__Page61__wheelnameaka" id="__Page61__wheelnameaka">日期區間</p>
           </div>
           <div id="__Page61__datetext2__bar">
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">< </p>
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">2022/06</p>
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain"> ></p>
+		    <div id="__Page44__lefticon__bar" onclick="page44__dateupdate(this.id)">
+		      <p class="__Page44__lefticon" id="__Page44__lefticon"><</p>
+			</div>
+			<div id="__Page44__dateup__bar">
+		      <p class="__Page44__dateexplain" id="__Page44__dateyear">2022</p>
+			  <p class="__Page44__dateexplain">/</p>
+			  <p class="__Page44__dateexplain" id="__Page44__month">06</p>
+			</div>
+            <!--p class="__Page44__dateexplain" id="__Page61__wheelexplain">2022/06</p-->
+			<div id="__Page44__righticon__bar" onclick="page44__dateupdate(this.id)">
+              <p class="__Page44__righticon" id="__Page44__righticon">></p>
+			</div>
           </div>
         </div>
         <div id="__Page44__decorate__container"></div>
@@ -955,8 +968,7 @@
       </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="./app_register.js"></script>
-    <script src="./app_BeiBei.js"></script>
+    <script src="./app_Split.js"></script>
     <script type="text/javascript" src="./mainpage.js"></script>
     <script type="text/javascript" src="./Webapp.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>

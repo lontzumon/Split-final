@@ -231,6 +231,7 @@ body {
 	position: absolute;
 	background-image: url("./final_icon/LOCK.png");
 	background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #__Page1__cardText {
@@ -341,6 +342,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	height: 22.4vh;
+    background: url('./final_photo/DIRTY.jpg');
+    background-size: 100% 100%;
 }
 
 #__Page2__cameraImg {
@@ -625,6 +628,13 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+}
+
+#__Page3__card__bar {
+    width: 47.8vw;
+	height: 37.2vh;
+    margin-left: 26.1vw;
+    margin-right: 26.1vw;
 }
 
 #__Page__menu__container {
@@ -2449,4 +2459,43 @@ input[type=checkbox]:checked+label {
     display: flex;
     align-items: center;
     justify-content: start;
+}
+.__Page44__dateexplain {
+    margin: 0vh 0 0vh 0vh;
+    font-size: 2vh;
+    font-weight: 1000;
+    color: #000000;
+    line-height: 1em;
+}
+#__Page44__righticon__bar {
+    width: 1.7vh;
+    height: 1.7vh;
+    background-color: #ffffff;
+    border: 2px solid #494949;
+    margin: 0vh 0vw 1vh 2vw;
+}
+#__Page44__lefticon__bar {
+    width: 1.7vh;
+    height: 1.7vh;
+    background-color: #ffffff;
+    border: 2px solid #494949;
+    margin: 0vh 2vw 1vh 0vw;
+}
+#__Page44__dateup__bar {
+    width: 10vh;
+    height: 1.7vh;
+    background-color: #ffffff;
+    margin: 0vh 0vw 1vh 0vw;
+    display: flex;
+    justify-content: center;
+}
+.__Page44__righticon,.__Page44__lefticon {
+    margin: 0vh 0 0vh 0vh;
+    font-size: 1.7vh;
+    font-weight: 1000;
+    color: #494949;
+    line-height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
