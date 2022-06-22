@@ -13,11 +13,11 @@ var Webapp = new Vue({
             self.scanner = new Instascan.Scanner({
                 video: document.getElementById('preview'),
                 mirror: false,
-                refractoryPeriod: 1000,
+                refractoryPeriod: 2000,
                 scanPeriod: 1
             });
             self.scanner.addListener('scan', function (content, image) {
-                self.scans.unshift({ date: (new Date().toLocaleString()), content: content });
+                self.scans.unshift({ date: +(Date.now()), content: content });
             });
             Instascan.Camera.getCameras().then(function (cameras) {
                 self.cameras = cameras;
@@ -25,8 +25,8 @@ var Webapp = new Vue({
                     console.error('沒找到相機元素!!');
                 }
                 else if (cameras.length > 0) {
-                    self.activeCameraId = cameras[cameras.length-1].id;
-                    self.scanner.start(cameras[cameras.length-1]);
+                    self.activeCameraId = cameras[cameras.length - 1].id;
+                    self.scanner.start(cameras[cameras.length - 1]);
                 } else {
                     console.log("可開啟視訊鏡頭");
                 }
@@ -34,16 +34,16 @@ var Webapp = new Vue({
                 console.error(e);
             });
         });
-        document.getElementById('stop_scan').addEventListener('click', e => {
-            self.scanner.stop().then(function() {
+        document.getElementById("stop_scan").addEventListener("click", e => {
+            self.scanner.stop().then(function () {
                 console.log('Scanner stopped');
-                self.scans = self.scans.splice();
+                self.scans.splice(0);
             })
         });
-        document.getElementById('camera-submit').addEventListener('click', e => {
-            self.scanner.stop().then(function() {
+        document.getElementById("camera-submit").addEventListener("click", e => {
+            self.scanner.stop().then(function () {
                 console.log('Scanner stopped');
-                self.scans = self.scans.splice();
+                self.scans.splice(0);
             })
         });
     },
@@ -68,46 +68,51 @@ var Webapp = new Vue({
                 return;
             }
             else {
-                // alert(s);
-                var year = s.substr(10,3);
-                var month = s.substr(13,2);
-                var day = s.substr(15,2);
-                var date = [`${parseInt(year)+1911}`, month, day].join('-');
-                var hexcost = s.substr(29,8);
-                var totcost = parseInt('0x' + hexcost, 16);
-                document.getElementById("current_date").val(date);
-                document.getElementById("account_cost").value = totcost;
-                
+                var year = s.substr(10, 3);
+                var month = s.substr(13, 2);
+                var day = s.substr(15, 2);
+                var date = [`${parseInt(year) + 1911}`, month, day].join('-');
+                var hexcost = s.substr(29, 8);
+                var totcost = parseInt("0x" + hexcost, 16);
+                document.getElementById("current_date").innerHTML = date;
+                document.getElementById("account_cost").value = `${totcost}`;
+                // alert(`${date}&${totcost}`);
+
                 var more = s.slice(77).split(':', 4);
-                var count = parseInt(more[1]);
-                var re1 = /\:[\d]+\:[\d]+\:[012]/;
+                var count = parseInt(more[2]);
+                var re1 = /\:[\d]+\:[\d]+\:[012]\:/;
                 var tmp = s.slice(77).split(re1);
                 var str = tmp[1];
-                // alert(str);
 
-                var re2 = /(\:[\u4e00-\u9fa5\S]+\:[\d]+\:[\d]+)/g;
-                var list = str.split(re2);
-                // alert(list);
+                // var re2 = /(\:([\u4e00-\u9fa5]+|[^:]+)\:[\d]+\:[\d]+)/g;
+                // var list = str.split(re2);
+                var list = str.split(':');
+                for (let i = 0; i < list.length; i++) {
+                    list[i] = list[i].trim();
+                }
+                var listlen = Math.trunc(list.length / 3);
                 let names = [];
                 let costs = [];
-                if (count !== list.length) {
-                    alert("資訊不夠完整，請手動檢查");   
+                if (count !== listlen) {
+                    alert("資訊不夠完整，請手動檢查");
                 }
-                for (let i = 0; i < list.length; i++) {
-                    let record = list[i].split(':');
-                    names.push(record[1]);
-                    costs.push(record[3]);
-                    if (i > 0) document.getElementById("new-record").click();
+                const buttonDiv = document.getElementById("new-record")
+                buttonDiv.addEventListener('click', () => { console.log('auto click') });
+                for (let i = 0; i < listlen; i++) {
+                    names.push(list[i * 3 + 0]);
+                    costs.push(list[i * 3 + 2]);
+                    if (i > 0) {
+                        buttonDiv.click();
+                    }
                 }
-
-                let record_name = document.getElementsByClassName("record_name");
-                let record_cost = document.getElementsByClassName("record_cost");
-                for (let i = 0; i < list.length; i++) {
+                let record_name = document.getElementsByClassName("record-name");
+                let record_cost = document.getElementsByClassName("record-cost");
+                for (let i = 0; i < listlen; i++) {
                     record_name[i].value = names[i];
                     record_cost[i].value = costs[i];
                 }
 
-                // alert(`${date}&${cost}`);
+                alert("成功！");
                 this.scans.pop();
                 return;
             }

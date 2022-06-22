@@ -30489,9 +30489,10 @@ var Camera = function () {
                     facingMode: 'environment',
                     mandatory: {
                       sourceId: this.id,
-                      minWidth: 600,
-                      maxWidth: 800,
-                      minAspectRatio: 1.6
+                      minWidth: 300,
+                      maxWidth: 300,
+                      minAspectRatio: 1,
+                      maxAspectRatio: 1
                     },
                     optional: []
                   }
@@ -30502,9 +30503,10 @@ var Camera = function () {
                   video: {
                     mandatory: {
                       sourceId: this.id,
-                      minWidth: 600,
-                      maxWidth: 800,
-                      minAspectRatio: 1.6
+                      minWidth: 300,
+                      maxWidth: 300,
+                      minAspectRatio: 1,
+                      maxAspectRatio: 1
                     },
                     optional: []
                   }
