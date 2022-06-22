@@ -270,9 +270,9 @@
         <div id="__Page16__invite__container">
           <div id="__Page16__invite__bar" onclick="add_person()">
             <div id="__Page16__invitelink__bar">
-              <p class="__Page16__inviteid" id="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結" onclick="copy_inviteid()">
+              <p class="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結" onclick="copy_inviteid()">
             </div>
-            <p class="__Page16__inviteid">#1s1s3fewg</p>
+            <p class="__Page16__inviteid" id="__Page16__inviteid">#1s1s3fewg</p>
           </div>
         </div>
         <div id="__Page16__team__container">
@@ -531,7 +531,7 @@
             <div id="__Page2__cardName">
               <p id="__Page2__cardNameText">討債卡</p>
             </div>
-            <div id="__Page2__cardStar"></div>
+            <div id="__Page2__cardStar"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_2.png"><img class="__Page2__starimg" src="./midterm_icon/star_3.png"></div>
             <div id="__Page2__imgUpload">
               <div class="invisible" id="__Page2__cameraImg"></div>
               <p class="invisible" id="__Page2__uploadText">上傳圖片</p>
@@ -643,10 +643,10 @@
       </div>
       <div class="tab-inner" id="__Page37__fullscreen">
         <div id="__Page38__fullscreen__container">
-          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" id="__Page37__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(0)">
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" id="__Page37__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(6)">
             <!-- p class="__Page38__paytypetop1">X</p-->
             <p class="__Page38__paytypetop2">付款人</p>
-            <p class="__Page38__paytypetop3" id="__Page37__paytypetop3" onclick="change_page(6);firstadds();">OK</p>
+            <p class="__Page38__paytypetop3" id="__Page37__paytypetop3" onclick="change_page(6)">OK</p>
           </div>
           <div id="__Page37__people__container">
             <!-- 此label只是範例，真正加入的地方在js的Page37__checkadds()-->
@@ -789,9 +789,18 @@
             <p class="__Page61__wheelnameaka" id="__Page61__wheelnameaka">日期區間</p>
           </div>
           <div id="__Page61__datetext2__bar">
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">< </p>
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">2022/06</p>
-            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain"> ></p>
+            <div id="__Page44__lefticon__bar" onclick="page44__dateupdate(this.id)">
+              <p class="__Page44__lefticon" id="__Page44__lefticon"><</p>
+            </div>
+            <div id="__Page44__dateup__bar">
+              <p class="__Page44__dateexplain" id="__Page44__dateyear">2022</p>
+              <p class="__Page44__dateexplain">/</p>
+              <p class="__Page44__dateexplain" id="__Page44__month">06</p>
+            </div>
+            <!-- p class="__Page44__dateexplain" id="__Page61__wheelexplain">2022/06</p-->
+            <div id="__Page44__righticon__bar" onclick="page44__dateupdate(this.id)">
+              <p class="__Page44__righticon" id="__Page44__righticon">></p>
+            </div>
           </div>
         </div>
         <div id="__Page44__decorate__container"></div>
@@ -904,8 +913,8 @@
             <p class="__Page62__informtext" id="__Page47__informtext2">快點到卡牌冊裡面查看吧!</p>
             <div id="__Page62__informbutton">
               <div id="__Page62__setting">
-                <p class="__Page47__handsetting" id="__Page47__handsetting" onclick="change_page(8);page47__restore();">讓我看看</p>
-                <p class="__Page47__handsetting" id="__Page47__luckysetting" onclick="change_page(0);page47__restore();">我知道了</p>
+                <p class="__Page47__handsetting" id="__Page47__handsetting" onclick="change_page(0);page47__restore();">我知道了</p>
+                <p class="__Page47__luckysetting" id="__Page47__luckysetting" onclick="change_page(8);page47__restore();">讓我看看</p>
               </div>
             </div>
           </div>
@@ -927,7 +936,7 @@
                   <div class="__Page47__cardName" id="__Page47__cardfrontName">
                     <p class="__Page47__cardNameText" id="__Page47__cardfrontNameText">討債卡</p>
                   </div>
-                  <div id="__Page2__cardStar"></div>
+                  <div id="__Page47__cardStar"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_1.png"><img class="__Page2__starimg" src="./midterm_icon/star_2.png"><img class="__Page2__starimg" src="./midterm_icon/star_3.png"></div>
                   <div class="__Page47__imgUpload" id="__Page47__imgUpload">
                     <div class="__Page47__cameraImg" id="__Page47__frontcameraImg"></div>
                     <p class="__Page47__uploadText" id="__Page47__uploadText">上傳圖片</p>

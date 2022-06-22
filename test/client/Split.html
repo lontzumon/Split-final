@@ -182,11 +182,31 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__overview__container">
-        <div id="__overview__header__bar"><span id="overview_title">錢包總覽</span></div>
-        <div id="__overview__flexbox__bar">
-          <!-- use id in db as that in html to distinguish the wallets--><a class="flex-item" id="wallet1" href="#">丁丁家</a><a class="flex-item" id="wallet2" target="_top" onclick="change_page(0)">台南租嗚</a>
+        <div id="__overview__header__bar">
+          <p id="__overview__title">錢包總覽</p>
+          <div id="__overview__info">
+            <div id="__overview__unlock">
+              <p id="__overview__unlockText">已加入：</p>
+              <p id="__overview__unlockAmount">2</p>
+            </div>
+          </div>
+          <div id="__overview__underline"></div>
         </div>
-        <div id="__overview__footer__bar"><a class="__Page__menu__word" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="__Page__menu__word" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
+        <div id="__overview__pay__container">
+          <div id="__overview__notpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword1">待收款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__needpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword2">待付款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__havepayed__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword3">無活動</p>
+          </div>
+        </div>
+        <div id="__overview__flexbox__bar"><a class="flex-item" id="walletID1" onclick="change_page(0)"><img class="overview-img" id="walletID-img1" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt1">台南租嗚</span></a><a class="flex-item" id="walletID2" href="#" onclick=""><img class="overview-img" id="walletID-img2" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt2">怕周球R</span></a></div>
+        <div id="__overview__footer__bar"><a class="wallet-request" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="wallet-request" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
       </div>
       <div class="tab-inner" id="__Page18__fullscreen">
         <!--
@@ -274,7 +294,7 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__manualTrack__container">
-        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
+        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date" id="current_date"></span>
           <div id="manual-submit" onclick="change_page(16)">OK</div>
         </div>
         <div id="manualTrack__form__bar">
@@ -286,7 +306,7 @@
               <hr class="break_style1">
             </div>
             <div id="other_infos">
-              <div id="new-record"><img src="./final_icon/Group 20.png" alt="cancel" onclick="add_record()"></div>
+              <div id="new-record" onclick="add_record()"><img src="./final_icon/Group 20.png" alt="cancel"></div>
               <div id="record-flexbox">
                 <div class="record-style">
                   <input class="record-name" type="text" name="name_0" placeholder="品項">
@@ -331,7 +351,7 @@
             <div class="cameras"><span class="empty" v-if="cameras.length === 0">找不到鏡頭</span><span v-for="camera in cameras"><span v-if="camera.id != activeCameraId" :title="formatName(camera.name)"></span></span></div>
             <div class="scans">
               <transition-group name="scans" tag="ul">
-                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ utf8(scan.content) }}</li>
+                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ parsing(utf8(scan.content)) }}</li>
               </transition-group>
             </div>
           </div><span class="camera_msg">辨識中...</span>
