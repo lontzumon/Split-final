@@ -112,6 +112,9 @@
           </div>
         </div>
       </div>
+      <div id="__Page__picture__container">
+        <div id="__Page__photo__bar"><img id="__Page__photoImg" src="./midterm_photo/sun-05.png" alt="大頭照"></div>
+      </div>
       <div class="tab-inner" id="__Page7__fullscreen">
         <div id="__Page7__moneyimg__container"><img class="__Page7__moneyimg" src="./midterm_icon/split_mainlogo.png" alt="錢包圖片"></div>
         <div id="__Page7__inform__container">
@@ -173,11 +176,31 @@
         </div>
       </div>
       <div class="tab-inner" id="__Mainpage__overview__container">
-        <div id="__overview__header__bar"><span id="overview_title">錢包總覽</span></div>
-        <div id="__overview__flexbox__bar">
-          <!-- use id in db as that in html to distinguish the wallets--><a class="flex-item" id="wallet1" href="#">丁丁家</a><a class="flex-item" id="wallet2" target="_top" onclick="change_page(0)">台南租嗚</a>
+        <div id="__overview__header__bar">
+          <p id="__overview__title">錢包總覽</p>
+          <div id="__overview__info">
+            <div id="__overview__unlock">
+              <p id="__overview__unlockText">已加入：</p>
+              <p id="__overview__unlockAmount">2</p>
+            </div>
+          </div>
+          <div id="__overview__underline"></div>
         </div>
-        <div id="__overview__footer__bar"><a class="__Page__menu__word" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="__Page__menu__word" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
+        <div id="__overview__pay__container">
+          <div id="__overview__notpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword1">待收款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__needpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword2">待付款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__havepayed__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword3">無活動</p>
+          </div>
+        </div>
+        <div id="__overview__flexbox__bar"><a class="flex-item" id="walletID1" onclick="change_page(0)"><img class="overview-img" id="walletID-img1" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt1">台南租嗚</span></a><a class="flex-item" id="walletID2" href="#" onclick=""><img class="overview-img" id="walletID-img2" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt2">怕周球R</span></a></div>
+        <div id="__overview__footer__bar"><a class="wallet-request" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="wallet-request" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
       </div>
       <div class="tab-inner" id="__Page18__fullscreen">
         <!--
@@ -621,7 +644,7 @@
           <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" id="__Page37__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(0)">
             <!-- p class="__Page38__paytypetop1">X</p-->
             <p class="__Page38__paytypetop2">付款人</p>
-            <p class="__Page38__paytypetop3" id="__Page37__paytypetop3" onclick="change_page(11);firstadds();">OK</p>
+            <p class="__Page38__paytypetop3" id="__Page37__paytypetop3" onclick="change_page(6);firstadds();">OK</p>
           </div>
           <div id="__Page37__people__container">
             <!-- 此label只是範例，真正加入的地方在js的Page37__checkadds()-->
@@ -841,6 +864,26 @@
               </div>
               <div class="__Page44__itemsmoney" id="__Page44__itemsmoney">
                 <p class="__Page44__itemname">$ 736</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+        </div>
+        <div id="__Page44__needpay__container">
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div class="__Page44__needpay__bar">
+              <div class="__Page44__needpayname" id="__Page44__needpayname">
+                <p class="__Page44__needpaytext">本月尚無待付款紀錄，請選擇其他日期區間。</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+        </div>
+        <div id="__Page44__havepayed__container">
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div class="__Page44__havepayed__bar">
+              <div class="__Page44__havepayedname" id="__Page44__needpayname">
+                <p class="__Page44__havepayedtext">本月尚無已付清紀錄，請選擇其他日期區間。</p>
               </div>
             </div>
           </label>
