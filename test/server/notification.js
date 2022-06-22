@@ -12,15 +12,16 @@ const user_ws_map = new Map();
 function addNotificationFromRequest(req, res) {
   const param = {
     uid: req.session.uid,
-    time: req.query.time
+    tag: req.query.tag
   };
+  param.time = "2022-06-23"
   if(! (checkLogin(res, req.session) && checkParam(res, param.time)))
     return;
   let sql = `SELECT username, focusWallet FROM user WHERE uid = ${param.uid}`
   queryPromise(sql).then(result => {
     param.wid = result[0].focusWallet;
-    param.message = `${result[0].username}新增了一筆項目`
-    sql = `INSERT INTO notification (wid, message, time) VALUES (${param.wid}, "${param.message}", "${param.time}")`
+    param.message = `${result[0].username} 傳送給你一張卡牌`
+    sql = `INSERT INTO notification (wid, message, time, tag) VALUES (${param.wid}, "${param.message}", "${param.time}", "${param.tag}")`
     return queryPromise(sql)
   }).then(none => {
     return wsPushNotification(param.uid);
@@ -38,7 +39,7 @@ function getNotification(req, res) {
   };
   if(! checkLogin(res, req.session))
     return;
-  let sql = `SELECT message FROM notification WHERE wid = (SELECT focusWallet FROM user WHERE uid = ${param.uid}) ORDER BY nid DESC`;
+  let sql = `SELECT time, tag, message FROM notification WHERE wid = (SELECT focusWallet FROM user WHERE uid = ${param.uid}) ORDER BY nid DESC`;
   queryPromise(sql).then(result => {
     res.send(result);
   }).catch(err => {
@@ -73,7 +74,7 @@ function emitNotification(uid, wid) {
 function wsPushNotification(uid) {
   let sql = `SELECT uid, wid FROM userWallet WHERE wid = (SELECT focusWallet from user WHERE uid = ${uid})`;
   return queryPromise(sql).then(result => {
-      result.foreach(e => {
+      result.forEach(e => {
         if(user_ws_map.has(e.uid)) {
           emitNotification(e.uid, e.wid);
         }

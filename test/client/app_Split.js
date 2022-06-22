@@ -30,10 +30,10 @@ function autoNotify(data) {
     div2.id = "__Page7__informtext";
     var p1 = document.createElement('p');
     p1.className = "__Page7__informtextmoney";
-    p1.innerText = data.money;
+    p1.innerText = data[i].tag;
     var p2 = document.createElement('p');
     p2.className = "__Page7__informtextquote";
-    p2.innerText = "西西新增了一筆水電項目"
+    p2.innerText = data[i].message
     div2.appendChild(p1);
     div2.appendChild(p2);
 
@@ -41,7 +41,7 @@ function autoNotify(data) {
     div3.id = "__Page7__informtime"
     var p3 = document.createElement('p');
     p3.className = "__Page7__informdate";
-    p3.innerText = "5-25"
+    p3.innerText = data[i].time.substring(6, 10)
     div3.appendChild(p3);
 
     label.appendChild(div1);
@@ -86,6 +86,7 @@ function autoMember2(data, tar) {
     var divname = document.createElement("div")
     divname.id = "__Page38__peoplename__bar"
     var pname = document.createElement("p")
+    pname.id = data[i].wid
     pname.className = "__Page38__peoplename"
     pname.innerHTML = data[i].username
     divname.appendChild(pname)
@@ -110,7 +111,9 @@ function autoMember2(data, tar) {
   }
 }
 
+
 function isWallet(event)      { if($(event.target).attr("class") == "flex-item") selectWallet($(event.target).attr("id")) }
+function eqaulAmount()        { let i = 1; while(document.getElementById(`__Page37__equal ${i}`)) i++; return (i-1); }
 function itemAmount()         { let i = 0; while($(`.record-style input[name="name_${i}"]`).length) i++; return i; }
 // function createItem(cnt) { const item = new Array(cnt); for(let i=0; i<cnt; i++) { item[i] = {}; item[i].name = $(`.record-style input[name="name_${i}"]`).val(); 
 //                            item[i].money = $(`.record-style input[name="cost_${i}"]`).val().substring(2) } return item; }
@@ -140,13 +143,14 @@ function showMember1(tar)     { $.get('./getMember', {}, (data) => { autoMember1
 function showMember2(tar)     { $.get('./getMember', {}, (data) => { autoMember2(data, tar); } ) }
 function getCardInfo()        { $.get('./getUnlocked', {}, (data) => { var cnt = 0; for(let r=0; r<3; r++) { for(let c=0; c<9; c++) { if(!data.normal[r*9+c].unlocked) { 
                                                                        cnt++; emptyCard('#__Page1__card:nth-child', r+1, c); } } } $('#__Page1__unlockAmount').text(`${27-cnt}`); }) }
+function sendMessage(msg)     { $.get('./addNotification', { tag: msg }, (data) => { console.log(data) }) }
 function setCardInfo(cid, img, talk) { $.get('./setCard', { cardid: cid, special: 0, unlocked: 1, star: 0, picture: img, description: "", talk: talk }, (data) => { console.log("Success!"); }) }
 function newHistory(date, name, items, remark) { $.post('./insertHistory', { date: date, name: name, items: items, remark: remark }, (data) => { addNotification(data); }) }
 
 
 $(document).ready(function() {
   // 註冊帳戶
-  $('#form-normal button[type="button"]').click((event) => { register($('#form-normal input[name=email]').val(), $('#form-normal input[name=pwd]').val()); })
+  $('#form-normal button[type="button"]').click((event) => { register($('#form-normal input[name=email]').val(), $('#form-normal input[name=pwd]').val()); wsConnection(); })
   // 加入錢包
   $('#join-wallet button[type="button"]').click((event) => { joinWallet($('#join-wallet input[name="IDcode"]').val()); })
   // 新增錢包
@@ -175,11 +179,11 @@ $(document).ready(function() {
   $('#__Page2__imgUpload').click((event) => { if(document.getElementById("__Page2__cameraImg").className == "invisible") { showMessage(document.getElementById("__Page2__cameraImg"), document.getElementById("__Page2__uploadText")); }
                                               else hideMessage(document.getElementById("__Page2__cameraImg"), document.getElementById("__Page2__uploadText")); })
   // 儲存卡牌
-  $('#__Page2__next').click((event) => { setCard('', '#__Page2__messageInput'); })
+  $('#__Page2__next').click((event) => { /*setCardInfo('', '#__Page2__messageInput');*/  })
   // 卡牌縮圖
   $('#__Page2__header__container').click((event) => { var img = showThumbnail(); console.log(img); })
   // 發送卡牌對象
   $('#__Page2__next').click((event) => { showMember2($('#__Page3__memberbox')); })
-  // 選擇對象
-
+  // 發送卡牌
+  $('#__Page3__confirm').click((event) => { var cnt = eqaulAmount(); sendMessage($('#__Page2__cardNameText').text()); })
 })
