@@ -1465,24 +1465,24 @@ input[type=checkbox]:checked+label {
 }
 .__Page38__paytypetext {
     margin: 0vh 0 1vh 0vh;
-    font-size: 3vh;
+    font-size: 20px;
     font-weight: 1000;
 }
 .__Page38__paytypetext2 {
     margin: 1vh 0 0 0;
-    font-size: 1.8vh;
+    font-size: 14px;
     font-weight: 1000;
 }
 .__Page38__peoplepay {
     font: 5vw int6;
     position: relative;
-    margin: 1vh 0 0 4vw;
+    margin: 1vh auto 0;
     display: flex;
     align-items: start;
-    width: 70vw;
+    width: 72vw;
     height: calc(11vw + 1vh);
 	/*margin-left: calc((100vw - 76vw)/2);*/
-	margin-left: 0;
+	/* margin-left: 0; */
 }
 
 #__Page38__informphoto {
@@ -1520,7 +1520,7 @@ input[type=checkbox]:checked+label {
 }
 .__Page38__peoplename {
     margin: -1vh 0 0 0;
-    font-size: 4vw;
+    font-size: 16px;
     font-weight: 1000;
 }
 #__Page38__calculate__bar {
@@ -1548,24 +1548,26 @@ input[type=checkbox]:checked+label {
     display: inline-flex;
 }
 #__Page38__calculate_percentage{
+    font-size: 16px;
 	flex-direction: row;
 	display: inline-flex;
 }
 .__Page38__percentage,.__Page38__realcost,.__Page38__additionalcost {
     /* margin: 0.1vh 0 0 0; */
-    font-size: 3vw;
+    font-size: 16px;
     font-weight: 1000;
 }
 .__Page38__percentage,.__Page38__realcost2,.__Page38__additionalcost2 {
+    font-size: 16px;
     width:12vw;
 	border:0px;
 }
 .__Page38__percentage2,.__Page38__realcost2,.__Page38__additionalcost2{
-	font-size: 3vw;
+	font-size: 16px;
     font-weight: 1000;
 }
 .__Page38__percentage3,.__Page38__percentage4,.__Page38__additionalcost3,.__Page38__additionalcost4{
-	font-size: 3vw;
+	/* font-size: 3vw; */
     font-weight: 1000;
     color: #C4C4C4;
     margin: 0 0 0 0;
@@ -1587,12 +1589,12 @@ input[type=checkbox]:checked+label {
 }
 .__Page38__costtotal1,.__Page38__costtotal3 {
     /* margin: 0.1vh 0 0 0; */
-    font-size: 2vh;
+    font-size: 18px;
     font-weight: 1000;
 	margin-top: 0;
 }
 .__Page38__costtotal2 {
-    font-size: 2vh;
+    font-size: 18px;
     font-weight: 1000;
     color: #FFA500;
     margin-left: 1vw;
@@ -1706,19 +1708,19 @@ input[type=checkbox]:checked+label {
 }
 .__Page62__paydatetext {
     margin: 0vh 0 1vh 0vh;
-    font-size: 1vh;
+    font-size: 14px;
     font-weight: 1000;
 	color: #494949;
 }
 .__Page62__payitemtext {
     margin: 0vh 0 1vh 0vh;
-    font-size: 2vh;
+    font-size: 18px;
     font-weight: 1000;
 	color: #000000;
 }
 .__Page62__paycosttext,.__Page62__paycosttext2 {
     margin: 0vh 0 1vh 0vh;
-    font-size: 2vh;
+    font-size: 18px;
     font-weight: 1000;
 	color: #000000;
 }
@@ -1748,7 +1750,7 @@ input[type=checkbox]:checked+label {
 }
 .__Page62__paytypetext,.__Page62__paytypetext2 {
     margin: 0vh 0 1vh 0vh;
-    font-size: 2vh;
+    font-size: 14px;
     font-weight: 1000;
 	color: #494949;
 }

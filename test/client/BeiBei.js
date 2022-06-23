@@ -537,6 +537,7 @@ function choose_type(thistype_id){
 
 var equalpeople = 4;
 function add_equalmode_person(number,page){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	var arrname = ["丁丁", "迪西", "拉拉", "小波"];
 	if(page==1){
 		var pages = "__Page38__";
 		var container = document.getElementById("__Page38__people__container");
@@ -552,14 +553,14 @@ function add_equalmode_person(number,page){   /*the page18 : 需分帳之人物�
 	photo.id = "__Page38__informphoto";
 	var img = document.createElement("img");
 　　img.classList.add("__Page38__informphotoimg");
-　　img.src = "./midterm_photo/ppl-07.png";	
+　　img.src = `./midterm_photo/ppl-${number == 4 ? '10' : '0' + (number+6).toString()}.png`;	
 	photo.appendChild(img);
 	
 	var peoplename = document.createElement("div");
 	peoplename.id = "__Page38__peoplename__bar";
 	var __Page38__peoplename = document.createElement('P');
 	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
-	__Page38__peoplename.textContent = "丁丁";	
+	__Page38__peoplename.textContent = arrname[number-1];
 	peoplename.appendChild(__Page38__peoplename);
 	
 	var calculate = document.createElement("div");
@@ -652,21 +653,21 @@ function change_equalcheckbox_color(this_id){
 
 
 function add_percentagemode_person(number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
-	
+	var arrname = ["丁丁", "迪西", "拉拉", "小波"];
 	var container = document.getElementById("__Page38__people__container");
 	
 	var photo = document.createElement("div");
 	photo.id = "__Page38__informphoto";
 	var img = document.createElement("img");
 　　img.classList.add("__Page38__informphotoimg");
-　　img.src = "./midterm_photo/ppl-07.png";	
+	img.src = `./midterm_photo/ppl-${number == 4 ? '10' : '0' + (number+6).toString()}.png`;
 	photo.appendChild(img);
 	
 	var peoplename = document.createElement("div");
 	peoplename.id = "__Page38__peoplename__bar";
 	var __Page38__peoplename = document.createElement('P');
 	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
-	__Page38__peoplename.textContent = "丁丁";	
+	__Page38__peoplename.textContent = arrname[number-1];
 	peoplename.appendChild(__Page38__peoplename);
 	
 	var calculate = document.createElement("div");
@@ -725,6 +726,7 @@ function add_percentagemode_person(number){   /*the page18 : 需分帳之人物�
 
 
 function add_realcostmode_person(mode,number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
+	var arrname = ["丁丁", "迪西", "拉拉", "小波"];
 	if(mode==1){
 		var container = document.getElementById("__Page38__people__container");
 	}else{
@@ -734,14 +736,14 @@ function add_realcostmode_person(mode,number){   /*the page18 : 需分帳之人�
 	photo.id = "__Page38__informphoto";
 	var img = document.createElement("img");
 　　img.classList.add("__Page38__informphotoimg");
-　　img.src = "./midterm_photo/ppl-07.png";	
+	img.src = `./midterm_photo/ppl-${number == 4 ? '10' : '0' + (number+6).toString()}.png`;
 	photo.appendChild(img);
 	
 	var peoplename = document.createElement("div");
 	peoplename.id = "__Page38__peoplename__bar";
 	var __Page38__peoplename = document.createElement('P');
 	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
-	__Page38__peoplename.textContent = "丁丁";	
+	__Page38__peoplename.textContent = arrname[number-1];
 	peoplename.appendChild(__Page38__peoplename);
 	
 	var calculate = document.createElement("div");
@@ -788,21 +790,21 @@ function add_realcostmode_person(mode,number){   /*the page18 : 需分帳之人�
 
 
 function add_additionalcostmode_person(number){   /*the page18 : 需分帳之人物新增  調控參數:person_name、person_needprice*/
-	
+	var arrname = ["丁丁", "迪西", "拉拉", "小波"];
 	var container = document.getElementById("__Page38__people__container");
 	
 	var photo = document.createElement("div");
 	photo.id = "__Page38__informphoto";
 	var img = document.createElement("img");
 　　img.classList.add("__Page38__informphotoimg");
-　　img.src = "./midterm_photo/ppl-07.png";	
+	img.src = `./midterm_photo/ppl-${number == 4 ? '10' : '0' + (number+6).toString()}.png`;
 	photo.appendChild(img);
 	
 	var peoplename = document.createElement("div");
 	peoplename.id = "__Page38__peoplename__bar";
 	var __Page38__peoplename = document.createElement('P');
 	__Page38__peoplename.setAttribute('class', '__Page38__peoplename');
-	__Page38__peoplename.textContent = "丁丁";	
+	__Page38__peoplename.textContent = arrname[number-1];
 	peoplename.appendChild(__Page38__peoplename);
 	
 	var calculate = document.createElement("div");
