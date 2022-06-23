@@ -1233,14 +1233,24 @@ function page69__change(name){
 	var typetext3 = document.getElementById("__Page69__realcost2 3");
 	var typetext4 = document.getElementById("__Page69__realcost2 4");
 	var typetotalcost = document.getElementById("__Page69__costtotal2");
-	
+	/*
 	typetext1.placeholder = "508";
-	typetext1.style.color = "#494949";
 	typetext2.placeholder = "508";
-	typetext2.style.color = "#494949";
 	typetext3.placeholder = "508";
-	typetext3.style.color = "#494949";
 	typetext4.placeholder = "508";
+	*/
+	
+	
+	typetext1.innerText = "508";
+	typetext2.innerText = "508";
+	typetext3.innerText = "508";
+	typetext4.innerText = "508";
+	
+	
+	
+	typetext1.style.color = "#494949";
+	typetext2.style.color = "#494949";
+	typetext3.style.color = "#494949";
 	typetext4.style.color = "#494949";
 	/*typetotalcost.innerText = '0.00';*/
 	typetotalcost.style.color = "#494949";
@@ -1248,19 +1258,23 @@ function page69__change(name){
 	
 	if(name.includes("丁丁")){
 		typetext1.placeholder = "509";
-		typetext1.placeholder.color = "#FFA500";
+		typetext1.innerText = "509";
+		typetext1.style.color = "#FFA500";
 	}
 	if(name.includes("迪西")){
 		typetext2.placeholder = "509";
-		typetext2.placeholder.color = "#FFA500";
+		typetext2.innerText = "509";
+		typetext2.style.color = "#FFA500";
 	}
 	if(name.includes("拉拉")){
 		typetext3.placeholder = "509";
-		typetext3.placeholder.color = "#FFA500";
+		typetext3.innerText = "509";
+		typetext3.style.color = "#FFA500";
 	}
 	if(name.includes("小波")){
 		typetext4.placeholder = "509";
-		typetext4.placeholder.color = "#FFA500";
+		typetext4.innerText = "509";
+		typetext4.style.color = "#FFA500";
 	}
 	
 }

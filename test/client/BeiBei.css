@@ -1565,6 +1565,7 @@ input[type=checkbox]:checked+label {
 .__Page38__percentage2,.__Page38__realcost2,.__Page38__additionalcost2{
 	font-size: 16px;
     font-weight: 1000;
+	-webkit-text-stroke: 0.5px;
 }
 .__Page38__percentage3,.__Page38__percentage4,.__Page38__additionalcost3,.__Page38__additionalcost4{
 	/* font-size: 3vw; */
