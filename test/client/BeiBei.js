@@ -1085,7 +1085,8 @@ function rotateWheel() {
 // 當 當前時間 大於 總時間，停止旋轉，並返回當前值
 spinningTime += 20;
 if (spinningTime >= spinTotalTime) {
-	
+
+page69__change(getValue());		
 setTimeout("page66_text_edit(getValue())", 500 ); return
 /*page66_text_edit(getValue()); return*/
 
@@ -1132,7 +1133,8 @@ function page66_text_edit(name){
 	
 	
 	notification.style.display = "block";
-	text1.innerText = name +"\xa0+\xa0$";
+	text1.style.color = "#FFA500";
+	text1.innerText = name +"\xa0+";
 	text2.innerText = "恭喜\xa0"+ name+ "\xa0成為這次的倒楣鬼，";
 }
 
@@ -1192,4 +1194,71 @@ function page44__dateupdate(thistype_id){
 	}else{
 		month.innerText="0"+(decimal_month);
 	}
+}
+
+
+
+function page62__notification2(type){
+	var div = document.getElementById("__Page62__inform__container");
+	if(type==1){
+		div.style.display = "block";
+	}else{
+		div.style.display = "none";
+	}
+}
+
+function page69__notification2(type){
+	var div = document.getElementById("__Page69__inform__container");
+	if(type==1){
+		div.style.display = "block";
+	}else{
+		div.style.display = "none";
+	}
+}
+
+function page61__notification2(type){
+	var div = document.getElementById("__Page61__inform__container");
+	if(type==1){
+		div.style.display = "block";
+	}else{
+		div.style.display = "none";
+	}
+}
+function page69__change(name){
+	
+	var typetext1 = document.getElementById("__Page69__realcost2 1");
+	var typetext2 = document.getElementById("__Page69__realcost2 2");
+	var typetext3 = document.getElementById("__Page69__realcost2 3");
+	var typetext4 = document.getElementById("__Page69__realcost2 4");
+	var typetotalcost = document.getElementById("__Page69__costtotal2");
+	
+	typetext1.placeholder = "508";
+	typetext1.style.color = "#494949";
+	typetext2.placeholder = "508";
+	typetext2.style.color = "#494949";
+	typetext3.placeholder = "508";
+	typetext3.style.color = "#494949";
+	typetext4.placeholder = "508";
+	typetext4.style.color = "#494949";
+	/*typetotalcost.innerText = '0.00';*/
+	typetotalcost.style.color = "#494949";
+	
+	
+	if(name.includes("丁丁")){
+		typetext1.placeholder = "509";
+		typetext1.placeholder.color = "#FFA500";
+	}
+	if(name.includes("迪西")){
+		typetext2.placeholder = "509";
+		typetext2.placeholder.color = "#FFA500";
+	}
+	if(name.includes("拉拉")){
+		typetext3.placeholder = "509";
+		typetext3.placeholder.color = "#FFA500";
+	}
+	if(name.includes("小波")){
+		typetext4.placeholder = "509";
+		typetext4.placeholder.color = "#FFA500";
+	}
+	
 }

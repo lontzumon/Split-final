@@ -43,6 +43,8 @@
         <li><a href="#__Page61__fullscreen">幸運轉盤</a></li>
         <li><a href="#__Page44__fullscreen">記帳本</a></li>
 		<li><a href="#__Page47__fullscreen">獲取卡牌</a></li>
+		<li><a href="#__Page68__fullscreen">獲取卡牌</a></li>
+		<li><a href="#__Page69__fullscreen">獲取卡牌</a></li>
       </ul>
       <div class="tab-inner" id="__Register__fullscreen">
         <div id="__Register__form-normal__container">
@@ -696,8 +698,8 @@
                 <p class="__Page62__informtext" id="__Page62__informtext2">請問您要參加命運大轉盤嗎？</p>
                 <div id="__Page62__informbutton">
                   <div id="__Page62__setting">
-                    <p class="__Page62__handsetting" id="__Page62__handsetting" onclick="Page62__checkadds();page62__notification(2)">否，手動指定</p>
-                    <p class="__Page62__luckysetting" id="__Page62__luckysetting" onclick="change_page(14);page62__notification(2);page66_text_restore();">是，試試手氣</p>
+                    <p class="__Page62__handsetting" id="__Page62__handsetting" onclick="change_page(17);page62__notification2(2);">否，手動指定</p>
+                    <p class="__Page62__luckysetting" id="__Page62__luckysetting" onclick="change_page(14);page62__notification2(2);">是，試試手氣</p>
                   </div>
                 </div>
               </div>
@@ -706,7 +708,7 @@
           <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(15)">
             <!-- p class="__Page38__paytypetop1">X</p-->
             <p class="__Page38__paytypetop2">款項結算</p>
-            <p class="__Page38__paytypetop3" id="__Page62__next" onclick="page62__notification(1)">Next</p>
+            <p class="__Page38__paytypetop3" id="__Page62__next" onclick="page62__notification2(1)">Next</p>
           </div>
           <div id="__Page62__payitem__container">
             <div id="__Page62__payitem__bar">
@@ -726,10 +728,59 @@
             </div>
             <div id="__Page62__paytypeimg__bar"><img class="__Page62__typeimg" id="__Page62__typeimg" src="./midterm_icon/black_equal.png"></div>
           </div>
-          <div id="__Page62__people__container"></div>
+          <div id="__Page62__people__container">
+		    
+			<label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-07.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">丁丁</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page38__realcost2 1">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-08.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">迪西</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page38__realcost2 2">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-09.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">拉拉</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page38__realcost2 3">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-10.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">小波</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page38__realcost2 4">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+			
+			
+			
+		  </div>
           <div id="__Page38__costtotal__container">
             <p class="__Page38__costtotal1" id="__Page62__costtotal1">零頭 $</p>
-            <p class="__Page38__costtotal2" id="__Page62__costtotal2">0.00</p>
+            <p class="__Page38__costtotal2" id="__Page62__costtotal2">1.00</p>
           </div>
         </div>
       </div>
@@ -743,7 +794,7 @@
                 <p class="__Page62__informtext" id="__Page62__informtext2">感謝他為和諧關係付出的努力！</p>
                 <div id="__Page62__informbutton">
                   <div id="__Page62__setting">
-                    <p class="__Page62__luckysetting" id="__Page62__handsetting" onclick="Page62__checkadds();page62__notification(2);change_page(0)">知道了</p>
+                    <p class="__Page62__luckysetting" id="__Page62__handsetting" onclick="page61__notification2(2);change_page(18);">知道了</p>
                   </div>
                 </div>
               </div>
@@ -762,16 +813,15 @@
             <div id="__Page61__wheelexplain__bar">
               <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">歡迎來到命運大轉盤，</p>
               <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">所以誰是要付零頭的倒楣鬼呢？</p>
-              <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">請注意，倒楣機率與您擁有卡牌的數量呈反比。</p>
             </div>
           </div>
-          <div id="__Page62__decorate__container"></div>
+          <div id="__Page61__decorates__container"></div>
           <div id="spin_button" style="position: absolute;left: 0px;top: 0px;border-radius: 100%;cursor: pointer"><img class="test" src="./midterm_icon/go.png" style="position: absolute;left: calc(50vw - 50px - 0px);top: calc(24.8vh + 27.5vh + 6px - 50px);width: 100px;height: 100px;margin-left:calc(0px);"></div>
           <div style="height:300px; width:300px; background-color: black; border-radius: 500px; position:absolute; z-index:-1;left: calc(50.4vw - 150px);top: calc(45.8vh + 5.5vh + 6px - 150px);margin-left:calc(0px);"></div>
           <canvas id="__Page61__canvas" width="300" height="300" style="margin-left:calc(1.2vw);margin-top:calc(21vh - 150px)"></canvas>
           <div id="__Page61__distributemoney__container">
-            <p class="__Page38__costtotal1" id="__Page61__costtotal1">零頭 $</p>
-            <p class="__Page38__costtotal2" id="__Page61__costtotal2">0.00</p>
+            <p class="__Page38__costtotal1" id="__Page61__costtotal1">零頭</p>
+            <p class="__Page61__costtotal2" id="__Page61__costtotal2">&nbsp;$ 1.00</p>
           </div>
           <div id="__Page61__decorate__container"></div>
           <div id="__Page61__people__container">
@@ -805,7 +855,7 @@
 			<div id="__Page44__dateup__bar">
 		      <p class="__Page44__dateexplain" id="__Page44__dateyear">2022</p>
 			  <p class="__Page44__dateexplain">/</p>
-			  <p class="__Page44__dateexplain" id="__Page44__month">06</p>
+			  <p class="__Page44__dateexplain" id="__Page44__month">05</p>
 			</div>
             <!--p class="__Page44__dateexplain" id="__Page61__wheelexplain">2022/06</p-->
 			<div id="__Page44__righticon__bar" onclick="page44__dateupdate(this.id)">
@@ -920,7 +970,7 @@
         </div>
 		
         <div id="__Page44__result__container">
-          <div class="__Page44__word__bar" id="__Page44__word__containerid" onclick="change_page(13);Page62__adds(1);">
+          <div class="__Page44__word__bar" id="__Page44__word__containerid" onclick="change_page(13);">
             <p class="__Page44__bill_word">結算</p>
           </div>
         </div>
@@ -987,8 +1037,175 @@
           </form>
         </div>
       </div>
+	  
+	  
+	  <div class="tab-inner" id="__Page68__fullscreen">
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(15)">
+            <p class="__Page38__paytypetop2">款項結算</p>
+            <p class="__Page38__paytypetop3" id="__Page62__next" onclick="change_page(18);page69__change('迪西');">Next</p>
+          </div>
+          <div id="__Page62__payitem__container">
+            <div id="__Page62__payitem__bar">
+              <p class="__Page62__paydatetext" id="__Page62__paydatetext">05/26</p>
+              <p class="__Page62__payitemtext" id="__Page62__payitemtext">家樂福</p>
+            </div>
+            <div id="__Page62__payitem2__bar">
+              <p class="__Page62__paycosttext" id="__Page62__paycosttext">$ </p>
+              <p class="__Page62__paycosttext2" id="__Page62__paycosttext2">2033</p>
+            </div>
+          </div>
+          <div id="__Page62__decorate__container"></div>
+          <div id="__Page62__paytypetext__container">
+            <div id="__Page62__paytypetext__bar">
+              <p class="__Page62__paytypetext" id="__Page62__paytypetext">分帳方式 : </p>
+              <p class="__Page62__paytypetext2" id="__Page62__paytypetext2">平分</p>
+            </div>
+            <div id="__Page62__paytypeimg__bar"><img class="__Page62__typeimg" id="__Page62__typeimg" src="./midterm_icon/black_equal.png"></div>
+          </div>
+          <div id="__Page62__people__container">
+		  
+		    <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-07.png"></div>
+		    <div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">丁丁</p></div>
+		    <div id="__Page38__calculate__bar">
+			  <div id="__Page62__equal 5" class="__Page38__equal" onclick="change_equalcheckbox_color(this.id)"></div>
+		    </div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		   <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-08.png"></div>
+		    <div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">迪西</p></div>
+		    <div id="__Page38__calculate__bar">
+			  <div id="__Page62__equal 6" class="__Page38__equal" onclick="change_equalcheckbox_color(this.id)"></div>
+		    </div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		   <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-09.png"></div>
+		    <div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">拉拉</p></div>
+		    <div id="__Page38__calculate__bar">
+			  <div id="__Page62__equal 7" class="__Page38__equal" onclick="change_equalcheckbox_color(this.id)"></div>
+		    </div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		   <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-10.png"></div>
+		    <div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">小波</p></div>
+		    <div id="__Page38__calculate__bar">
+			  <div id="__Page62__equal 8" class="__Page38__equal" onclick="change_equalcheckbox_color(this.id)"></div>
+		    </div>
+		  </label>
+		  
+		  </div>
+          <div id="__Page38__costtotal__container">
+            <p class="__Page38__costtotal1" id="__Page62__costtotal1">零頭 $</p>
+            <p class="__Page38__costtotal2" id="__Page62__costtotal2">1.00</p>
+          </div>
+        </div>
+      </div>
+	  
+	  
+	  <div class="tab-inner" id="__Page69__fullscreen">
+	    <div id="__Page69__inform__container">
+            <div id="__Page62__inform__bar">
+              <!-- img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="通知欄"-->
+              <div id="__Page62__inform">
+                <p class="__Page62__informtext" id="__Page62__informtext1">家樂福 款項已結算，</p>
+                <p class="__Page62__informtext" id="__Page62__informtext2">請問是否發動特殊卡牌給欠款人？</p>
+                <div id="__Page62__informbutton">
+                  <div id="__Page62__setting">
+                    <p class="__Page62__handsetting" id="__Page62__handsetting" onclick="change_page(15);page69__notification2(2);">否，使用預設</p>
+                    <p class="__Page62__luckysetting" id="__Page62__luckysetting" onclick="change_page(8);page69__notification2(2);">是，立即選擇</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(15)">
+            <p class="__Page38__paytypetop2">款項結算</p>
+            <p class="__Page38__paytypetop3" id="__Page62__next" onclick="page69__notification2(1)">Next</p>
+          </div>
+          <div id="__Page62__payitem__container">
+            <div id="__Page62__payitem__bar">
+              <p class="__Page62__paydatetext" id="__Page62__paydatetext">05/26</p>
+              <p class="__Page62__payitemtext" id="__Page62__payitemtext">家樂福</p>
+            </div>
+            <div id="__Page62__payitem2__bar">
+              <p class="__Page62__paycosttext" id="__Page62__paycosttext">$ </p>
+              <p class="__Page62__paycosttext2" id="__Page62__paycosttext2">2033</p>
+            </div>
+          </div>
+          <div id="__Page62__decorate__container"></div>
+          <div id="__Page62__paytypetext__container">
+            <div id="__Page62__paytypetext__bar">
+              <p class="__Page62__paytypetext" id="__Page62__paytypetext">分帳方式 : </p>
+              <p class="__Page62__paytypetext2" id="__Page62__paytypetext2">平分</p>
+            </div>
+            <div id="__Page62__paytypeimg__bar"><img class="__Page62__typeimg" id="__Page62__typeimg" src="./midterm_icon/black_equal.png"></div>
+          </div>
+          <div id="__Page62__people__container">
+		  
+		   <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-07.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">丁丁</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page69__realcost2 1">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-08.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">迪西</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="509" id="__Page69__realcost2 2">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-09.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">拉拉</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page69__realcost2 3">
+			  </div>
+			</div>
+		  </label>
+		  <div id="__Page38__decorate2__container"></div>
+		  <label id="delete_id" class="__Page38__peoplepay">
+		    <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-10.png"></div>
+			<div id="__Page38__peoplename__bar"><p class="__Page38__peoplename">小波</p></div>
+			<div id="__Page38__calculate__bar">
+			  <div id="__Page38__calculate_realcost">
+			    <p class="__Page38__realcost">$&nbsp;</p>
+			    <input class="__Page38__realcost2" type="text" placeholder="508" id="__Page69__realcost2 4">
+			  </div>
+			</div>
+		  </label>
+		  
+		  </div>
+          <div id="__Page38__costtotal__container">
+            <p class="__Page38__costtotal1" id="__Page62__costtotal1">零頭 $</p>
+            <p class="__Page38__costtotal2" id="__Page69__costtotal2">0.00</p>
+          </div>
+        </div>
+      </div>
+	  
+	  
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      
+	  
+	  
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./app_Split.js"></script>
     <script type="text/javascript" src="./mainpage.js"></script>
     <script type="text/javascript" src="./Webapp.js"></script>
