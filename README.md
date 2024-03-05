@@ -5,6 +5,7 @@ In scenarios where a group of people dine together and one person pays initially
 
 To further incentivize users to actively manage their shared wallet, we offer a check-in system. By regularly managing their accounts, users have the chance to earn special cards, each with unique functions such as assigning someone to cover certain expenses. These features enhance interaction among members within the wallet group."
 
+To open the web，please open the Split.html with browser from perfect_version\test\client\
 # presentation
 Some sceenshot display here.
 
