@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight + ", initial-scale=1.0");
+    </script>
+    <title>Mainpage</title>
+    <link rel="apple-touch-icon" type="image/png" size="91x91" href="midterm_icon/split_applogo.png">
+    <link rel="icon" type="image/png" size="91x91" href="midterm_icon/split_applogo.png">
+    <link rel="manifest" type="application/manifest+json" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="./mainpage_style.css">
+    <link rel="stylesheet" href="BeiBei.css">
+    <script type="text/javascript" src="external/adapter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="external/instascan.js"></script>
+  </head>
+  <body>
+    <div id="__fullscreen">
+      <ul class="tab-title">
+        <li><a href="#__Page7__fullscreen">home_page</a></li>
+        <li><a href="#__Page6__fullscreen">tab6</a></li>
+        <li><a href="#__Mainpage__overview__container">__Mainpage__overview__container</a></li>
+        <li><a href="#__Page18__fullscreen">tab18</a></li>
+        <li><a href="#__Page16__fullscreen">edit_pocketorname</a></li>
+        <li><a href="#__Register__fullscreen">registration</a></li>
+        <li><a href="#__Mainpage__manualTrack__container">__Mainpage__manualTrack__container</a></li>
+        <li><a href="#__Mainpage__cameraTrack__container">__Mainpage__cameraTrack__container</a></li>
+        <li><a href="#__Page1__fullscreen">carddeck</a></li>
+        <li><a href="#__Page2__fullscreen">edit_card</a></li>
+        <li><a href="#__Page3__fullscreen">send_card</a></li>
+        <li><a href="#__Page38__fullscreen">分攤方式</a></li>
+        <li><a href="#__Page37__fullscreen">付款人</a></li>
+        <li><a href="#__Page62__fullscreen">款項結算</a></li>
+        <li><a href="#__Page61__fullscreen">幸運轉盤</a></li>
+        <li><a href="#__Page44__fullscreen">記帳本</a></li>
+        <li><a href="#__Page47__fullscreen">獲取卡牌</a></li>
+      </ul>
+      <div class="tab-inner" id="__Register__fullscreen">
+        <div id="__Register__form-normal__container">
+          <h3 id="title-normal">建立新帳號</h3><br>
+          <form id="form-normal" action="/" method="post">
+            <label>
+              <input class="register-style" type="email" name="email" value="" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" required="">
+            </label><br><br>
+            <label>
+              <input class="register-style" type="password" name="pwd" value="" placeholder="Password" pattern="[A-Za-z0-9]{8,}" required="">
+            </label><br>
+            <button class="register-style register-submit" id="form-submit" type="button" onclick="window.location='#__Register__wallet__container'">註冊</button>
+          </form>
+        </div>
+        <div id="__Register__form-quick__container">
+          <h3 id="title-quick">已經有帳號</h3><a class="quick_button" href="#"><i class="fab fa-facebook"></i></a><span class="between"></span><a class="quick_button" href="#"><i class="fab fa-line"></i></a><span class="between"></span><a class="quick_button" href="#"><i class="fab fa-google"></i></a>
+        </div>
+        <div class="banner-padding" id="__Register__banner__container"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        <!-- flex-->
+        <div id="__Register__wallet__container">
+          <div id="__walletInfo__bar">
+            <div class="wallet-btn user-icons-large" id="usericon"><img src="./midterm_icon/user-icon.png" alt="user icon"></div><br><span id="username">darbyishandsome@gmail.com</span>
+          </div>
+          <div id="__walletMenu__bar"><a class="menu-flex wallet-btn" href="#__Register__join-wallet__container" target="_top"><span>加入錢包</span></a><a class="menu-flex wallet-btn" href="#__Register__new-wallet__container" target="_top"><span>新增錢包</span></a></div>
+          <div class="banner-padding" id="__wallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+        <!-- -->
+        <div id="__Register__join-wallet__container">
+          <div id="__joinWallet__bar">
+            <p>加入錢包</p>
+            <form id="join-wallet" action="/" method="get">
+              <input class="enter_button" type="text" name="IDcode" value="" placeholder="輸入ID CODE" pattern="[a-z0-9]{6,}" required="">
+              <!-- <input type="submit" onclick="" hidden>-->
+              <button class="register-style register-submit" id="join-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+            </form>
+          </div>
+          <div class="banner-padding" id="__joinWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+        <!-- -->
+        <div id="__Register__new-wallet__container">
+          <div id="__newWallet__bar">
+            <p>新增錢包</p>
+            <form id="new-wallet" action="/" method="get">
+              <input class="enter_button" type="text" name="Wallet" value="" placeholder="輸入錢包名稱" required="">
+              <!-- <input type="submit" onclick="" hidden>-->
+              <button class="register-style register-submit" id="new-wallet-submit" type="button" onclick="change_page(2);">確認</button>
+            </form>
+          </div>
+          <div class="banner-padding" id="newWallet__banner"><img class="brand-logo" src="./midterm_icon/split_smalllogo.png" alt="brand logo"></div>
+        </div>
+      </div>
+      <div id="__Page__menu__container"><img class="__Page__menu" id="__Page__menu" src="./midterm_icon/menu.png" alt="menu" onclick="menu_openorclose(0)">
+        <div id="__Page__menu__bar"><img class="__Page__menu" id="__Page__menu" src="./midterm_icon/previous.png" alt="menu" onclick="menu_openorclose(1)">
+          <div id="__Page__menu__head_container">
+            <div id="__Page__menu__head" onclick="change_page(4)"><img class="__Page__menu__pocketname" id="__Page__menu__pocketname" src="./midterm_photo/sun-05.png" alt="錢包名" onclick="change_page(4)"></div>
+            <div id="__Page__menuword__head">
+              <p class="__Page__menu__head_word" id="__Page__menu__head_word" onclick="change_page(4)">錢包名</p><img class="__Page__menualter" id="__Page__menualter" src="./midterm_icon/edit.png" alt="更改" onclick="change_page(4)">
+            </div>
+          </div>
+          <div id="__Page__menu__home">
+            <p class="__Page__menu__word" id="__Page__menu__page1" onclick="change_page(0)">首頁</p>
+          </div>
+          <div id="__Page__menu__check">
+            <p class="__Page__menu__word" id="__Page__menu__page2" onclick="change_page(15)">記帳本</p>
+          </div>
+          <div id="__Page__menu__funny">
+            <p class="__Page__menu__word" id="__Page__menu__page3" onclick="change_page(8)">卡牌冊</p>
+          </div>
+          <div id="__Page__menu__pocket_check">
+            <p class="__Page__menu__word" id="__Page__menu__page4" onclick="change_page(2)">錢包總覽</p>
+          </div>
+        </div>
+      </div>
+      <div id="__Page__picture__container">
+        <div id="__Page__photo__bar"><img id="__Page__photoImg" src="./midterm_photo/sun-05.png" alt="大頭照"></div>
+      </div>
+      <div class="tab-inner" id="__Page7__fullscreen">
+        <div id="__Page7__moneyimg__container"><img class="__Page7__moneyimg" src="./midterm_icon/split_mainlogo.png" alt="錢包圖片"></div>
+        <div id="__Page7__inform__container">
+          <div id="__Page7__inform__bar">
+            <!-- img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="通知欄"-->
+            <div id="__Page7__inform">
+              <label class="__Page7__informphoto" id="delete_id">
+                <div id="__Page7__informphoto"><img class="__Page7__informphotoimg" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                <div id="__Page7__informtext">
+                  <p class="__Page7__informtextmoney">$3260</p>
+                  <p class="__Page7__informtextquote">丁丁新增了一筆水電項目</p>
+                </div>
+                <div id="__Page7__informtime">
+                  <p class="__Page7__informdate">5/25</p>
+                </div>
+              </label>
+              <label class="__Page7__informphoto" id="delete_id">
+                <div id="__Page7__informphoto"><img class="__Page7__informphotoimg" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                <div id="__Page7__informtext">
+                  <p class="__Page7__informtextmoney">$3260</p>
+                  <p class="__Page7__informtextquote">丁丁新增了一筆水電項目</p>
+                </div>
+                <div id="__Page7__informtime">
+                  <p class="__Page7__informdate">5/25</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="__Page7__bottomimg" onclick="checkbill_openorclose()"><img class="__Page7__bottomimg" src="./midterm_icon/add.png" alt="記帳"></div>
+        <div id="__Page7__bottomimg2" onclick="change_page(6)"><img class="__Page7__bottomimg" src="./midterm_icon/handwrite.png" alt="手動"></div>
+        <div id="__Page7__bottomimg3" onclick="change_page(7)"><img class="__Page7__bottomimg" src="./midterm_icon/scan.png" alt="自動"></div>
+      </div>
+      <div class="tab-inner" id="__Page6__fullscreen">
+        <div id="__Page6__text_bill__container">
+          <p class="__Page6__bill_word" id="__Page6__bill_word" onclick="add_checkbox2()">待分帳項目</p>
+        </div>
+        <div id="__Page6__bill__container">
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 1"></div>4月電費 $3260<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 2"></div>4月水費 $562<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 3"></div>0425 聚餐 $780<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 4"></div>0425 家樂福 $924<br>
+          </label>
+          <label class="__Page6__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page6__bill_content2" id="__Page6__bill_content2 5"></div>0421 Uber $368<br>
+          </label>
+        </div>
+        <div id="__Page6__result__container">
+          <div class="__Page6__word__bar" id="__Page6__word__containerid" onclick="change_page(3);yes_checkbill(0);edit__Page18__bill_word();">
+            <p class="__Page6__bill_word">結算</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Mainpage__overview__container">
+        <div id="__overview__header__bar">
+          <p id="__overview__title">錢包總覽</p>
+          <div id="__overview__info">
+            <div id="__overview__unlock">
+              <p id="__overview__unlockText">已加入：</p>
+              <p id="__overview__unlockAmount">2</p>
+            </div>
+          </div>
+          <div id="__overview__underline"></div>
+        </div>
+        <div id="__overview__pay__container">
+          <div id="__overview__notpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword1">待收款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__needpay__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword2">待付款</p>
+          </div>
+          <div class="__overview__decorate__container"></div>
+          <div id="__overview__havepayed__bar" onclick="page44__choose_type(this.id)">
+            <p class="__overview__selectword" id="__overview__selectword3">無活動</p>
+          </div>
+        </div>
+        <div id="__overview__flexbox__bar"><a class="flex-item" id="walletID1" onclick="change_page(0)"><img class="overview-img" id="walletID-img1" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt1">台南租嗚</span></a><a class="flex-item" id="walletID2" href="#" onclick=""><img class="overview-img" id="walletID-img2" src="./midterm_photo/sun-05.png" alt="錢包圖示"><span class="overview-txt" id="walletID-txt2">怕周球R</span></a></div>
+        <div id="__overview__footer__bar"><a class="wallet-request" id="join-wallet-request" onclick="javascript:window.location.href='#__Register__join-wallet__container';change_page(5);"><span>加入錢包</span></a><span class="between"></span><a class="wallet-request" id="new-wallet-request" onclick="javascript:window.location.href='#__Register__new-wallet__container';change_page(5);"><span>新增錢包</span></a></div>
+      </div>
+      <div class="tab-inner" id="__Page18__fullscreen">
+        <!--
+        <b class="touch __Page6__bill_word" onclick="change_page(1)">Page11</b>
+        <b class="touch __Page6__bill_word" onclick="change_page(2)">Page22</b>
+        -->
+        <div id="__Page18__text_bill__container" onclick="add_checkbox_person()">
+          <p class="__Page18__bill_word" id="__Page18__bill_word">分帳結果</p>
+        </div>
+        <div id="__Page18__bill__container">
+          <p class="__Page18__bill_word2" id="__Page18__bill_word">4月電費 $3260元</p>
+        </div>
+        <div id="__Page18__personcheck__container">
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 1"></div>拉拉 815<br>
+          </label>
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 2"></div>小波 815<br>
+          </label>
+          <label class="__Page18__bill_check" id="delete_id" onclick="change_checkbox_color(this.firstElementChild.id)">
+            <div class="__Page18__bill_content2" id="__Page18__bill_content2 3"></div>迪西 815<br>
+          </label>
+        </div>
+        <div id="__Page18__result__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="change_page(1)">
+            <p class="__Page18__bill_word">取消分帳</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2" onclick="yes_checkbill(1)">
+            <p class="__Page18__bill_word">確認分帳</p>
+          </div>
+        </div>
+        <div id="__Page18__result2__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="yes_checkbill(2)">
+            <p class="__Page18__bill_word">催帳</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2" onclick="lock_checkbox()">
+            <p class="__Page18__bill_word">繳清</p>
+          </div>
+        </div>
+        <div id="__Page18__result3__container">
+          <div class="__Page18__word__bar" id="__Page6__word__containerid" onclick="change_page(1)">
+            <p class="__Page18__bill_word">取消發送</p>
+          </div>
+          <div class="__Page18__word__bar" id="__Page18__word__containerid2">
+            <p class="__Page18__bill_word">確認發送</p>
+          </div>
+        </div>
+        <!--
+        <div id="__Page18__result3-2__container">
+        <img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="梗圖欄">
+        __Page7__inform__container
+        </div>
+        -->
+        <div id="__Page18__result3-2__container">
+          <div id="__Page18__inform__bar">
+            <div id="__Page18__inform"><img class="__Page18__inform__noteimg" src="./midterm_photo/moneyback.png" alt="梗圖"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page16__fullscreen">
+        <div id="__Page16__pocket__container">
+          <div id="__Page18__pocket__bar"><img class="__Page__menu__pocketname" id="__Page__menu__pocketname" src="./midterm_photo/sun-05.png" alt="錢包名" onclick="change_page(4)"></div>
+          <p class="__Page16__pocketname">台南租嗚(4)</p><img class="__Page16__pocketimg" src="./midterm_icon/edit.png" alt="更改">
+        </div>
+        <div id="__Page16__invite__container">
+          <div id="__Page16__invite__bar" onclick="add_person()">
+            <div id="__Page16__invitelink__bar">
+              <p class="__Page16__inviteid">邀請連結</p><img class="__Page16__linkimg" src="./midterm_icon/link.png" alt="連結" onclick="copy_inviteid()">
+            </div>
+            <p class="__Page16__inviteid">#1s1s3fewg</p>
+          </div>
+        </div>
+        <div id="__Page16__team__container">
+          <p class="__Page16__teamname">成員</p>
+        </div>
+        <div id="__Page16__teammate__container">
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-07.png" alt="大頭照">
+            <div id="__Page16__username__bar">
+              <p class="__Page16__username">丁丁</p><img class="__Page16__useralter" src="./midterm_icon/edit.png" alt="更改">
+            </div>
+          </label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-08.png" alt="大頭照">迪西</label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-09.png" alt="大頭照">拉拉</label>
+          <label class="__Page16__teammatename" id="delete_id"><img class="__Page16__userimg" src="./midterm_photo/ppl-10.png" alt="大頭照">小波</label>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Mainpage__manualTrack__container">
+        <div id="manualTrack__header__bar"><img class="cancel-icon" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date" id="current_date"></span>
+          <div id="manual-submit" onclick="change_page(16)">OK</div>
+        </div>
+        <div id="manualTrack__form__bar">
+          <form id="spending-tracker">
+            <div id="basis_infos">
+              <input id="account_name" type="text" name="account_name" placeholder="帳單名稱">
+              <label for="account_name"><img src="./midterm_icon/edit.png" alt="cancel" onclick=""></label>
+              <input id="account_cost" type="text" name="account_cost" inputmode="decimal" placeholder="$ 0">
+              <hr class="break_style1">
+            </div>
+            <div id="other_infos">
+              <div id="new-record" onclick="add_record()"><img src="./final_icon/Group 20.png" alt="cancel"></div>
+              <div id="record-flexbox">
+                <div class="record-style">
+                  <input class="record-name" type="text" name="name_0" placeholder="品項">
+                  <input class="record-cost" type="text" name="cost_0" inputmode="decimal" placeholder="$ 0">
+                </div>
+              </div>
+              <div id="comment-block">
+                <label for="comment">備註
+                  <input id="comment" type="text" name="comment">
+                </label>
+                <hr class="break_style2">
+              </div>
+              <div id="allocation">
+                <div id="payer" onclick="">
+                  <div class="alloc_text">付款人</div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                  <div class="alloc_type">全部</div>
+                  <div class="alloc_next" id="__Mainpage__alloc_next__manualTrack1" onclick="change_page(12);Page37__checkadds();"><img src="./final_icon/Vector.png" alt="詳細資料"></div>
+                </div>
+                <hr class="break_style2">
+                <div id="splitter" onclick="">
+                  <div class="alloc_text">分攤人</div>
+                  <div class="alloc_img"><img class="small_icon" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+                  <div class="alloc_type">平分</div>
+                  <div class="alloc_next" id="__Mainpage__alloc_next__manualTrack2" onclick="change_page(11);firstadds();"><img src="./final_icon/Vector.png" alt="詳細資料"></div>
+                </div>
+                <hr class="break_style2"><span class="remaining">零頭 $0.00</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Mainpage__cameraTrack__container">
+        <div id="cameraTrack__header__bar"><img class="cancel-icon" id="stop_scan" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span class="current_date"></span>
+          <div id="camera-submit" onclick="change_page(6)">Next</div>
+        </div>
+        <div id="cameraTrack__form__bar">
+          <div id="Webapp">
+            <div class="preview-container">
+              <video id="preview"></video>
+            </div>
+            <div class="cameras"><span class="empty" v-if="cameras.length === 0">找不到鏡頭</span><span v-for="camera in cameras"><span v-if="camera.id != activeCameraId" :title="formatName(camera.name)"></span></span></div>
+            <div class="scans">
+              <transition-group name="scans" tag="ul">
+                <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ parsing(utf8(scan.content)) }}</li>
+              </transition-group>
+            </div>
+          </div><span class="camera_msg">辨識中...</span>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page1__fullscreen">
+        <div id="__Page1__photo__container">
+          <div id="__Page1__photo__bar"><img id="__Page1__photoImg" src="./midterm_photo/sun-05.png" alt="大頭照"></div>
+        </div>
+        <div id="__Page1__description__container">
+          <div id="__Page1__description__bar">
+            <p id="__Page1__title">卡牌冊</p>
+            <div id="__Page1__info">
+              <div id="__Page1__unlock">
+                <p id="__Page1__unlockText">已解鎖：</p>
+                <p id="__Page1__unlockAmount">14</p>
+              </div>
+              <div id="__Page1__rank">
+                <p id="__Page1__rankText">錢包內排名：#</p>
+                <p id="__Page1__rankNumber">1</p>
+              </div>
+            </div>
+            <div id="__Page1__underline"></div>
+          </div>
+        </div>
+        <div id="__Page1__cardbook__container">
+          <div id="__Page1__cardbook__bar">
+            <div id="__Page1__selection">
+              <p id="__Page1__normal">一般卡</p>
+              <div id="__Page1__divisionline"></div>
+              <p id="__Page1__special">特殊卡</p>
+            </div>
+            <div id="__Page1__cardbook">
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card" onclick="change_page(9);">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0分期卡</p>
+                  </div>
+                  <div id="__Page1__card" onclick="change_page(9);">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0討債卡</p>
+                  </div>
+                  <div class="bg-lock" id="__Page1__card">
+                    <div class="lock" id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">0主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1分期卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1討債卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">1主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+              <div id="__Page1__collection">
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2分期卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2討債卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2跑題卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+                <div id="__Page1__cardline">
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2勞務卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText">2主揪卡</p>
+                  </div>
+                  <div id="__Page1__card">
+                    <div id="__Page1__lock"></div>
+                    <p id="__Page1__cardText"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="__Page1__dotline">
+              <div class="dot_chosen" id="__Page1__dot"></div>
+              <div id="__Page1__dot"></div>
+              <div id="__Page1__dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner dark-page" id="__Page2__fullscreen">
+        <div id="__Page2__header__container">
+          <p id="__Page2__title">編輯卡牌</p>
+        </div>
+        <div id="__Page2__card__container">
+          <div id="__Page2__card__bar">
+            <div id="__Page2__cardName">
+              <p id="__Page2__cardNameText">討債卡</p>
+            </div>
+            <div id="__Page2__cardStar"></div>
+            <div id="__Page2__imgUpload">
+              <div id="__Page2__cameraImg"></div>
+              <p id="__Page2__uploadText">上傳圖片</p>
+            </div>
+            <div id="__Page2__spec">
+              <p id="__Page2__specText">功能說明</p>
+              <textarea id="__Page2__specInput" readonly="" disabled="disabled" type="text">發給那個欠錢不還的冤親債主。</textarea>
+            </div>
+            <div id="__Page2__message">
+              <p id="__Page2__messageText">想對他說的話(點按編輯, 限20字)</p>
+              <textarea id="__Page2__messageInput" type="text" cols="20" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+        <div id="__Page2__button__container">
+          <div id="__Page2__button__bar">
+            <div class="button_unchosen" id="__Page2__cancel" onclick="change_page(8);">
+              <p id="__Page2__cancelText">取消</p>
+            </div>
+            <div class="button_chosen" id="__Page2__next" onclick="change_page(10);">
+              <p id="__Page2__nextText">下一步</p>
+            </div>
+          </div>
+        </div>
+        <div class="invisible" id="__Page2__photoMode__container">
+          <div id="__Page2__photoMode__bar">
+            <div id="__Page2__photoUpload">
+              <p id="__Page2__photoUploadText">上傳照片</p>
+            </div>
+            <div id="__Page2__photoMode__divisionline"></div>
+            <div id="__Page2__photoCamera">
+              <p id="__Page2__photoCameraText">拍攝照片</p>
+            </div>
+          </div>
+          <div id="__Page2__permission__bar">
+            <div id="__Page2__permission">
+              <p id="__Page2__permissionText">要允許「Split!」<br>使用您的相簿嗎？</p>
+            </div>
+            <div id="__Page2__permission__divisionline"></div>
+            <div id="__Page2__permissionButton">
+              <div id="__Page2__notallow">
+                <p id="__Page2__notallowText">不允許</p>
+              </div>
+              <div id="__permissionButton__divisionline"></div>
+              <div id="__Page2__allow">
+                <p id="__Page2__allowText">允許</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page3__fullscreen">
+        <div id="__Page3__header__container">
+          <p id="__Page3__title">發送卡牌</p>
+        </div>
+        <div id="__Page3__card__container">
+          <div id="__Page3__car__bar"></div>
+        </div>
+        <div id="__Page3__send__container">
+          <div id="__Page3__send__bar">
+            <div id="__Page3__sendbox">
+              <p id="__Page3__sendText">發送對象</p>
+            </div>
+            <div id="__Page3__memberbox"></div>
+          </div>
+        </div>
+        <div id="__Page3__button__container">
+          <div id="__Page3__button__bar">
+            <div id="__Page3__cancel" onclick="change_page(9);">
+              <p id="__Page3__cancelText">取消</p>
+            </div>
+            <div class="button_chosen" id="__Page3__confirm" onclick="change_page(8);">
+              <p id="__Page3__confirmText">確認</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page38__fullscreen">
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(6)">
+            <!-- p class="__Page38__paytypetop1">X</p-->
+            <p class="__Page38__paytypetop2">分攤方式</p>
+            <p class="__Page38__paytypetop3" onclick="change_page(6)">OK</p>
+          </div>
+          <div id="__Page38__paytype__container">
+            <div id="__Page38__addtype__bar" onclick="choose_type(this.id)"><img class="__Page38__typeimg" id="__Page38__typeimg" src="./midterm_icon/black_equal.png"></div>
+            <div id="__Page38__decorate1__container"></div>
+            <div id="__Page38__percenttype__bar" onclick="choose_type(this.id)"><img class="__Page38__typeimg2" id="__Page38__typeimg2" src="./midterm_icon/black_percent.png"></div>
+            <div id="__Page38__decorate1__container"></div>
+            <div id="__Page38__realcosttype__bar" onclick="choose_type(this.id)"><img class="__Page38__typeimg3" id="__Page38__typeimg3" src="./midterm_icon/black_money.png"></div>
+            <div id="__Page38__decorate1__container"></div>
+            <div id="__Page38__additionalcosttype__bar" onclick="choose_type(this.id)"><img class="__Page38__typeimg4" id="__Page38__typeimg4" src="./midterm_icon/black_plusmin.png"></div>
+          </div>
+          <div id="__Page38__paytypetext__container">
+            <p class="__Page38__paytypetext" id="__Page38__paytypetext">平分</p>
+            <p class="__Page38__paytypetext2" id="__Page38__paytypetext2">選擇一起平分的成員。</p>
+          </div>
+          <div id="__Page38__people__container"></div>
+          <div id="__Page38__costtotal__container">
+            <p class="__Page38__costtotal1" id="__Page38__costtotal1">每人平均 $</p>
+            <p class="__Page38__costtotal2" id="__Page38__costtotal2">0.00</p>
+            <p class="__Page38__costtotal3" id="__Page38__costtotal3"></p>
+          </div>
+          <div id="__Page38__costtotal__container">
+            <p class="__Page38__costtotal1" id="__Page38__costtotal1">零頭 $ </p>
+            <p class="__Page38__costtotal2" id="__Page38__remainmoney">0.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page37__fullscreen">
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" id="__Page37__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(0)">
+            <!-- p class="__Page38__paytypetop1">X</p-->
+            <p class="__Page38__paytypetop2">付款人</p>
+            <p class="__Page38__paytypetop3" id="__Page37__paytypetop3" onclick="change_page(6);firstadds();">OK</p>
+          </div>
+          <div id="__Page37__people__container">
+            <!-- 此label只是範例，真正加入的地方在js的Page37__checkadds()-->
+            <label class="__Page38__peoplepay" id="delete_id">
+              <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_photo/ppl-07.png" alt="大頭照"></div>
+              <div id="__Page38__peoplename__bar">
+                <p class="__Page38__peoplename">丁丁</p>
+              </div>
+              <div id="__Page38__calculate__bar">
+                <div class="__Page38__equal" id="__Page38__equal 1" onclick="change_equalcheckbox_color(this.id)">
+                  <div id="__Page38__equals"></div>
+                </div>
+              </div>
+            </label>
+            <div id="__Page38__decorate2__container"></div>
+          </div>
+          <label class="__Page37__peoplepay" id="delete_id">
+            <div id="__Page38__informphoto"><img class="__Page38__informphotoimg" src="./midterm_icon/Group 30.png" alt="大頭照"></div>
+            <div id="__Page38__peoplename__bar">
+              <p class="__Page38__peoplename">多人付款</p>
+            </div>
+            <!--
+            div id="__Page38__calculate__bar">
+            <div id="__Page37__equal 0" class="__Page38__equal" onclick="change_equalcheckbox_color(this.id)"><div id="__Page38__equals"></div></div>
+            </div
+            -->
+          </label>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page62__fullscreen">
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page62__inform__container">
+            <div id="__Page62__inform__bar">
+              <!-- img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="通知欄"-->
+              <div id="__Page62__inform">
+                <p class="__Page62__informtext" id="__Page62__informtext1">目前有除不盡的款項</p>
+                <p class="__Page62__informtext" id="__Page62__informtext2">請問您要參加命運大轉盤嗎？</p>
+                <div id="__Page62__informbutton">
+                  <div id="__Page62__setting">
+                    <p class="__Page62__handsetting" id="__Page62__handsetting" onclick="Page62__checkadds();page62__notification(2)">否，手動指定</p>
+                    <p class="__Page62__luckysetting" id="__Page62__luckysetting" onclick="change_page(14);page62__notification(2);page66_text_restore();">是，試試手氣</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(15)">
+            <!-- p class="__Page38__paytypetop1">X</p-->
+            <p class="__Page38__paytypetop2">款項結算</p>
+            <p class="__Page38__paytypetop3" id="__Page62__next" onclick="page62__notification(1)">Next</p>
+          </div>
+          <div id="__Page62__payitem__container">
+            <div id="__Page62__payitem__bar">
+              <p class="__Page62__paydatetext" id="__Page62__paydatetext">05/26</p>
+              <p class="__Page62__payitemtext" id="__Page62__payitemtext">家樂福</p>
+            </div>
+            <div id="__Page62__payitem2__bar">
+              <p class="__Page62__paycosttext" id="__Page62__paycosttext">$ </p>
+              <p class="__Page62__paycosttext2" id="__Page62__paycosttext2">2033</p>
+            </div>
+          </div>
+          <div id="__Page62__decorate__container"></div>
+          <div id="__Page62__paytypetext__container">
+            <div id="__Page62__paytypetext__bar">
+              <p class="__Page62__paytypetext" id="__Page62__paytypetext">分帳方式 : </p>
+              <p class="__Page62__paytypetext2" id="__Page62__paytypetext2">平分</p>
+            </div>
+            <div id="__Page62__paytypeimg__bar"><img class="__Page62__typeimg" id="__Page62__typeimg" src="./midterm_icon/black_equal.png"></div>
+          </div>
+          <div id="__Page62__people__container"></div>
+          <div id="__Page38__costtotal__container">
+            <p class="__Page38__costtotal1" id="__Page62__costtotal1">零頭 $</p>
+            <p class="__Page38__costtotal2" id="__Page62__costtotal2">0.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page61__fullscreen">
+        <div id="__Page38__fullscreen__container">
+          <div id="__Page61__inform__container">
+            <div id="__Page62__inform__bar">
+              <!-- img class="__Page7__inform__noteimg" src="./midterm_icon/notification.png" alt="通知欄"-->
+              <div id="__Page62__inform">
+                <p class="__Page62__informtext" id="__Page61__informtext1">恭喜 迪西 成為這次的倒楣鬼，</p>
+                <p class="__Page62__informtext" id="__Page62__informtext2">感謝他為和諧關係付出的努力！</p>
+                <div id="__Page62__informbutton">
+                  <div id="__Page62__setting">
+                    <p class="__Page62__luckysetting" id="__Page62__handsetting" onclick="Page62__checkadds();page62__notification(2);change_page(0)">知道了</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="__Page38__paytypetop__container"><img class="__Page38__paytypetop1" src="./midterm_icon/cancel.png" onclick="change_page(15)">
+            <!-- p class="__Page38__paytypetop1">X</p-->
+            <p class="__Page38__paytypetop2">款項結算</p>
+            <p class="__Page38__paytypetop3">Next</p>
+          </div>
+          <div id="__Page61__wheeltext__container">
+            <div id="__Page61__wheeltext__bar">
+              <p class="__Page61__wheelname" id="__Page61__wheelname">命運大轉盤</p>
+              <p class="__Page61__wheelnameaka" id="__Page61__wheelnameaka"> aka. 心結拯救者</p>
+            </div>
+            <div id="__Page61__wheelexplain__bar">
+              <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">歡迎來到命運大轉盤，</p>
+              <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">所以誰是要付零頭的倒楣鬼呢？</p>
+              <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">請注意，倒楣機率與您擁有卡牌的數量呈反比。</p>
+            </div>
+          </div>
+          <div id="__Page62__decorate__container"></div>
+          <div id="spin_button" style="position: absolute;left: 0px;top: 0px;border-radius: 100%;cursor: pointer"><img class="test" src="./midterm_icon/go.png" style="position: absolute;left: calc(50vw - 50px - 0px);top: calc(24.8vh + 27.5vh + 6px - 50px);width: 100px;height: 100px;margin-left:calc(0px);"></div>
+          <div style="height:300px; width:300px; background-color: black; border-radius: 500px; position:absolute; z-index:-1;left: calc(50.4vw - 150px);top: calc(45.8vh + 5.5vh + 6px - 150px);margin-left:calc(0px);"></div>
+          <canvas id="__Page61__canvas" width="300" height="300" style="margin-left:calc(1.2vw);margin-top:calc(21vh - 150px)"></canvas>
+          <div id="__Page61__distributemoney__container">
+            <p class="__Page38__costtotal1" id="__Page61__costtotal1">零頭 $</p>
+            <p class="__Page38__costtotal2" id="__Page61__costtotal2">0.00</p>
+          </div>
+          <div id="__Page61__decorate__container"></div>
+          <div id="__Page61__people__container">
+            <div class="__Page61__peopletype__bar" id="__Page61__peopletype__bar1">
+              <p class="__Page61__people" id="__Page61__people 1">丁丁</p>
+            </div>
+            <div class="__Page61__peopletype__bar" id="__Page61__peopletype__bar2">
+              <p class="__Page61__people" id="__Page61__people 2">迪西</p>
+            </div>
+            <div class="__Page61__peopletype__bar" id="__Page61__peopletype__bar3">
+              <p class="__Page61__people" id="__Page61__people 3">拉拉</p>
+            </div>
+            <div class="__Page61__peopletype__bar" id="__Page61__peopletype__bar4">
+              <p class="__Page61__people" id="__Page61__people 4">小波</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page44__fullscreen">
+        <div id="__Page44__text__container">
+          <p class="__Page61__wheelname" id="__Page61__wheelname">記帳本</p>
+        </div>
+        <div id="__Page44__datetext__container">
+          <div id="__Page44__text2__container">
+            <p class="__Page61__wheelnameaka" id="__Page61__wheelnameaka">日期區間</p>
+          </div>
+          <div id="__Page61__datetext2__bar">
+            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">< </p>
+            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain">2022/06</p>
+            <p class="__Page61__wheelexplain" id="__Page61__wheelexplain"> ></p>
+          </div>
+        </div>
+        <div id="__Page44__decorate__container"></div>
+        <div id="__Page44__pay__container">
+          <div id="__Page44__notpay__bar" onclick="page44__choose_type(this.id)">
+            <!-- img id="__Page38__typeimg" class="__Page38__typeimg" src="./midterm_icon/black_equal.png"-->
+            <p class="__Page44__selectword" id="__Page44__selectword1">未結算</p>
+          </div>
+          <div id="__Page38__decorate1__container"></div>
+          <div id="__Page44__needpay__bar" onclick="page44__choose_type(this.id)">
+            <!-- img id="__Page38__typeimg2" class="__Page38__typeimg2" src="./midterm_icon/black_percent.png"-->
+            <p class="__Page44__selectword" id="__Page44__selectword2">待付款</p>
+          </div>
+          <div id="__Page38__decorate1__container"></div>
+          <div id="__Page44__havepayed__bar" onclick="page44__choose_type(this.id)">
+            <p class="__Page44__selectword" id="__Page44__selectword3">已付清</p>
+            <!-- img id="__Page38__typeimg3" class="__Page38__typeimg3" src="./midterm_icon/black_money.png"-->
+          </div>
+        </div>
+        <div id="__Page44__item__container">
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div id="__Page44__date__bar">
+              <p class="__Page44__datetext" id="__Page44__datetext 1">05/26</p>
+            </div>
+            <div class="__Page44__check__bar">
+              <div id="__Page44__select">
+                <div class="__Page38__equal" id="__Page44__equal 1" onclick="change_equalcheckbox_color(this.id)"></div>
+              </div>
+              <div class="__Page44__itemsname" id="__Page44__itemsname">
+                <p class="__Page44__itemname">家樂福</p>
+              </div>
+              <div class="__Page44__itemsmoney" id="__Page44__itemsmoney">
+                <p class="__Page44__itemname">$ 2033</p>
+              </div>
+            </div>
+            <div class="__Page44__checklist__bar">
+              <div class="__Page44__itemsname2" id="__Page44__itemsname 1">
+                <p class="__Page44__itemname2">衛生紙</p>
+              </div>
+              <div class="__Page44__itemsmoney2" id="__Page44__itemsmoney 1">
+                <p class="__Page44__itemname2">$ 340</p>
+              </div>
+            </div>
+            <div class="__Page44__checklist__bar">
+              <div class="__Page44__itemsname2" id="__Page44__itemsname 2">
+                <p class="__Page44__itemname2">曬衣架</p>
+              </div>
+              <div class="__Page44__itemsmoney2" id="__Page44__itemsmoney 2">
+                <p class="__Page44__itemname2">$ 899</p>
+              </div>
+            </div>
+            <div class="__Page44__checklist__bar">
+              <div class="__Page44__itemsname2" id="__Page44__itemsname 3">
+                <p class="__Page44__itemname2">拖把</p>
+              </div>
+              <div class="__Page44__itemsmoney2" id="__Page44__itemsmoney 3">
+                <p class="__Page44__itemname2">$ 225</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div id="__Page44__date__bar">
+              <p class="__Page44__datetext" id="__Page44__datetext 2">05/20</p>
+            </div>
+            <div class="__Page44__check__bar">
+              <div id="__Page44__select">
+                <div class="__Page38__equal" id="__Page44__equal 2" onclick="change_equalcheckbox_color(this.id)"></div>
+              </div>
+              <div class="__Page44__itemsname" id="__Page44__itemsname">
+                <p class="__Page44__itemname">小石鍋聚餐</p>
+              </div>
+              <div class="__Page44__itemsmoney" id="__Page44__itemsmoney">
+                <p class="__Page44__itemname">$ 736</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+        </div>
+        <div id="__Page44__needpay__container">
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div class="__Page44__needpay__bar">
+              <div class="__Page44__needpayname" id="__Page44__needpayname">
+                <p class="__Page44__needpaytext">本月尚無待付款紀錄，請選擇其他日期區間。</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+        </div>
+        <div id="__Page44__havepayed__container">
+          <label class="__Page44__peoplepay" id="delete_id">
+            <div class="__Page44__havepayed__bar">
+              <div class="__Page44__havepayedname" id="__Page44__needpayname">
+                <p class="__Page44__havepayedtext">本月尚無已付清紀錄，請選擇其他日期區間。</p>
+              </div>
+            </div>
+          </label>
+          <div id="__Page44__decorate2__container"></div>
+        </div>
+        <div id="__Page44__result__container">
+          <div class="__Page44__word__bar" id="__Page44__word__containerid" onclick="change_page(13);Page62__adds(1);">
+            <p class="__Page44__bill_word">結算</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-inner" id="__Page47__fullscreen" style="display: block;">
+        <div class="__Page47__informnotification__container" id="__Page47__informnotification__container">
+          <div id="__Page47__inform">
+            <p class="__Page62__informtext" id="__Page47__informtext1">恭喜你完成記帳並解鎖了新卡牌，</p>
+            <p class="__Page62__informtext" id="__Page47__informtext2">快點到卡牌冊裡面查看吧!</p>
+            <div id="__Page62__informbutton">
+              <div id="__Page62__setting">
+                <p class="__Page47__handsetting" id="__Page47__handsetting" onclick="change_page(8);page47__restore();">讓我看看</p>
+                <p class="__Page47__handsetting" id="__Page47__luckysetting" onclick="change_page(0);page47__restore();">我知道了</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="__Page47__header__container"><img class="cancel-icon" id="__Page47__cancel" src="./midterm_icon/cancel.png" alt="cancel" onclick="change_page(0)"><span id="__Page47__fullscreen">記帳成功</span>
+          <div id="__Page47__ok" onclick="">OK</div>
+        </div>
+        <div id="__Page47__form__container">
+          <form id="__Page47__spending-tracker">
+            <div id="__Page47__inform__bar">
+              <input id="__Page47__item_name" type="text" name="account_name" placeholder="家樂福">
+              <!-- label for="account_name"><img src="./midterm_icon/edit.png" alt="cancel" onclick=""></label-->
+              <input id="__Page47__item_cost" type="text" name="account_cost" inputmode="decimal" placeholder="$ 2033">
+              <hr class="break_style1">
+            </div>
+            <div id="other_infos">
+              <div class="__Page47__cardfront__container" id="__Page47__cardfront__container">
+                <div class="__Page47__cardfront__bar" id="__Page47__cardfront__bar">
+                  <div class="__Page47__cardName" id="__Page47__cardfrontName">
+                    <p class="__Page47__cardNameText" id="__Page47__cardfrontNameText">討債卡</p>
+                  </div>
+                  <div id="__Page2__cardStar"></div>
+                  <div class="__Page47__imgUpload" id="__Page47__imgUpload">
+                    <div class="__Page47__cameraImg" id="__Page47__frontcameraImg"></div>
+                    <p class="__Page47__uploadText" id="__Page47__uploadText">上傳圖片</p>
+                  </div>
+                  <div class="__Page47__spec" id="__Page47__spec">
+                    <p id="__Page47__specText">功能說明</p>
+                    <textarea id="__Page47__specInput" readonly="" disabled="disabled" type="text">發給那個欠錢不還的冤親債主。</textarea>
+                  </div>
+                  <div id="__Page47__message">
+                    <p id="__Page47__messageText">想對他說的話(點按編輯, 限20字)</p>
+                    <textarea id="__Page47__messageInput" type="text" cols="20" rows="2"></textarea>
+                  </div>
+                </div>
+                <div class="__Page47__cardback__bar" id="__Page47__cardback__bar">
+                  <div id="__Page47__iconimg__container" onclick="page47__rotatecard()"><img class="__Page7__moneyimg" src="./midterm_icon/split_mainlogo.png" alt="錢包圖片"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./app_register.js"></script>
+    <script src="./app_BeiBei.js"></script>
+    <script type="text/javascript" src="./mainpage.js"></script>
+    <script type="text/javascript" src="./Webapp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <script src="EventUtil.js"></script>
+    <script src="BeiBei.js"></script>
+  </body>
+</html>
